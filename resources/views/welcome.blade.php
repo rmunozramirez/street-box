@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section ('title', '| Home')
+@section ('title',  "| $page_name")
+
 @section('content')
-<?php $page_name = 'landing' ?>
 
     <section id="landing-page">       
         <!-- Navigation Section -->

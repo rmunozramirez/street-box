@@ -9,19 +9,12 @@
         <main>
             @yield('content')
 
-            @if($page_name != 'Home page')
-        
-                @include('partials._bottomsection-inner') 
-
-             @endif
 
                 @yield('widgets')
 
-            @include('partials._content-footer')
         
         </main>  
 
-        @include('partials._footer')   
 
     </div>
 

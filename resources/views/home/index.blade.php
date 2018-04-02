@@ -1,8 +1,8 @@
-<section class="categories">
+<section class="categories py-5">
 	<header>
 	<div class="container featured-home">
 		<h2 class="text-center">Browse our categories</h2>
-		<div class="pull-right">{!! Html::linkRoute('categories.index', 'See all Categories') !!}</div>
+		<div class="pull-right mb-3">{!! Html::linkRoute('categories.index', 'See all Categories') !!}</div>
 	</div>
 	</header>
 
@@ -11,11 +11,11 @@
 			 @for ($i = 0; $i <= 3; $i++)
 			<div class="col-lg-3 col-md-4">	
 				<div class="card hovercard">
-					<img class="cardheader" src="{{URL::to('/images/' . $categories[$i]->image)}}">
-						<h3><a href="{{ url('categories/'.$categories[$i]->slug) }}">{{ $categories[$i]->title }}</a></h3>
+					<img class="cardheader" src="{{URL::to('/images/' . $all_categories[$i]->image)}}">
+						<h3><a href="{{ url('categories/'.$all_categories[$i]->slug) }}">{{ $all_categories[$i]->title }}</a></h3>
 					<div class="card-body">					
 						<h5 class="subcat">
-						{{$categories[$i]->subcategories_count}} subcategories	
+						{{$all_categories[$i]->subcategories_count}} subcategories	
 						</h5>					   
 						<p>
 							Event Rating:<br />
@@ -28,7 +28,7 @@
 						</p>	
 						<hr>
 
-						<a href="{{ url('blogs/'.$categories[$i]->slug) }}">View</a>
+						<a href="{{ url('blogs/'.$all_categories[$i]->slug) }}">View</a>
 
 						| Edit | <a href="event.php">Delete</a>
 					</div>
@@ -39,7 +39,7 @@
 		</div>	
 	</div>
 	
-	<div class="container top-50">
+	<div class="container py-5">
 		<div class="col-md-4">
 			<h2>Pleasure trip</h2>
 			<p>More than 16 million active travellers use Skapada. The world was never so small. Wether you want to experience that place in the other side of the globe or asist to a conference in other continent. Skapada make it possible.</p>
@@ -57,9 +57,9 @@
 		</div>
 	</div>
 </section>	
-<section class="green">	
+<section class="green py-5">	
 
-	<div class="container">
+	<div class="container py-5">
 		<h2 class="text-center">Meet some real histories</h2>
 		<h3 class="text-center">These guys literally rocks!</h3>
 
@@ -132,7 +132,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 	</div>
 </section>	

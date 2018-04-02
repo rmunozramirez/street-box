@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section ('title', '| All Blog Posts')
+@section ('title', "| $page_name")
 @section('content')
 
 
@@ -11,32 +11,35 @@
 
 <section id="content">
 
-	@include ('partials._inner-title')
+	@include ('partials._inner-title-blog')
 	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="container card-body left-right-shadow">
 		<div class="inside">
-			<h2>Posts</h2>
+			<h2>This is the {!! $page_name !!} Index page</h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						hier breadcrumb
+						<a href="{{url('/')}}"> Home</a>
+						<a title="All Blog Categories" href="{{route('postcategories.index')}}">Blog Categories</a>
+						All {!! $page_name !!}s
 					</div>	
 				</div>	
 				<div class="col-md-6">
-		            <div class="meta pull-right">
-		            	<i class="fa fa-tags"></i> Categories: <a href="{{route('postcategories.index')}}">{{count($postcategories)}}</a>
-		            	<i class="far fa-newspaper"></i> Posts: {{count($total)}}
+		            <div class="pull-right admin">
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posts.create')}}">Create a new Post</a>
+
 		            </div>
 		        </div>
 	        </div>
         	<hr>
+
 		<div class="row">
 			@foreach ($posts as $post)
 			<div class="col-lg-3 col-md-4">	
 				<div class="card hovercard">
 					<img class="cardheader" src="{{URL::to('/images/' . $post->image)}}">
-						<h3><a href="{{ url('blogs/'.$post->slug) }}">{{ $post->title }}</a></h3>
+						<h3><a href="{{route('posts.show' , $post->slug)}}">{{ $post->title }}</a></h3>
 					
 					<div class="card-body">					
 						<h5 class="subcat">	In:				

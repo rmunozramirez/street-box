@@ -13,6 +13,16 @@ class CategoriesRequest extends FormRequest
      */
     public function authorize()
     {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
         return [
                 
             'title' => 'required|max:255',
@@ -25,19 +35,6 @@ class CategoriesRequest extends FormRequest
             'is_featured' => 'boolean',
             'likes'   => 'integer',
             'in_menu' => 'boolean',
-        ];
-
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            //
         ];
     }
 }

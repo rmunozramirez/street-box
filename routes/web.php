@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+		$page_name = 'Home page';
+        return view('welcome', compact('page_name'));
 });
 
 Auth::routes();

@@ -35,7 +35,8 @@
                             <fieldset>                  
                                 <div class="row">
                                     <section class="col col-6">
-                                        <label class="input">       
+
+                                        <label class="input">           
                                             <input placeholder="&#xf093; Name" type="text">
                                         </label>
                                     </section>
@@ -63,7 +64,7 @@
                                     </section>
                                 </div>
                                 <button type="submit" class="button">Send message</button>
-                            </fieldset>                     
+                                           
                         </form>
                     </div>
                 </li>

@@ -26,4 +26,15 @@ class HomeController extends Controller
         return view('home');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function landing()
+    {
+        $page_name = 'Home page';
+        return view('welcome', 'page_name');
+    }
+
 }

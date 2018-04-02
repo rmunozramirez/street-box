@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section ('title', '| All Categories')
+@section ('title', "| $page_name")
 @section('content')
 
 
@@ -13,20 +13,21 @@
 
 	@include ('partials._inner-title')
 	
-    <div  id="contenido"  class="container card-body left-right-shadow">	
+    <div  id="contenido"  class="container left-right-shadow">	
 		<div class="inside">
-			<h2>This is the Categories Index page</h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($total)}} categories</span></h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						hier breadcrumb
+						<a href="{{url('/')}}"> Home</a>
+						Categories
 					</div>	
 				</div>	
 				<div class="col-md-6">
-		            <div class="pull-right">
-		            	<i class="fa fa-tags"></i> delete <a href="">{{count($total)}}</a>
-		            	<i class="fa fa-tags"></i> Edit <a href="">{{count($subcategories)}}</a>
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-edit"></i> <a href="">Edit</a>
+		            	<i class="fas fa-trash"></i> <a href="">Delete</a>
 		            </div>
 		        </div>
 	        </div>

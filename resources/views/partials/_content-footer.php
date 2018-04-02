@@ -1,9 +1,8 @@
-@if($page_name == 'landing')
 
+<?php if($page_name == 'Home page') : ?>
+<section class="blue py-5 top-100">	
 
-<section class="blue pt-5 top-100">	
-
-
+	<div class="container">		
 	     <div class="step container sky-form pb-5 pt-5">
 			<div class="col col-sm-6 col-md-3 margin-50">
 				<header class="center-text"><span class="fa fa-heart"></span><br>		
@@ -29,7 +28,7 @@
 			<div class="col col-sm-6 col-md-3 margin-50">
 
 				<form enctype="multipart/form-data" method="post" action="demo-order-process.php" novalidate="novalidate">
-				<header class="center-text"><span class="fa fa-envelope-o"></span><br>
+				<header class="center-text"><i class="far fa-newspaper"></i><br>
 				Newsletter</header>				
 					<fieldset>					
 						<div class="row">
@@ -40,7 +39,7 @@
 							<div class="row">
 							</div>					
 							<label class="input">
-								<i class="icon-append fa fa-envelope-o"></i>
+								<i class="icon-append far fa-envelope-open"></i>
 								<input type="email" placeholder="E-mail" name="email">
 							</label>
 						</div>
@@ -51,13 +50,15 @@
 				</form>
 			</div>
 		</div>
+	</div>
 
- @endif
+<?php else : ?>
 
-<section class="blue bottom-50">  
+<section class="blue py-5">	
 
+<?php endif ?>
 
-	<div class="container text-center">		
+	<div class="container pb-5 text-center py-5">		
 	    <div class="row">			
 			<div class="col-md-12 col-sm-12 col-lg-12 sky-form">
 				<div class="container center-text panel-header">
@@ -76,5 +77,7 @@
 			</div>
 		</div>
     </div>
+
+
 
 </section>

@@ -12,9 +12,8 @@
 						<form action="#">					
 							<div class="right input">
 					            <div class="meta pull-right">
-					            	<i class="fa fa-tag"></i> Categories: <a href="{{route('categories.index')}}">{{count($all_categories)}}</a>
-					            	<i class="fa fa-tags"></i> Subcategories: <a href="{{route('subcategories.index')}}">{{count($all_subcategories)}}</a>
-					            	<i class="far fa-newspaper"></i> Chanels: <a href="{{route('chanels.index')}}">{{count($all_chanels)}}</a>
+					            	@if($page_name == 'Blog Categories')<i class="fa fa-tags"></i> Categories: <a href="{{route('postcategories.index')}}">{{count($postcategories)}}</a>@endif
+		            				<i class="far fa-newspaper"></i> Posts: {{count($all_posts)}}
 					            </div>
 					       
 							</div>					

@@ -13,20 +13,34 @@
 
 	@include ('partials._inner-title')
 	
-    <div  id="contenido"  class="container card-body left-right-shadow">	
-		<div class="breadcrumb">
-			hier breadcrumb
-		</div>	
+    <div  id="contenido"  class="container left-right-shadow">	
+		<div class="inside">
+			<h2>{!! $page_name !!}</h2>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="breadcrumb">
+						<a href="{{url('/')}}"> Home</a>
+						{!! $page_name !!}
+
+					</div>	
+				</div>	
+				<div class="col-md-6">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('subcategories.create')}}">{!! $page_name !!}</a>
+		            </div>
+		        </div>
+	        </div>
+        	<hr>
 		
 		<div class="row">
 			<div class="card-body">        
-		        <div class="inside">
 
 		            {!!Form::open(array('route' => 'categories.store', 'files' => true)) !!}   
 
 		            <div class="row">        
 			            <div class="col-md-4"> 
-			            	<img class="img-responsive" src="{{URL::to('/images/' . 'bmw.jpg' ) }}">
+			            	<i class="far fa-image fa-10x"></i>
 
 			            	<div class=" pt-5">
 				                {!!Form::label('image', 'Upload a Featured Image') !!}
@@ -86,9 +100,8 @@
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>
-		            </div>  
-		            
-		        </div>
+		            </div>  	            
+
 		    </div>
 		</div>
 		

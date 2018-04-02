@@ -19,7 +19,7 @@ class PostcategoriesController extends Controller
     {
         $postcategories = Postcategory::orderBy('created_at', 'asc')->withCount('posts')->paginate(4);
         $total = Postcategory::all();
-        $page_name = 'Post Category';
+        $page_name = 'Blog Categories';
 
         return view('postcategories.index', compact('postcategories', 'total', 'page_name'));
     }
@@ -33,7 +33,7 @@ class PostcategoriesController extends Controller
     {
         $postcategories = Postcategory::all();
         $total = Postcategory::all();
-        $page_name = 'Category';
+        $page_name = 'Create a Blog Category';
         return view('postcategories.create', compact('postcategories', 'total', 'page_name'));
     }
 

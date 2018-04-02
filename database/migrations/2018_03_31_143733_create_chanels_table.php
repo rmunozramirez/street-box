@@ -20,7 +20,7 @@ class CreateChanelsTable extends Migration
             $table->string('title', 60)->unique();  
             $table->string('slug', 80)->unique();  
             $table->string('subtitle', 150)->nullable();
-            $table->text('excerpt')->nullable;  
+            $table->text('excerpt')->nullable();  
             $table->text('about_chanel')->nullable();
             $table->string('image', 80)->unique();
             $table->string('video', 80)->unique()->nullable();

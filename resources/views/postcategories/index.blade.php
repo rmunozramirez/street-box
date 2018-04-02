@@ -11,14 +11,27 @@
 
 <section id="content">
 
-	@include ('partials._inner-title')
+	@include ('partials._inner-title-blog')
 	
     <div  id="contenido"  class="container left-right-shadow">	
 		<div class="inside">
-			<h2>Categories index</h2>
-			<div class="breadcrumb">
-				hier breadcrumb
-			</div>	
+			<h2>Categories Index</h2>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="breadcrumb">
+						<a href="{{url('/')}}"> Home</a>
+						Blog Categories
+
+					</div>	
+				</div>	
+				<div class="col-md-6">
+		            <div class="under-meta pull-right">
+
+		            </div>
+		        </div>
+	        </div>
+        	<hr>
 			
 			<div class="row">
 				@foreach ($postcategories as $postcategory)

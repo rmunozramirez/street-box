@@ -13,25 +13,28 @@
 
 	@include ('partials._inner-title')
 	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="container left-right-shadow">
 		<div class="inside">
 			<h2>This is the Chanels Index page</h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						hier breadcrumb
+						<a href="{{url('/')}}"> Home</a>
+						<a title="All Categories" href="{{route('categories.index')}}">Categories</a>
+						<a title="All Subcategories" href="{{route('subcategories.index')}}">Subcategories</a>
+						All {!! $page_name !!}s
 					</div>	
 				</div>	
 				<div class="col-md-6">
-		            <div class="meta pull-right">
-		            	<i class="fa fa-tags"></i> Edit: <a href=""></a>
-		            	<i class="fa fa-tags"></i> Delete <a href="">{{count($subcategories)}}</a>
+		            <div class="pull-right admin">
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('chanels.create')}}">Create a new Chanel</a>
+
 		            </div>
 		        </div>
 	        </div>
         	<hr>	
-		
+
 		<div class="row">
 			@foreach ($chanels as $chanel)
 			<div class="col-lg-3 col-md-4">	

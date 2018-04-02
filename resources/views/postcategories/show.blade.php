@@ -11,7 +11,7 @@
 
 <section id="content">
 
-	@include ('partials._inner-title')
+	@include ('partials._inner-title-blog')
 	
     <div  id="contenido"  class="container left-right-shadow">
 		<div class="inside">
@@ -19,12 +19,14 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						hier breadcrumb
+						<a href="{{url('/')}}"> Home</a>
+						<a title=" {{$postcategory->title}}" href="{{route('postcategories.show', $postcategory->slug) }}"> {{$postcategory->title}}</a>
+						{!! $page_name !!}
 					</div>	
 				</div>	
 				<div class="col-md-6">
-		            <div class="meta pull-right">
-						{{$postcategory->posts_count}} posts in {{ $postcategory->title }}
+		            <div class="under-meta pull-right">
+
 		            </div>
 		        </div>
 	        </div>

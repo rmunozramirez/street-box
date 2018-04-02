@@ -19,7 +19,7 @@ class SubcategoriesController extends Controller
     {
         $subcategories = Subcategory::orderBy('created_at', 'asc')->paginate(4);
         $total = Subcategory::all();
-        $page_name = 'Subcategory';
+        $page_name = 'Subcategories Index';
 
         return view('subcategories.index', compact('subcategories', 'total', 'page_name'));
     }
@@ -31,7 +31,10 @@ class SubcategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $subcategories = Subcategory::all();
+        $total = Subcategory::all();
+        $page_name = 'Create a subcategory';
+        return view('subcategories.create', compact('subcategories', 'total', 'page_name'));
     }
 
     /**
@@ -55,8 +58,9 @@ class SubcategoriesController extends Controller
     {
         $subcategory = Subcategory::withCount('chanels')->where('slug', $slug)->first();
         $page_name = $subcategory->title;
-        $total = 1;
+        $total = $subcategory;
         $chanels = Chanel::where('subcategory_id', $subcategory->id)->paginate(4);
+        
         return view('subcategories.show', compact('subcategory', 'page_name', 'total', 'chanels'));
     }
 

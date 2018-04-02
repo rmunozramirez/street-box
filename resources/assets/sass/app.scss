@@ -50,8 +50,7 @@ svg:not(:root).svg-inline--fa{
 	background-position: center top;
 	background-size: cover;
 	height: 100vh;
-} 
-
+}
 
 #landing-page-webroom {
 	background-attachment: fixed;
@@ -76,7 +75,6 @@ svg:not(:root).svg-inline--fa{
 .green {
   background: rgba(0, 0, 0, 0) url("/images/santorini.jpg") repeat fixed center top / cover;
   color: #fff;
-  padding: 60px 0;
 }
 .blue  h2, .green h2{
 font-size: 50px;
@@ -135,18 +133,18 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
   color: #fff!important;
   padding: 0 0 20px !important;
   text-align: center;
+  border-bottom: none;
 } 
 
 .top-100 {
 	margin-top: -100px;
 }
-
+ 
 .categories {
 	background: rgba(255, 255, 255, 0.9) url("/images/overlay-carbon.png") repeat scroll 0 0;
 	border: none !important;
 	margin-bottom: 0;
 	border-radius: 0px;
-	padding: 60px 0;
 	text-align: center;
 }
 
@@ -160,6 +158,12 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 .featured-background {
 	background: rgba(0, 0, 0, 0.35) url("/images/overlay-carbon.png") repeat scroll 0 0;
 	border-top: 1px solid #444;
+}
+
+ #login-container .card, #login-container .card a {
+	background: rgba(0, 0, 0, 0.85) url("/images/overlay-carbon.png") repeat scroll 0 0;
+	border: 1px solid #444;
+	color: #fff;
 }
 
 .home-intro {
@@ -298,6 +302,7 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 
 .sky-mega-menu-top li a {
 	color: #fff !important;
+	font-size: 15px;
 }
 
 .sky-mega-menu-top .grid-container3 li a {
@@ -305,6 +310,10 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 }
 .sky-mega-menu-top .grid-container3 li a:hover {
 	color: #fff !important;
+}
+
+.sky-tabs > ul > li {
+	padding: 20px 0 0 0 !important;
 }
 
 /*--------------------------------------------------------------
@@ -320,7 +329,7 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 
 #inner-page {
 	background-attachment: fixed;
-	background-image: url("/images/kite.jpg");
+	background-image: url("/images/bg-yellow.jpg");
 	background-position: center top;
 	background-size: cover;
 	height: 300px;
@@ -341,6 +350,12 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 	background-color: transparent !important;
 	margin: 0 !important;
 	padding: 0 !important;
+}
+
+.breadcrumb a, .admin a {
+	border-right: 1px solid #eee;
+	margin-right: 10px;
+	padding-right: 10px;
 }
 
 .the_search {
@@ -401,8 +416,12 @@ header {
 	margin-bottom: 40px;
 }
 
-#status {
-	height: 34px;
+select.form-control {
+	height: 34px !important;
+}
+
+.form-control, .btn {
+	border-radius: 0 !important;
 }
 
 
@@ -410,15 +429,20 @@ header {
 3. - Posts, chanels
 --------------------------------------------------------------*/
 
-.meta a {
-	border-right: 1px solid rgba(0,0,0,.5);
+.meta a, .under-meta a {
+	border-right: 1px solid #eee;
 	margin-right: 10px;
 	padding-right: 10px;
-	line-height: 70px;
 }
 
-.meta a:last-child {
+.meta a:last-child, .admin a:last-child, .under-meta a:last-child {
 	border-right: none;
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.meta {
+	line-height: 70px;
 }
 
 /*--------------------------------------------------------------

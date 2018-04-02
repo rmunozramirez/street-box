@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ChanelsRequest;
 use App\Chanel;
 use App\Category;
 use App\Subcategory;
@@ -20,10 +21,8 @@ class ChanelController extends Controller
         $chanels = Chanel::orderBy('created_at', 'asc')->paginate(4);
         $total = Chanel::all();
         $page_name = 'Chanel';
-        $subcategories = Subcategory::all();
-        $categories = Category::all();
 
-        return view('chanels.index', compact('chanels', 'total', 'page_name', 'subcategories', 'categories'));
+        return view('chanels.index', compact('chanels', 'total', 'page_name'));
     }
 
     /**
@@ -33,7 +32,10 @@ class ChanelController extends Controller
      */
     public function create()
     {
-        //
+
+        $total = Chanel::all();
+        $page_name = 'Create a chanel';
+        return view('chanels.create', compact('total', 'page_name'));
     }
 
     /**
@@ -42,9 +44,38 @@ class ChanelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ChanelsRequest $request)
     {
-        //
+       
+        $file = $request->file('image');
+        $name = time() . '-' . $file->getClientOriginalName();
+        $file->move('images', $name);
+
+        $chanel = Chanel::create([
+    
+            'title'         => $request->title,
+            'slug'          => str_slug($request->name, '-'),      
+            'subtitle'      => $request->subtitle,
+            'excerpt'       => $request->excerpt,
+            'about_chanel'  => $request->about_chanel,            
+            'image'         => $request->name,
+            'video'         => $request->video,         
+            'web'           => $request->web,
+            'facebook'      => $request->facebook,
+            'googleplus'    => $request->googleplus,
+            'twitter'       => $request->twitter,
+            'linkedin'      => $request->linkedin,
+            'youtube'       => $request->youtube,
+
+       ]);   
+
+
+
+        $chanel->save();
+
+        Session::flash('success', 'Chanel successfully created!');
+     
+        return redirect()->route('chanels.show', $chanel->slug);
     }
 
     /**

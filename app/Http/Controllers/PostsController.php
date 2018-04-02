@@ -33,9 +33,10 @@ class PostsController extends Controller
     {
 
         $postcategories = Postcategory::pluck('title', 'id')->all();         
-        $postcategoriescount = Postcategories::all();
+        $postcategoriescount = Postcategory::all();
+        $page_name =  'Create a new Post';
 
-        if($postcategoriescount->count() == 0 )
+        if(count($postcategoriescount) == 0 )
         {
             Session::flash('info', 'You must have at least a categoy before attempting to create a Post.');
 
@@ -43,7 +44,7 @@ class PostsController extends Controller
         }
 
 
-        return view('posts.create', compact('posts', 'postcategories'));
+        return view('posts.create', compact('posts', 'postcategories', 'page_name'));
     }
 
     /**
@@ -67,9 +68,9 @@ class PostsController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         $page_name = $post->title;
-        $total = 0;
+        $postcategories = Postcategory::all();
 
-        return view('posts.show', compact('post', 'page_name', 'total'));
+        return view('posts.show', compact('post', 'page_name', 'total', 'postcategories'));
     }
 
     /**

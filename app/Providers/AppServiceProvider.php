@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use App\Chanel;
 use App\Subcategory;
 use App\Category;
+use App\Post;
+use App\Postcategory;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,12 +21,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        $all_chanels = Category::withCount(['subcategories', 'chanels'])->get();
-        $subcategories = Subcategory::all();
-        $categories = Category::all();
+        $all_chanels = Chanel::all();
+        $all_subcategories = Subcategory::pluck('title', 'id')->all();
+        $all_categories = Category::all();
+        $all_postcategories = Postcategory::all();
+        $all_posts = Post::all();
+        $page_name = 'App';
         View::share(array('all_chanels' => $all_chanels, 
-                            'subcategories' => $subcategories,
-                            'categories' => $categories,
+                            'all_subcategories' => $all_subcategories,
+                            'all_categories' => $all_categories,
+                            'all_page_name' =>  $page_name,
+                            'all_postcategories' =>  $all_postcategories,
+                            'all_posts' =>  $all_posts,
                         ));
     }
 

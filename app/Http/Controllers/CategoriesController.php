@@ -18,9 +18,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::withCount('subcategories')->orderBy('created_at', 'asc')->with('subcategories')->paginate(4);
+        $categories = Category::orderBy('created_at', 'asc')->with('subcategories')->paginate(4);
         $total = Category::all();
-        $page_name = 'Category';
+        $page_name = 'Categories Index';
 
         return view('categories.index', compact('categories', 'total', 'page_name'));
     }
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
     {
         $categories = Category::all();
         $total = Category::all();
-        $page_name = 'Category';
+        $page_name = 'Create a Category';
         return view('categories.create', compact('categories', 'total', 'page_name'));
     }
 
@@ -57,7 +57,7 @@ class CategoriesController extends Controller
      */
     public function show($slug)
     {
-        $category = Category::with('subcategories')->with('subcategories')->withCount(['subcategories', 'chanels'])->where('slug', $slug)->first();
+        $category = Category::with('subcategories')->withCount(['subcategories', 'chanels'])->where('slug', $slug)->first();
       
         $page_name = $category->title;
         $total = 0;
