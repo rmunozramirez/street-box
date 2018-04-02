@@ -1,0 +1,509 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+ 
+/*--------------------------------------------------------------
+1. - General
+--------------------------------------------------------------*/
+
+body {
+	font-weight: 100;
+	margin: 0;
+	height: 100vh;
+	//background: url("/images/overlay-carbon.png") repeat 0 0, radial-gradient(circle farthest-side at center center, #009cde, #444 125%);
+	background-attachment: fixed;
+	padding-bottom: 40px;
+	padding-bottom: 0;
+	font-family: 'Didact Gothic', sans-serif;
+}
+
+main {
+	min-height: calc( 100vh - 110px);
+}
+
+ .navbar-collapse {
+ 	padding-right: 0 !important;
+	padding-left: 0 !important;
+ }
+
+ .navbar {
+ 	margin-bottom: 0 !important;
+ }
+
+svg:not(:root).svg-inline--fa{
+ 	margin-right: 10px;
+ }
+
+/*--------------------------------------------------------------
+2. - Home page
+--------------------------------------------------------------*/
+
+#landing-page {
+	background-attachment: fixed;
+	background-image: url("/images/santorini-greece.jpg");
+	background-position: center top;
+	background-size: cover;
+	height: 100vh;
+} 
+
+
+#landing-page-webroom {
+	background-attachment: fixed;
+	background-image: url("/images/metallica.jpg");
+	background-position: center top;
+	background-size: cover;
+	height: 100vh;
+} 
+
+
+.video_container {
+	width: 100%;
+	height: 100%;
+	background:
+	transparent url("/images/Bad Wimpfen.jpg") no-repeat scroll 0% 0%;
+} 
+.home-intro {
+  color: #fff;
+}
+
+
+.green {
+  background: rgba(0, 0, 0, 0) url("/images/santorini.jpg") repeat fixed center top / cover;
+  color: #fff;
+  padding: 60px 0;
+}
+.blue  h2, .green h2{
+font-size: 50px;
+}
+.galeria h2, .device h2{
+font-size: 50px;
+margin-top: 75px;
+}
+.stiky-home h2, .featured-home h2{
+font-size: 50px;
+}
+.stiky-home h3, .featured-home h3{
+margin: 20px 0 0;
+}
+.carbon-transparent {
+background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bottom , #009cde, #444 125%) repeat scroll 0 0;
+  padding: 20px 0 50px;
+}
+.carbon {
+  background: rgba(255, 255, 255, 0.9) url("/images/overlay-carbon.png") repeat scroll 0 0;
+}
+
+.device {
+	margin-top:-60px;
+}
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+	border: 3px solid white;
+	margin-top: 50px;
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+.branding {
+	margin-top:120px;
+}
+.carbon  h2{
+  margin-bottom: 30px;
+}
+
+.blue .sky-form header {
+  background: transparent none repeat scroll 0 0;
+  color: #fff!important;
+  padding: 0 0 20px !important;
+  text-align: center;
+} 
+
+.top-100 {
+	margin-top: -100px;
+}
+
+.categories {
+	background: rgba(255, 255, 255, 0.9) url("/images/overlay-carbon.png") repeat scroll 0 0;
+	border: none !important;
+	margin-bottom: 0;
+	border-radius: 0px;
+	padding: 60px 0;
+	text-align: center;
+}
+
+.stiky-home {
+	bottom: 0;
+	float: left;
+	position: absolute;
+	width: 100%;
+}
+
+.featured-background {
+	background: rgba(0, 0, 0, 0.35) url("/images/overlay-carbon.png") repeat scroll 0 0;
+	border-top: 1px solid #444;
+}
+
+.home-intro {
+	color: #fff;
+}
+
+.dynamicTile {
+	margin: 0 0 20px;
+	overflow: hidden;
+}
+
+.jumbotron {
+	text-align: center;
+	background: transparent !important;
+	padding-top: 10% !important;
+	color: #fff !important;
+}
+
+.sky-form .search-home, .sky-form .go {
+	height: 50px !important;
+	font-size: 25px !important;
+}
+
+.search-home-area {
+	margin-top: -50px !important;
+	background-color: #002332 !important;
+}
+
+/******************************* Start featured home ***************************/
+.dynamicTile .col-sm-2.col-xs-4 {
+        padding: 5px;
+    }
+	.carousel-inner > .item {
+	  height: 160px;
+	}
+
+    .bigicon {
+        font-size: 67px;
+        color: white;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .icontext {
+        color: white;
+        font-size: 23px;
+    }
+
+    .bigicondark {
+        font-size: 67px;
+        color: black;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .icontextdark {
+        color: black;
+        font-size: 27px;
+    }
+
+    .dynamicTile {
+		margin: 0 0 20px;
+		overflow: hidden;
+    }
+    .dynamicTile .col-sm-4.col-xs-8 {
+        padding: 5px;
+    }
+
+    #tile1 {
+        background: #FC6262 radial-gradient(circle farthest-side at center bottom , #FC5A5A, #FF0000 125%) repeat scroll 0 0;
+    }
+
+    #tile2 {
+        background: #F46265 radial-gradient(circle farthest-side at center bottom , #9EFC50, #0D6D03 125%) repeat scroll 0 0;
+    }
+
+    #tile3 {
+		background: #153178 radial-gradient(circle farthest-side at center bottom , #009cde, #003087 125%) repeat scroll 0 0;
+	}
+
+    #tile4 {
+        background: #FCDB37 radial-gradient(circle farthest-side at center bottom , #D0D0D0, #595958 125%) repeat scroll 0 0;
+    }
+
+    #tile5 {
+        background: #FCDB37 radial-gradient(circle farthest-side at center bottom , #5AF9FC, #028789 125%) repeat scroll 0 0;
+    }
+
+    #tile6 {
+        background: #FCDB37 radial-gradient(circle farthest-side at center bottom , #F2FF00, #BC9D01 125%) repeat scroll 0 0;
+    }
+
+    #tile7 {
+        background: white;
+    }
+
+    #tile8 {
+        background: #03133C;
+    }
+
+    #tile9 {
+        background: #EACF46;
+    }
+
+    #tile10 {
+        background: #EACF46;
+    }
+
+    .tilecaption {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        margin: 0!important;
+        text-align: center;
+        color: white;
+        font-family: Segoe UI;
+        font-weight: lighter;
+    }
+    .dynamicTile .fa {
+        font-size: 35px;
+    }
+
+/******************************* End featured home ****************************/
+
+/*--------------------------------------------------------------
+2. - Main Menu
+--------------------------------------------------------------*/
+
+.sky-mega-menu-top {
+	background: transparent !important;
+	box-shadow: none !important;
+	border-bottom: 1px solid rgba(0,0,0,.1) !important;
+}
+
+.sky-mega-menu-top li a {
+	color: #fff !important;
+}
+
+.sky-mega-menu-top .grid-container3 li a {
+	color: #666 !important;
+}
+.sky-mega-menu-top .grid-container3 li a:hover {
+	color: #fff !important;
+}
+
+/*--------------------------------------------------------------
+2. - Login, Register
+--------------------------------------------------------------*/
+
+#login-container {
+	padding: 10% 0;
+}
+/*--------------------------------------------------------------
+2. - Inner pages
+--------------------------------------------------------------*/
+
+#inner-page {
+	background-attachment: fixed;
+	background-image: url("/images/kite.jpg");
+	background-position: center top;
+	background-size: cover;
+	height: 300px;
+}
+
+.general-container {
+	margin-top: -100px;
+	background: rgba(230, 230, 230, 0.9) none repeat scroll 0 0;
+	display: block;
+	padding: 15px 25px;
+	box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.3);
+	color: #666;
+	font: 16px/1.65 century gothic,sans-serif;
+	outline: medium none;
+}
+
+.breadcrumb {
+	background-color: transparent !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.the_search {
+	padding-top: 20px;
+}
+
+.left-right-shadow {
+	box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.3), -5px 0 5px -5px rgba(0, 0, 0, 0.3);
+}
+
+.inside {
+	padding: 3rem !important;
+}
+
+header {
+	padding: 0 26px;
+}
+
+/* ---- card posts, categories, subcategories ---*/
+
+#contenido .card {
+	text-align: center;
+	margin: 10px 0;
+}
+
+.card.hovercard .cardheader {
+	background-size: cover;
+	height: 150px;
+}
+
+.card.hovercard h3 {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	background-color: rgba(0,0,0,.51);
+	padding: 20px;
+	margin-top: 0;
+	height: 150px;
+}
+
+.card.hovercard h3 a {
+	font-size: 30px !important;
+	padding-top: 10px !important;
+	margin-top: 0 !important;
+	font-size: bold !important;
+	color: #fff !important;
+
+}
+
+.hovercard .card-body {
+	color: #4d4d4d;
+	font-size: 13px;
+	min-height: 36px;
+
+}
+
+.hovercard  {
+	margin-bottom: 40px;
+}
+
+#status {
+	height: 34px;
+}
+
+
+/*--------------------------------------------------------------
+3. - Posts, chanels
+--------------------------------------------------------------*/
+
+.meta a {
+	border-right: 1px solid rgba(0,0,0,.5);
+	margin-right: 10px;
+	padding-right: 10px;
+	line-height: 70px;
+}
+
+.meta a:last-child {
+	border-right: none;
+}
+
+/*--------------------------------------------------------------
+3. - Inner blue section over footer
+--------------------------------------------------------------*/
+
+.blue {
+	background: url("/images/overlay-carbon.png") repeat 0 0, radial-gradient(circle farthest-side at center center, #009cde, #444 125%);
+	color: #fff;
+}
+
+.bottom-50 {
+	padding-bottom: 50px;
+}
+
+.blue .sky-form {
+	box-shadow: none;
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	overflow: hidden;
+}
+
+.sky-form .section-call-to-action {
+	background: rgba(248, 248, 248, 0.9) none repeat scroll 0 0;
+	display: block;
+	padding: 0 15px;
+}
+
+.blue .section-call-to-action label {
+	font-size: 30px !important;
+	color: #232323;
+	font-weight: 300;
+}
+
+.blue .section-call-to-action p {
+	color: #232323;
+}
+
+.blue p {
+	font-size: 18px;
+}
+
+.blue .sky-form .button {
+	margin: 10px 0;
+}
+
+.padding-0 {
+	padding: 0 !important;
+}
+
+.blue h2, .green h2 {
+	font-size: 50px;
+}
+
+.separator {
+	margin: 10px !important;
+}
+
+.blue p {
+	color: #fff;
+	font-size: 18px;
+}
+
+.blue a, .dark a {
+	color: #eee !important;
+	font-family: pp-sans-small-bold,Helvetica Neue,Arial,sans-serif;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 400;
+}
+/*--------------------------------------------------------------
+3. - Footer
+--------------------------------------------------------------*/
+
+.footer .row {
+	margin: 0 !important;
+}
+
+.footer .sky-mega-menu li:first-child {
+	border-color: transparent !important;
+}
+
+.footer .contact-menu {
+	padding: 0 25px;
+}
