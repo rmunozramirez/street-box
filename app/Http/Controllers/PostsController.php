@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Http\Requests\Postsrequest;
 use App\Postcategory;
 use Session;
 
@@ -53,9 +54,32 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Postsrequest $request)
     {
-        //
+
+        $file = $request->file('image');
+        $name = time() . '-' . $file->getClientOriginalName();
+        $file->move('images', $name);
+
+        $post = Post::create([
+            'title'             =>  $request->title,
+            'subtitle'          =>  $request->subtitle,
+            'status'            =>  $request->status,
+            'excerpt'           =>  $request->excerpt,
+            'body'              =>  $request->body,
+            'slug'              =>  str_slug($request->title, '-'),
+            'image'             =>  $name,
+            'postcategory_id'   =>  $request->postcategory_id,
+            'is_featured'       =>  $request->is_featured,
+
+        ]);        
+
+
+        $post->save();
+
+        Session::flash('success', 'Blog Post successfully created!');
+     
+        return redirect()->route('posts.show', $post->slug);
     }
 
     /**
@@ -79,9 +103,15 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        //find the film in the database
+        $post = Post::where('slug', $slug)->first(); 
+        $page_name = 'Edit: ' . $post->title;
+        $postcategories = Postcategory::orderBy('title', 'asc')->pluck('title', 'id')->all();
+
+          return view('posts.edit', compact('post', 'postcategories', 'page_name'));
+
     }
 
     /**
@@ -91,9 +121,24 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Postsrequest $request, $slug)
     {
-        //
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+
+        if ( $file = $request->file('image')) {
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image'] = $name;
+        }
+
+        $post = Post::where('slug', $slug)->first();
+        $post->fill($input)->save();
+        $page_name = $post->title;
+
+        Session::flash('success', 'Post successfully updated!');
+     
+        return redirect()->route('posts.show', $post->slug);
     }
 
     /**

@@ -41,7 +41,7 @@
 						<h3><a href="{{ url('categories/'.$category->slug) }}">{{ $category->title }}</a></h3>
 					<div class="card-body">					
 						<h5 class="subcat">
-						{{$category->subcategories_count}} subcategories	
+						{{count($category->subcategories)}} subcategories	
 						</h5>					   
 						<p>
 							Event Rating:<br />

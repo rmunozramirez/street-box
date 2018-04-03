@@ -44,9 +44,31 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriesRequest $request)
     {
-        //
+        $file = $request->file('image');
+        $name = time() . '-' . $file->getClientOriginalName();
+        $file->move('images', $name);
+
+        $category = Category::create([
+
+            'title'             => $request->title,
+            'subtitle'          => $request->subtitle,
+            'slug'              => str_slug($request->title, '-'),
+            'excerpt'           => $request->excerpt,                       
+            'status'            => $request->status,
+            'about_category'    => $request->about_category, 
+            'image'             => $name,      
+            'is_featured'       => $request->is_featured,
+            'in_menu'           => $request->in_menu,
+
+       ]);   
+
+        $category->save();
+
+        Session::flash('success', 'Category successfully created!');
+     
+        return redirect()->route('categories.show', $category->slug);
     }
 
     /**

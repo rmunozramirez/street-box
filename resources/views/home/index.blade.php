@@ -15,7 +15,7 @@
 						<h3><a href="{{ url('categories/'.$all_categories[$i]->slug) }}">{{ $all_categories[$i]->title }}</a></h3>
 					<div class="card-body">					
 						<h5 class="subcat">
-						{{$all_categories[$i]->subcategories_count}} subcategories	
+						{{count($all_categories[$i]->subcategories)}} subcategories
 						</h5>					   
 						<p>
 							Event Rating:<br />
@@ -57,13 +57,13 @@
 		</div>
 	</div>
 </section>	
-<section class="green py-5">	
+<section class="green mb-5 py-5">	
 
 	<div class="container py-5">
 		<h2 class="text-center">Meet some real histories</h2>
 		<h3 class="text-center">These guys literally rocks!</h3>
 
-		<div class="col-lg-12">
+		<div class="col-lg-12 mb-5 pb-5">
 		<div class="col-md-3 col-xs-6 col-sm-3">
 				<a href="#"><img class="img-responsive" src="images/team-1.jpg" alt="team-memeber-img">
 				</a>
@@ -73,10 +73,10 @@
 					<h4>CEO</h4>
 				</div>
 				<div class="text-center">
-					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fa fa-google-plus"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fa fa-youtube-play"></i></a></div><a href="#" title="YouTube">
+					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fab fa-google-plus-g"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fab fa-linkedin-in"></i></a></div><a href="#" title="YouTube">
 					</a>
 				</div>
 			</div>
@@ -90,10 +90,10 @@
 					<h4>Sales Director</h4>
 				</div>
 				<div class="text-center">
-					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fa fa-google-plus"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fa fa-youtube-play"></i></a></div><a href="#" title="YouTube">
+					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fab fa-google-plus-g"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fab fa-linkedin-in"></i></a></div><a href="#" title="YouTube">
 					</a>
 				</div>
 			</div>
@@ -107,10 +107,10 @@
 					<h4>Creative Director</h4>
 				</div>
 				<div class="text-center">
-					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fa fa-google-plus"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fa fa-youtube-play"></i></a></div><a href="#" title="YouTube">
+					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fab fa-google-plus-g"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fab fa-linkedin-in"></i></a></div><a href="#" title="YouTube">
 					</a>
 				</div>
 			</div>
@@ -124,10 +124,10 @@
 					<h4>HR department</h4>
 				</div>
 				<div class="text-center">
-					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fa fa-facebook"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fa fa-google-plus"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></div>
-					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fa fa-youtube-play"></i></a></div><a href="#" title="YouTube">
+					<div class="col-md-2 col-md-offset-2 col-xs-3 col-sm-3 facebook"><a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 googleplus"><a href="#" title="Google+"><i class="fab fa-google-plus-g"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 twitter"><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></div>
+					<div class="col-md-2 col-xs-3 col-sm-3 linkedin"><a href="#" title="YouTube"><i class="fab fa-linkedin-in"></i></a></div><a href="#" title="YouTube">
 					</a>
 				</div>
 			</div>

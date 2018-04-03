@@ -54,11 +54,12 @@ class ChanelController extends Controller
         $chanel = Chanel::create([
     
             'title'         => $request->title,
-            'slug'          => str_slug($request->name, '-'),      
+            'slug'          => str_slug($request->title, '-'),      
             'subtitle'      => $request->subtitle,
+            'subcategory_id' => $request->subcategory_id,
             'excerpt'       => $request->excerpt,
             'about_chanel'  => $request->about_chanel,            
-            'image'         => $request->name,
+            'image'         => $name,
             'video'         => $request->video,         
             'web'           => $request->web,
             'facebook'      => $request->facebook,
@@ -68,8 +69,6 @@ class ChanelController extends Controller
             'youtube'       => $request->youtube,
 
        ]);   
-
-
 
         $chanel->save();
 
@@ -99,9 +98,15 @@ class ChanelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+public function edit($slug)
     {
-        //
+        //find the film in the database
+        $chanel = Chanel::where('slug', $slug)->first(); 
+        $page_name = 'Edit: ' . $chanel->title;
+        $subcategories = Subcategory::orderBy('title', 'asc')->pluck('title', 'id')->all();
+
+          return view('chanels.edit', compact('chanel', 'subcategories', 'page_name'));
+
     }
 
     /**
@@ -111,11 +116,25 @@ class ChanelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ChanelsRequest $request, $slug)
     {
-        //
-    }
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
 
+        if ( $file = $request->file('image')) {
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image'] = $name;
+        }
+
+        $chanel = Chanel::where('slug', $slug)->first();
+        $chanel->fill($input)->save();
+        $page_name = $chanel->title;
+
+        Session::flash('success', 'Chanel successfully updated!');
+     
+        return redirect()->route('chanels.show', $chanel->slug);
+    }
     /**
      * Remove the specified resource from storage.
      *

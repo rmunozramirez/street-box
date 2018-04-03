@@ -42,9 +42,7 @@
 					<img class="cardheader" src="{{URL::to('/images/' . $chanel->image)}}">
 						<h3><a href="{{ url('chanels/'.$chanel->slug) }}">{{ $chanel->title }}</a></h3>
 					<div class="card-body">					
-						<h5 class="subcat">	In:				
-							chanels			
-						</h5>					   
+						<h5 class="subcat">	{{ $chanel->excerpt }}</h5>						   
 						<p>
 							Event Rating:<br />
 							<i class="fa fa-star"></i>

@@ -11,7 +11,7 @@
 
 <section id="content">
 
-	@include ('partials._inner-title')
+	@include ('partials._inner-title-blog')
 	
     <div  id="contenido"  class="container left-right-shadow">	
 		<div class="inside">
@@ -27,7 +27,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('subcategories.create')}}">{!! $page_name !!}</a>
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posts.create')}}">{!! $page_name !!}</a>
 		            </div>
 		        </div>
 	        </div>
@@ -43,15 +43,16 @@
 	            @endforeach
 	        </ul>
 	    @endif
-
+		
+		
 		<div class="row">
 			<div class="card-body">        
 
-		            {!!Form::open(array('route' => 'subcategories.store', 'files' => true)) !!}   
+		        {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['PostsController@update', $post->slug ],'files'=>true]) !!}   
 
 		            <div class="row">        
 			            <div class="col-md-4"> 
-			            	<i class="far fa-image fa-10x"></i>
+			            	<img class="img-responsive"  src="{{URL::to('/images/' . $post->image ) }}" alt="{{$post->title}}" >
 
 			            	<div class=" pt-5">
 				                {!!Form::label('image', 'Upload a Featured Image') !!}
@@ -62,28 +63,26 @@
 		            	<div class="col-md-8"> 
 				            <div class="row">
 				            	<div class="col-md-6">       
-					                {!!Form::label('title', 'Add a Subcategory title', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::label('title', 'Add a title', array('class' => 'form-spacing-top'))!!}
 					                {!!Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255'))!!}
 					            </div>
 
 					            <div class="col-md-6">      
-						                {!!Form::label('subtitle', 'Add a Subcategory subtitle', array('class' => 'form-spacing-top'))!!}
-						                {!!Form::text('subtitle', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255'))!!}		            		
+						                {!!Form::label('subtitle', 'Add a Post subtitle', array('class' => 'form-spacing-top'))!!}
+						                {!!Form::text('subtitle', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255'))!!}		
 					            </div>		            		
 				            </div>		            		
 
 				            <div class="row pt-5">
-					            <div class="col-md-6">
-					            	{!! Form::label('category_id', 'Category:') !!}
-                        			{!! Form::select('category_id', ['' => 'Choose a Category'] + $all_categories, null, array('class' => 'form-control')) !!}
-					            </div>
-
-					            <div class="col-md-6">
+				            	<div class="col-md-6">
 					            	{!!Form::label('status', 'Status:') !!}
-                					{!!Form::select('status', array('' => 'Choose Status', 'active' => 'Active', 'inactive' => 'Inactive', 'on_hold' => 'On Hold'), null, array('class' => 'form-control'))!!}
+                					{!!Form::select('status', array('' => 'Choose Status', 'published' => 'Published', 'programmed' => 'Programmed', 'draf' => 'Draf'), null, array('class' => 'form-control'))!!}
 					            </div>
 
-
+					            <div class="col-md-6">
+					            	{!! Form::label('postcategory_id', 'Category:') !!}
+                        			{!! Form::select('postcategory_id', ['' => 'Choose a Category'] + $all_postcategories, null, array('class' => 'form-control')) !!}
+					            </div>
 				            </div>
 
 				            <div class="row pt-5">
@@ -91,36 +90,29 @@
 					            	{!!Form::label('is_featured', 'Is featured?', array('class' => 'form-spacing-top'))!!}<br />
 					                {!! Form::radio('is_featured', 1, false, ['class' => 'mr-1']) !!} <span class="mr-3">Yes</span>
 									{!! Form::radio('is_featured', 0, true, ['class' => 'mr-1']) !!} No
-					            </div>
-					            
-				            	<div class="col-md-6">
-					            	{!!Form::label('in_menu', 'Is it in main menu?', array('class' => 'form-spacing-top'))!!}<br />
-					                {!! Form::radio('in_menu', 1, false, ['class' => 'mr-1']) !!} <span class="mr-3">Yes</span>
-									{!! Form::radio('in_menu', 0, true, ['class' => 'mr-1']) !!} No
-					            </div>
-
+					            </div> 
 				            </div>  
 
 				            <div class="row pt-5">        
 					            <div class="col-md-12">               
-					                {!!Form::label('excerpt', 'Add a Subcategory excerpt', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::label('excerpt', 'Add a Post excerpt', array('class' => 'form-spacing-top'))!!}
 					                {!!Form::text('excerpt', null, array('class' => 'form-control', 'maxlength' => '255'))!!}
 					            </div>
 				            </div>
 
 				            <div class="row pt-5"> 
 					            <div class="col-md-12">      
-					                {!!Form::label('about_subcategory', 'Subcategory description:', array('class' => 'form-spacing-top'))!!}
-					                {!!Form::textarea('about_subcategory', null, array('id' => 'summernote','class' => 'form-control', 'rows' => 9))!!}                       
+					                {!!Form::label('body', 'Post description:', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::textarea('body', null, array('id' => 'summernote','class' => 'form-control', 'rows' => 9))!!}                       
 					            </div>
 				            </div>
 
 				            <div class="pt-5">    
-				                {!!Form::submit('Add New Subcategory', array('class' => 'btn btn-success btn-block')) !!}
+				                {!!Form::submit('Add New Category', array('class' => 'btn btn-success btn-block')) !!}
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>
-		            </div>  	            
+		            </div>  
 
 		    </div>
 		</div>

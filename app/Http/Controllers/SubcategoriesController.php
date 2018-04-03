@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SubcategoriesRequest;
 use App\Chanel;
 use App\Category;
 use App\Subcategory;
@@ -43,9 +44,32 @@ class SubcategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubcategoriesRequest $request)
     {
-        //
+        $file = $request->file('image');
+        $name = time() . '-' . $file->getClientOriginalName();
+        $file->move('images', $name);
+
+        $subcategory = Subcategory::create([
+    
+            'category_id'       => $request->category_id,
+            'title'             => $request->title,
+            'subtitle'          => $request->subtitle,
+            'slug'              => str_slug($request->title, '-'),
+            'excerpt'           => $request->excerpt,                       
+            'status'            => $request->status,
+            'about_subcategory' => $request->about_subcategory, 
+            'image'             => $name,      
+            'is_featured'       => $request->is_featured,
+            'in_menu'           => $request->in_menu,
+
+       ]);   
+
+        $subcategory->save();
+
+        Session::flash('success', 'Subcategory successfully created!');
+     
+        return redirect()->route('subcategories.show', $subcategory->slug);
     }
 
     /**

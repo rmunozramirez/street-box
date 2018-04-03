@@ -48,14 +48,21 @@
 			<div class="row">
 				<div class="card-body">        
 
-		            {!!Form::open(array('route' => 'chanels.store', 'files' => true)) !!}   
+		        {!! Form::model($chanel, ['method'=>'PATCH', 'action'=> ['ChanelController@update', $chanel->slug ],'files'=>true]) !!} 
 
 		            <div class="row">        
 			            <div class="col-md-4"> 
-			            	<i class="far fa-image fa-10x"></i>
+			            	<img class="img-responsive"  src="{{URL::to('/images/' . $chanel->image ) }}" alt="{{$chanel->title}}" >
 			            	<div class=" pt-5">
 				                {!!Form::label('image', 'Upload a Featured Image') !!}
 				                {!!Form::file('image', null, array('class' => 'form-control', 'required' => ''))!!}
+			            	</div>  
+<hr>
+			            	 <iframe id="ytplayer" type="text/html" width="100%" height="200" src="{!! $chanel->video !!}" frameborder="0" allowfullscreen></iframe>
+
+			            	<div class=" pt-5">
+				                {!!Form::label('video', 'Your video', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::text('video', null, array('class' => 'form-control', 'maxlength' => '255'))!!} 
 			            	</div>  
 			            </div>
       
@@ -77,23 +84,18 @@
 					            	{!! Form::label('subcategory_id', 'Subcategory:') !!}
                         			{!! Form::select('subcategory_id', ['' => 'Choose a Subcategory'] + $all_subcategories, null, array('class' => 'form-control')) !!}
 					            </div>
-
-				            	<div class="col-md-6"> 
-					                {!!Form::label('excerpt', 'Chanel excerpt', array('class' => 'form-spacing-top'))!!}
-					                {!!Form::text('excerpt', null, array('class' => 'form-control', 'maxlength' => '255'))!!}      
-					            </div>
-				            </div>
-
-				            <div class="row pt-5">
-					            
+        
 					            <div class="col-md-6">               
 					                {!!Form::label('web', 'Website', array('class' => 'form-spacing-top'))!!}
 					                {!!Form::text('web', null, array('class' => 'form-control', 'maxlength' => '255'))!!}
 					            </div>
+				            </div>
 
-				            	<div class="col-md-6"> 
-					                {!!Form::label('video', 'Your video', array('class' => 'form-spacing-top'))!!}
-					                {!!Form::text('video', null, array('class' => 'form-control', 'maxlength' => '255'))!!}      
+				            <div class="row pt-5">
+				            	<div class="col-md-12"> 
+					                {!!Form::label('excerpt', 'Chanel excerpt', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::text('excerpt', null, array('class' => 'form-control', 'maxlength' => '255'))!!}      
+					                
 					            </div>
 				            </div>
 
@@ -129,7 +131,7 @@
 				            </div>
 
 				            <div class="pt-5">    
-				                {!!Form::submit('Add New Chanel', array('class' => 'btn btn-success btn-block')) !!}
+				                {!!Form::submit('Edit Chanel', array('class' => 'btn btn-success btn-block')) !!}
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>

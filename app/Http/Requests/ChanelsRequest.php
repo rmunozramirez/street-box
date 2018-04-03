@@ -27,11 +27,11 @@ class ChanelsRequest extends FormRequest
 
             'status'        => 'string|max:255',
             'title'         => 'required|max:255',
-            'slug'          => 'required|string|max:255',      
+            'slug'          => 'string|max:255',      
             'subtitle'      => 'required|string|max:255',
             'excerpt'       => 'string|max:255',
             'about_chanel'  => 'required',            
-            'image'         => 'required',
+            'image'         => 'image',
             'video'         => 'string|max:255',
             'is_featured'   => 'boolean',
             'likes'         => 'integer',

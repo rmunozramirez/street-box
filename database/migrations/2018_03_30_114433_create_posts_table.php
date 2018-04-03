@@ -22,9 +22,9 @@ class CreatePostsTable extends Migration
             $table->string('subtitle', 150)->nullable();
             $table->text('excerpt')->nullable;  
             $table->text('body');
-            $table->string('image')->nullable();
+            $table->string('image', 80)->unique();
             $table->boolean('is_featured')->default(false);
-            $table->integer('likes')->unsigned();
+            $table->integer('likes')->unsigned()->default(0);;
             $table->softDeletes();              
             $table->dateTime('published_at')->nullable();      
             $table->timestamp('created_at')->useCurrent();

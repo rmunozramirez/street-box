@@ -27,7 +27,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">Create a {!! $page_name !!}</a>
 		            </div>
 		        </div>
 	        </div>

@@ -25,16 +25,17 @@ class CategoriesRequest extends FormRequest
     {
         return [
                 
-            'title' => 'required|max:255',
-            'about_category' => 'required',
-            'status' => 'boolean',
-            'slug' => 'required|string|max:255',         
-            'subtitle' => 'max:255',
-            'excerpt' => 'max:255',        
-            'image'   => 'required',
-            'is_featured' => 'boolean',
-            'likes'   => 'integer',
-            'in_menu' => 'boolean',
+            'title'             => 'required|max:255',
+            'about_category'    => 'required',
+            'status'            => 'string|max:255',
+            'slug'              => 'string|max:255',         
+            'subtitle'          => 'max:255',
+            'excerpt'           => 'max:255',        
+            'image'             => 'image',
+            'is_featured'       => 'boolean',
+            'likes'             => 'integer',
+            'in_menu'           => 'boolean',
+
         ];
     }
 }

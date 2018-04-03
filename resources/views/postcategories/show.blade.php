@@ -20,7 +20,6 @@
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						<a title=" {{$postcategory->title}}" href="{{route('postcategories.show', $postcategory->slug) }}"> {{$postcategory->title}}</a>
 						{!! $page_name !!}
 					</div>	
 				</div>	
@@ -32,32 +31,36 @@
 	        </div>
         	<hr>
 			<div class="row">
-				@foreach ($posts as $post)
-				<div class="col-lg-3 col-md-4">	
-					<div class="card hovercard">
-						<img class="cardheader" src="{{URL::to('/images/' . $post->image)}}">
-							<h3><a href="{{route('posts.show', $post->slug)}}">{{ $post->title }}</a></h3>
-						<div class="card-body">					
-				   
-							<p>
-								Event Rating:<br />
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o"></i>
-								(14)
-							</p>	
-							<hr>
+				@if(count($postcategory->posts) > 0)
+					@foreach ($posts as $post)
+					<div class="col-lg-3 col-md-4">	
+						<div class="card hovercard">
+							<img class="cardheader" src="{{URL::to('/images/' . $post->image)}}">
+								<h3><a href="{{route('posts.show', $post->slug)}}">{{ $post->title }}</a></h3>
+							<div class="card-body">					
+					   
+								<p>
+									Event Rating:<br />
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-o"></i>
+									(14)
+								</p>	
+								<hr>
 
-							<a href="{{route('posts.show', $post->slug)}}">View</a>
+								<a href="{{route('posts.show', $post->slug)}}">View</a>
 
-							| Edit | <a href="event.php">Delete</a>
+								| Edit | <a href="event.php">Delete</a>
+							</div>
 						</div>
+						
 					</div>
-					
-				</div>
-				@endforeach
+					@endforeach
+				@else
+					<h2>Kein Post in diese category</h2>
+				@endif
 			</div>	
 			<div class="text-center">
 		        {{ $posts->links() }}

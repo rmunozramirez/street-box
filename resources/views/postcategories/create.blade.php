@@ -22,7 +22,6 @@
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
 						{!! $page_name !!}
-
 					</div>	
 				</div>	
 				<div class="col-md-6">
@@ -33,10 +32,20 @@
 	        </div>
         	<hr>
 
+	    @if(count($errors) > 0)
+	        <ul class="list-group">
+	        
+	            @foreach($errors->all() as $error)
+
+	                <li class="list-group-item text-danger">{{$error}}</li>
+
+	            @endforeach
+	        </ul>
+	    @endif
+	    
 		<div class="row">
 			<div class="card-body">
-
-		            {!!Form::open(array('route' => 'categories.store', 'files' => true)) !!}   
+		            {!!Form::open(array('route' => 'postcategories.store', 'files' => true)) !!}   
 
 		            <div class="row">        
 			            <div class="col-md-4"> 

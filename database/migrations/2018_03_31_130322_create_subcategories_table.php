@@ -22,7 +22,7 @@ class CreateSubcategoriesTable extends Migration
             $table->string('excerpt', 256)->nullable();
             $table->enum('status', ['active', 'inactive', 'on_hold'])->default('active');
             $table->text('about_subcategory')->nullable();
-            $table->string('image');
+            $table->string('image', 80)->unique();
             $table->boolean('is_featured')->default(false);
             $table->boolean('in_menu')->default(true);
             $table->softDeletes();

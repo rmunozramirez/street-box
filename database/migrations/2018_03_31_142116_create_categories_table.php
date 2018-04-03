@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->string('excerpt', 256)->nullable();
             $table->text('about_category')->nullable();
             $table->enum('status', ['active', 'inactive', 'on_hold'])->default('active');         
-            $table->string('image');
+            $table->string('image', 80)->unique();
             $table->boolean('is_featured')->default(false);
             $table->boolean('in_menu')->default(true);
             $table->softDeletes();

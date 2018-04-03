@@ -14,7 +14,7 @@ class ChanelTableSeeder extends Seeder
         
          App\Chanel::create ([
             'title'             =>  'Chanel One-one-one',
-            'subtitle'          =>  'Subttle Chanel One-one-one',
+            'subtitle'          =>  'Subtitle Chanel One-one-one',
             'slug'              =>  'chanel-one-one-one',
             'excerpt'           =>  'This is the excerpt of the Chanel One-one-one',
             'about_chanel'      =>  'This is the description of the Chanel One-one-one',
@@ -35,7 +35,7 @@ class ChanelTableSeeder extends Seeder
 
          App\Chanel::create ([
             'title'             =>  'Chanel One-One-Two',
-            'subtitle'          =>  'Subttle Chanel One-One-Two',
+            'subtitle'          =>  'Subtitle Chanel One-One-Two',
             'slug'              =>  'chanel-one-one-two',
             'excerpt'           =>  'This is the excerpt of the Chanel One-One-Two',
             'about_chanel'      =>  'This is the description of the Chanel One-One-Two',
@@ -55,7 +55,7 @@ class ChanelTableSeeder extends Seeder
         
          App\Chanel::create ([
             'title'             =>  'Chanel One-two-One',
-            'subtitle'          =>  'Subttle Chanel One-two-One',
+            'subtitle'          =>  'Subtitle Chanel One-two-One',
             'slug'              =>  'chanel-one-two-one',
             'excerpt'           =>  'This is the excerpt of the Chanel One-two-One',
             'about_chanel'      =>  'This is the description of the Chanel One-two-One',
@@ -75,7 +75,7 @@ class ChanelTableSeeder extends Seeder
         
          App\Chanel::create ([
             'title'             =>  'Chanel One-two-Two',
-            'subtitle'          =>  'Subttle Chanel One-two-Two',
+            'subtitle'          =>  'Subtitle Chanel One-two-Two',
             'slug'              =>  'chanel-one-two-two',
             'excerpt'           =>  'This is the excerpt of the Chanel One-two-Two',
             'about_chanel'      =>  'This is the description of the Chanel One-two-Two',
@@ -95,7 +95,7 @@ class ChanelTableSeeder extends Seeder
         
          App\Chanel::create ([
             'title'             =>  'Chanel One-two-Three',
-            'subtitle'          =>  'Subttle Chanel One-two-Three',
+            'subtitle'          =>  'Subtitle Chanel One-two-Three',
             'slug'              =>  'chanel-one-two-three',
             'excerpt'           =>  'This is the excerpt of the Chanel One-two-Three',
             'about_chanel'      =>  'This is the description of the Chanel One-two-Three',
@@ -115,7 +115,7 @@ class ChanelTableSeeder extends Seeder
         
          App\Chanel::create ([
             'title'             =>  'Chanel two-one-one',
-            'subtitle'          =>  'Subttle Chanel two-one-one',
+            'subtitle'          =>  'Subtitle Chanel two-one-one',
             'slug'              =>  'chanel-two-one-one',
             'excerpt'           =>  'This is the excerpt of the Chanel two-one-one',
             'about_chanel'      =>  'This is the description of the Chanel two-one-one',
@@ -135,7 +135,7 @@ class ChanelTableSeeder extends Seeder
     	
 		 App\Chanel::create ([
         	'title' 			=> 	'Chanel Three-one-one',
-        	'subtitle' 			=> 	'Subttle Chanel Three-one-one',
+        	'subtitle' 			=> 	'Subtitle Chanel Three-one-one',
         	'slug'				=>	'chanel-three-one-one',
         	'excerpt'			=>	'This is the excerpt of the Chanel Three-one-one',
         	'about_chanel'	    =>	'This is the description of the Chanel Three-one-one',

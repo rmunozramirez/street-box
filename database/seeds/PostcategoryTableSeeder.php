@@ -34,7 +34,7 @@ class PostcategoryTableSeeder extends Seeder
         	'excerpt'			=>	'This is the excerpt of the Category Two',
         	'about_category'	=>	'This is the description of the Category Two',
         	'status'			=>	'active',
-        	'image'				=>	'bmw.jpg',
+        	'image'				=>	'bolliwood.jpg',
         	'is_featured'		=>	'1',
         	'in_menu'			=>	'1',
         ]);    	
@@ -47,7 +47,7 @@ class PostcategoryTableSeeder extends Seeder
         	'excerpt'			=>	'This is the excerpt of the Category Three',
         	'about_category'	=>	'This is the description of the Category Three',
         	'status'			=>	'inactive',
-        	'image'				=>	'bmw.jpg',
+        	'image'				=>	'concerto.jpg',
         	'is_featured'		=>	'0',
         	'in_menu'			=>	'0',
         ]);

@@ -76,6 +76,11 @@ svg:not(:root).svg-inline--fa{
   background: rgba(0, 0, 0, 0) url("/images/santorini.jpg") repeat fixed center top / cover;
   color: #fff;
 }
+
+.green a {
+	color: #fff !important;	
+}
+
 .blue  h2, .green h2{
 font-size: 50px;
 }
@@ -314,6 +319,12 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 
 .sky-tabs > ul > li {
 	padding: 20px 0 0 0 !important;
+}
+
+.sky-tabs > label {
+	border: 1px solid #eee;
+	margin-right: -1px;
+	margin-top: 40px;
 }
 
 /*--------------------------------------------------------------

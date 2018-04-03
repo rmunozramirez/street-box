@@ -34,7 +34,7 @@
 	        </div>
         	<hr>
 		<div class="row">
-			@if($subcategory->chanels)
+			@if(count($subcategory->chanels) > 0)
 				@foreach ($subcategory->chanels as $chanel)
 
 					<div class="col-lg-3 col-md-4">	
@@ -42,7 +42,7 @@
 							<img class="cardheader" src="{{URL::to('/images/' . $chanel->image)}}">
 								<h3><a href="{{route('chanels.show', $chanel->slug) }}">{{ $chanel->title }}</a></h3>
 							<div class="card-body">					
-								<h5 class="subcat">	something about chanel</h5>					   
+								<h5 class="subcat">	{{ $chanel->excerpt }}</h5>					   
 								<p>
 									Event Rating:<br />
 									<i class="fa fa-star"></i>
@@ -62,10 +62,13 @@
 						
 					</div>
 					@endforeach
-				</div>
 			@else
-				<h3>No subcategories under {{$subcategory->title}}</h3>
-			@endif
+				<div class="col-lg-12">
+					<h3>No Chanels under {{$subcategory->title}}</h3>
+				</div>
+			@endif		
+		</div>
+			
 	</div>
 </section>
 

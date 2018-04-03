@@ -25,7 +25,7 @@ class CreateChanelsTable extends Migration
             $table->string('image', 80)->unique();
             $table->string('video', 80)->unique()->nullable();
             $table->boolean('is_featured')->default(false);
-            $table->integer('likes')->unsigned();
+            $table->integer('likes')->unsigned()->default(0);
             $table->boolean('is_testimonial')->default(false);
             $table->string('web', 160)->nullable();
             $table->string('facebook', 160)->nullable();

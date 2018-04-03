@@ -23,8 +23,8 @@ class AppServiceProvider extends ServiceProvider
 
         $all_chanels = Chanel::all();
         $all_subcategories = Subcategory::pluck('title', 'id')->all();
-        $all_categories = Category::all();
-        $all_postcategories = Postcategory::all();
+        $all_categories = Category::orderBy('title', 'asc')->pluck('title', 'id')->all();
+        $all_postcategories = Postcategory::pluck('title', 'id')->all();
         $all_posts = Post::all();
         $page_name = 'App';
         View::share(array('all_chanels' => $all_chanels, 

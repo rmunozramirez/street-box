@@ -33,7 +33,7 @@
 	        </div>
         	<hr>
 		<div class="row">
-			@if($category->subcategories)
+			@if(count($category->subcategories) > 0 )
 				@foreach ($category->subcategories as $subcategory)
 
 					<div class="col-lg-3 col-md-4">	
@@ -65,7 +65,7 @@
 					@endforeach
 				</div>
 			@else
-				<h3>No subcategories under {{$subcategory->title}}</h3>
+				<h3>No subcategories under {{$category->title}}</h3>
 			@endif
 	</div>
 </section>

@@ -21,9 +21,9 @@ class CreatePostCategoriesTable extends Migration
             $table->string('excerpt', 256)->nullable();
             $table->text('about_category')->nullable();
             $table->enum('status', ['active', 'inactive', 'on_hold'])->default('active');       
-            $table->string('image');
+            $table->string('image', 80)->unique();
             $table->boolean('is_featured')->default(false);
-            $table->boolean('in_menu')->default(true);
+            $table->boolean('in_menu')->default(false);
             $table->softDeletes();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));            

@@ -49,30 +49,26 @@ class PostcategoriesController extends Controller
         $file = $request->file('image');
         $name = time() . '-' . $file->getClientOriginalName();
         $file->move('images', $name);
-        
-        $last_img = Image::orderBy('id', 'desc')->first(); 
-               
-        is_null($last_img) ? $img_id = 1 : $img_id =  $last_img->id + 1;
-       
-        $category = Postcategory::create([
-            'category'      =>  $request->category,
-            'description'   =>  $request->description,
-            'slug'          =>  str_slug($request->category, '-'),
-            'image_id'      =>  $img_id,
+
+        $postcategory = Postcategory::create([
+            'title'             =>  $request->title,
+            'subtitle'          =>  $request->subtitle,
+            'excerpt'           =>  $request->excerpt,
+            'about_category'    =>  $request->about_category,
+            'slug'              =>  str_slug($request->title, '-'),
+            'image'             =>  $name,
+            'is_featured'       =>  $request->is_featured,
+            'in_menu'           =>  $request->in_menu,
+            'status'            =>  $request->status,
+
         ]);        
 
-        $image = Image::create([
-            'image'         =>  $name,
-            'film_id'       => 0,
-            'actor_id'      => 0,
-            'category_id'   => $film->id,
-        ]);
 
-        $category->save();
+        $postcategory->save();
 
-        Session::flash('success', 'Category successfully created!');
+        Session::flash('success', 'Blog Category successfully created!');
      
-        return redirect()->route('postcategories');
+        return redirect()->route('postcategories.show', $postcategory->slug);
 
     }
 
@@ -98,9 +94,14 @@ class PostcategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        //find the film in the database
+        $postcategory = Postcategory::where('slug', $slug)->first(); 
+        $page_name = 'Edit: ' . $postcategory->title;
+
+          return view('postcategories.edit', compact('postcategory', 'page_name'));
+
     }
 
     /**
@@ -110,9 +111,26 @@ class PostcategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostcategoriesRequest $request, $slug)
     {
-        //
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+
+        if ( $file = $request->file('image')) {
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image'] = $name;
+        } else {
+            $input['image'] = $$request->image;
+        }
+
+        $postcategory = Postcategory::where('slug', $slug)->first();
+        $postcategory->fill($input)->save();
+        $page_name = $postcategory->title;
+
+        Session::flash('success', 'Postcategory successfully updated!');
+     
+        return redirect()->route('postcategories.show', $postcategory->slug);
     }
 
     /**
