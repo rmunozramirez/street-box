@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Chanel extends Model
 {
@@ -15,7 +16,7 @@ class Chanel extends Model
             'slug',		    
 		    'subtitle',
 		    'excerpt',
-            'about_channel',		    
+            'about_chanel',		    
             'image',
             'video',
             'is_featured',
@@ -28,6 +29,9 @@ class Chanel extends Model
 			'linkedin',
 			'youtube',
 	];
+
+	use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     public function subcategory()
     {

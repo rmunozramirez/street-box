@@ -94,9 +94,15 @@ class SubcategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        //find the film in the database
+        $subcategory = Subcategory::where('slug', $slug)->first(); 
+        $page_name = 'Edit: ' . $subcategory->title;
+        $categories = Category::orderBy('title', 'asc')->pluck('title', 'id')->all();
+
+          return view('subcategories.edit', compact('subcategory', 'categories', 'page_name'));
+
     }
 
     /**
@@ -106,9 +112,24 @@ class SubcategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SubcategoriesRequest $request, $slug)
     {
-        //
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+
+        if ( $file = $request->file('image')) {
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image'] = $name;
+        }
+
+        $subcategory = Subcategory::where('slug', $slug)->first();
+        $subcategory->fill($input)->save();
+        $page_name = $subcategory->title;
+
+        Session::flash('success', 'Subcategory successfully updated!');
+     
+        return redirect()->route('subcategories.show', $subcategory->slug);
     }
 
     /**

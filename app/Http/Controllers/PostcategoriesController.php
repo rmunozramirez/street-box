@@ -63,11 +63,8 @@ class PostcategoriesController extends Controller
 
         ]);        
 
-
         $postcategory->save();
-
         Session::flash('success', 'Blog Category successfully created!');
-     
         return redirect()->route('postcategories.show', $postcategory->slug);
 
     }
@@ -120,8 +117,6 @@ class PostcategoriesController extends Controller
             $name = time() . '-' . $file->getClientOriginalName();
             $file->move('images', $name);
             $input['image'] = $name;
-        } else {
-            $input['image'] = $$request->image;
         }
 
         $postcategory = Postcategory::where('slug', $slug)->first();
@@ -139,8 +134,40 @@ class PostcategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        
+        $postcategory = Postcategory::where('slug', $slug)->first();
+        $postcategory->delete();
+
+        Session::flash('success', 'Post successfully deleted!');
+        return redirect()->route('postcategories.index');
+    }
+
+
+    public function trashed()
+    {
+        $postcategories = Postcategory::onlyTrashed()->get();
+        $page_name = 'Trashed Post Categories';
+
+        return view('postcategories.trashed', compact('postcategories', 'page_name'));
+    }
+
+    public function restore($slug)
+    {
+        $postcategory = Postcategory::withTrashed()->where('slug', $slug)->first();
+        $postcategory->restore();
+
+        Session::flash('success', 'Post Category successfully restored!');
+        return redirect()->route('postcategories.trashed');
+    }
+
+    public function kill($slug)
+    {
+        $postcategory = Postcategory::withTrashed()->where('slug', $slug)->first();
+        $postcategory->forceDelete();
+
+        Session::flash('success', 'Post Category pemanently deleted!');
+        return redirect()->route('postcategories.trashed');
     }
 }

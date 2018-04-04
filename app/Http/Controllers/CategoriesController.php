@@ -93,9 +93,14 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        //find the film in the database
+        $category = Category::where('slug', $slug)->first(); 
+        $page_name = 'Edit: ' . $category->title;
+
+          return view('categories.edit', compact('category', 'page_name'));
+
     }
 
     /**
@@ -105,9 +110,24 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoriesRequest $request, $slug)
     {
-        //
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+
+        if ( $file = $request->file('image')) {
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image'] = $name;
+        }
+
+        $category = Category::where('slug', $slug)->first();
+        $category->fill($input)->save();
+        $page_name = $category->title;
+
+        Session::flash('success', 'Category successfully updated!');
+     
+        return redirect()->route('categories.show', $category->slug);
     }
 
     /**

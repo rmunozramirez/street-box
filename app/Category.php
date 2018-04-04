@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
@@ -18,6 +19,9 @@ class Category extends Model
             'is_featured',
             'in_menu',
 	];
+
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     public function subcategories()
     {

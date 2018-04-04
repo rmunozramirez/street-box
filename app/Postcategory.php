@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Postcategory extends Model
 {
@@ -18,6 +19,9 @@ class Postcategory extends Model
             'in_menu',
 			'image',
 	];
+
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     public function posts()
     {

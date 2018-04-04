@@ -15,7 +15,7 @@
 	
     <div id="contenido"  class="container left-right-shadow">
 		<div class="inside">
-			<h2>Create a new Chanel</h2>
+			<h2>{!! $page_name !!}</h2>
 
 			<div class="row">
 				<div class="col-md-6">

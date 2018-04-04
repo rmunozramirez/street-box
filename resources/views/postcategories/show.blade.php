@@ -17,17 +17,25 @@
 		<div class="inside">
 			<h2>{{ $postcategory->subtitle }}</h2>
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
 						{!! $page_name !!}
 					</div>	
 				</div>	
-				<div class="col-md-6">
-		            <div class="under-meta pull-right">
+				<div class="col-md-4">
+		            <div class="row">
+		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('postcategories.edit', $postcategory->slug)}}">Edit</a>
+		            	<div class="col-md-6">
+			            	{!! Form::open(['route' => ['postcategories.destroy', $postcategory->slug], 'method' => 'DELETE']) !!}
 
+							{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+
+							{!! Form::close() !!}
+						</div>
 		            </div>
 		        </div>
+
 	        </div>
         	<hr>
 			<div class="row">

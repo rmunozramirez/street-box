@@ -19,7 +19,7 @@
 			<h2>{{ $chanel->subtitle }}</h2>
 
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
 						<a title=" {{$chanel->subcategory->category->title}}" href="{{route('categories.show', $chanel->subcategory->category->slug) }}"> {{$chanel->subcategory->category->title}}</a>
@@ -27,11 +27,20 @@
 						{!! $page_name !!}
 					</div>	
 				</div>	
-				<div class="col-md-6">
-		            <div class="under-meta pull-right">
-		            	<i class="fa fa-user"></i> Author: <a href="">author</a>         
-						<i class="fa fa-tag"></i> Category: <a href="{{route('subcategories.show', $chanel->subcategory->slug)}}">{{$chanel->subcategory->title }}</a>
-		            	<i class="far fa-calendar"></i> Since: {{$chanel->created_at->format('M Y')}}
+			 </div>	
+				<hr>
+
+	      	<div class="row mb-4">
+				<div class="col-md-4 offset-8">
+		            <div class="row">
+		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('chanels.edit', $chanel->slug)}}">Edit</a>
+		            	<div class="col-md-6">
+			            	{!! Form::open(['route' => ['chanels.destroy', $chanel->slug], 'method' => 'DELETE']) !!}
+
+							{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+
+							{!! Form::close() !!}
+						</div>
 		            </div>
 		        </div>
 	        </div>
@@ -53,12 +62,17 @@
                     <li class="sky-tab-content-1">
 
 							<div class="col-lg-6">
-								
+							 	<i class="fa fa-user"></i> Author: <a href="">author</a>         
+						<i class="fa fa-tag"></i> Category: <a href="{{route('subcategories.show', $chanel->subcategory->slug)}}">{{$chanel->subcategory->title }}</a>
+		            	<i class="far fa-calendar"></i> Since: {{$chanel->created_at->format('M Y')}}
+	
 					            <!-- Preview Image -->
 					            <figure>
 					            	<img class="img-responsive" src="{{URL::to('/images/' . $chanel->image)}}" alt="{{ $chanel->title }}" name="{{ $chanel->title }}">
 					            </figure>
 
+
+		           
 							</div>										
 								
                             <div class="col-lg-6">

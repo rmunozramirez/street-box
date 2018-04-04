@@ -98,7 +98,7 @@ class ChanelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-public function edit($slug)
+    public function edit($slug)
     {
         //find the film in the database
         $chanel = Chanel::where('slug', $slug)->first(); 
@@ -141,8 +141,40 @@ public function edit($slug)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $chanel = Chanel::where('slug', $slug)->first();
+        $chanel->delete();
+
+        Session::flash('success', 'Chanel successfully deleted!');
+
+        return redirect()->route('chanels.index');
+    }     
+
+
+    public function trashed()
+    {
+        $chanels = Chanel::onlyTrashed()->get();
+        $page_name = 'Trashed Chanels';
+
+        return view('chanels.trashed', compact('chanels', 'page_name'));
+    }
+
+    public function restore($slug)
+    {
+        $chanel = Chanel::withTrashed()->where('slug', $slug)->first();
+        $chanel->restore();
+
+        Session::flash('success', 'Chanel successfully restored!');
+        return redirect()->route('chanels.index');
+    }
+
+    public function kill($slug)
+    {
+        $chanel = Chanel::withTrashed()->where('slug', $slug)->first();
+        $chanel->forceDelete();
+
+        Session::flash('success', 'Chanel pemanently deleted!');
+        return redirect()->route('chanels.index');
     }
 }

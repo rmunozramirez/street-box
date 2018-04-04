@@ -106,7 +106,7 @@
 				            </div>
 
 				            <div class="pt-5">    
-				                {!!Form::submit('Add New Category', array('class' => 'btn btn-success btn-block')) !!}
+				                {!!Form::submit('Edit Category', array('class' => 'btn btn-success btn-block')) !!}
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -33,8 +34,9 @@ class HomeController extends Controller
      */
     public function landing()
     {
+        $home_categories = Category::all();
         $page_name = 'Home page';
-        return view('welcome', 'page_name');
+        return view('welcome', compact('page_name', 'home_categories'));
     }
 
 }

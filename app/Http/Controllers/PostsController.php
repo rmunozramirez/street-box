@@ -147,8 +147,41 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        
+        $post = Post::where('slug', $slug)->first();
+        $post->delete();
+
+        Session::flash('success', 'Post successfully deleted!');
+        return redirect()->route('posts.index');
+    }
+
+
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+        $page_name = 'Trashed posts';
+
+        return view('posts.trashed', compact('posts', 'page_name'));
+    }
+
+    public function restore($slug)
+    {
+        $post = Post::withTrashed()->where('slug', $slug)->first();
+        $post->restore();
+
+        Session::flash('success', 'Post successfully restored!');
+        return redirect()->route('posts.trashed');
+    }
+
+    public function kill($slug)
+    {
+        $post = Post::withTrashed()->where('slug', $slug)->first();
+        $post->forceDelete();
+
+        Session::flash('success', 'Post pemanently deleted!');
+        return redirect()->route('posts.trashed');
     }
 }
+
