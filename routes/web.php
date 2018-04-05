@@ -48,4 +48,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('categories/kill/{slug}', 'CategoriesController@kill')->name('categories.kill');
 	Route::resource('categories', 'CategoriesController');
 
-
+	//admin
+	Route::resource('admin', 'AdminController')->middleware('admin');

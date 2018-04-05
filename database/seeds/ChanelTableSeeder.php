@@ -132,17 +132,17 @@ class ChanelTableSeeder extends Seeder
             'linkedin'          =>  'linkedin.com',
             'youtube'           =>  'youtube.com',
         ]);     
-    	
-		 App\Chanel::create ([
-        	'title' 			=> 	'Chanel Three-one-one',
-        	'subtitle' 			=> 	'Subtitle Chanel Three-one-one',
-        	'slug'				=>	'chanel-three-one-one',
-        	'excerpt'			=>	'This is the excerpt of the Chanel Three-one-one',
-        	'about_chanel'	    =>	'This is the description of the Chanel Three-one-one',
-        	'status'			=>	'active',
-        	'image'				=>	'berlin.jpg',
-        	'is_featured'		=>	'1',
-        	'likes'				=>	'10',
+        
+         App\Chanel::create ([
+            'title'             =>  'Chanel Three-one-one',
+            'subtitle'          =>  'Subtitle Chanel Three-one-one',
+            'slug'              =>  'chanel-three-one-one',
+            'excerpt'           =>  'This is the excerpt of the Chanel Three-one-one',
+            'about_chanel'      =>  'This is the description of the Chanel Three-one-one',
+            'status'            =>  'active',
+            'image'             =>  'berlin.jpg',
+            'is_featured'       =>  '1',
+            'likes'             =>  '10',
             'subcategory_id'    =>  '1',
             'is_testimonial'    =>  '0',
             'web'               =>  'mysite.com',
@@ -151,7 +151,7 @@ class ChanelTableSeeder extends Seeder
             'twitter'           =>  'twitter.com',
             'linkedin'          =>  'linkedin.com',
             'youtube'           =>  'youtube.com',
-        ]);    	
+        ]);     
 
 
 

@@ -10155,10 +10155,28 @@ svg:not(:root).svg-inline--fa {
   width: 100%;
 }
 
-.featured-background,
-sky-mega-menu-top {
+.featured-background {
   background: rgba(0, 0, 0, 0.35) url("/images/overlay-carbon.png") repeat scroll 0 0;
   border-top: 1px solid #444;
+}
+
+.menu-admin-top {
+  background: initial !important;
+  -webkit-box-shadow: initial !important;
+          box-shadow: initial !important;
+  margin-top: 8px !important;
+}
+
+.menu-admin-top li {
+  border-right: none !important;
+}
+
+.menu-admin-right {
+  border-right: 1px solid #eee;
+}
+
+.menu-admin-right li {
+  width: 100%;
 }
 
 .home-intro {
@@ -10345,7 +10363,6 @@ sky-mega-menu-top {
 }
 
 .general-container {
-  margin-top: -100px;
   background: rgba(230, 230, 230, 0.9) none repeat scroll 0 0;
   display: block;
   padding: 15px 25px;
@@ -10466,9 +10483,14 @@ select.form-control {
 3. - Inner blue section over footer
 --------------------------------------------------------------*/
 
-.blue {
+.blue,
+.resume {
   background: url("/images/overlay-carbon.png") repeat 0 0, radial-gradient(circle farthest-side at center center, #009cde, #444 125%);
   color: #fff;
+}
+
+.resume .nav-tabs {
+  border-bottom: none;
 }
 
 .bottom-50 {
@@ -10551,5 +10573,9 @@ select.form-control {
 
 .footer .contact-menu {
   padding: 0 25px;
+}
+
+.sky-mega-menu li a {
+  color: #666 !important;
 }
 
