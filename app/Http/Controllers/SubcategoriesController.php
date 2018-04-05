@@ -138,8 +138,51 @@ class SubcategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $subcategory = Subcategory::where('slug', $slug)->first();
+
+        if(count($subcategory->chanels) == 0 ) {
+
+            $subcategory->delete();
+            Session::flash('success', 'Subcategory '  . $subcategory->title . ' successfully deleted!');
+
+            return redirect()->route('subcategories.index');
+
+        } else {
+
+            Session::flash('error', $subcategory->title . ' is not empty and can\'t be deleted!');
+
+            return redirect()->route('subcategories.show', $subcategory->slug);
+        }
+
+        
+    }     
+
+
+    public function trashed()
+    {
+        $subcategories = Subcategory::onlyTrashed()->get();
+        $page_name = 'Trashed Subcategories';
+
+        return view('subcategories.trashed', compact('subcategories', 'page_name'));
+    }
+
+    public function restore($slug)
+    {
+        $subcategory = Subcategory::withTrashed()->where('slug', $slug)->first();
+        $subcategory->restore();
+
+        Session::flash('success', 'Subcategory successfully restored!');
+        return redirect()->route('subcategories.trashed');
+    }
+
+    public function kill($slug)
+    {
+        $subcategory = Subcategory::withTrashed()->where('slug', $slug)->first();
+        $subcategory->forceDelete();
+
+        Session::flash('success', 'Subcategory pemanently deleted!');
+        return redirect()->route('subcategories.trashed');
     }
 }

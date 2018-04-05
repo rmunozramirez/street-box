@@ -37,9 +37,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('chanels', 'ChanelController');
 
 	//subcategories
+	Route::get('subcategories/trashed', 'SubcategoriesController@trashed')->name('subcategories.trashed');
+	Route::get('subcategories/restore/{slug}', 'SubcategoriesController@restore')->name('subcategories.restore');
+	Route::get('subcategories/kill/{slug}', 'SubcategoriesController@kill')->name('subcategories.kill');
 	Route::resource('subcategories', 'SubcategoriesController');
 
 	//categories
+	Route::get('categories/trashed', 'CategoriesController@trashed')->name('categories.trashed');
+	Route::get('categories/restore/{slug}', 'CategoriesController@restore')->name('categories.restore');
+	Route::get('categories/kill/{slug}', 'CategoriesController@kill')->name('categories.kill');
 	Route::resource('categories', 'CategoriesController');
 
 

@@ -37,36 +37,32 @@
 
 		<div class="row">
 			@if(count($chanels) > 0)
-					<table class="table table-striped table-hover">
-				         <thead>
-				            <tr>
-				                <th>Chanel</th>
-				                <th>Subcategory</th>
-				                <th>Date</th>
-				            </tr>
-				         </thead>
-				         <tbody>
-				         	@foreach ($chanels as $chanel)
-				            <tr>
-				               <td>
-				                  <img class="mr-4" height="80" src="{{URL::to('/images/' . $chanel->image ) }}" alt="{{$chanel->title}}" > {{$chanel->title}}
-				             </td>
-				               <td><a href="{{route('subcategories.show', $chanel->subcategory->slug)}}">{{$chanel->subcategory->title}}</a></td>
-				               <td>{{$chanel->created_at}}</td>
-				               <td><a href="{{route('chanels.restore', $chanel->slug)}}">Restore</a></td>
-				               <td><a href="{{route('chanels.kill', $chanel->slug)}}">Permanent Delete</a></td>
-				            </tr>
-				            @endforeach
-				         </tbody>
-				      </table>
-				
-				
-
+				<table class="table table-striped table-hover">
+			         <thead>
+			            <tr>
+			                <th>Chanel</th>
+			                <th>Subcategory</th>
+			                <th>Date</th>
+			            </tr>
+			         </thead>
+			         <tbody>
+			         	@foreach ($chanels as $chanel)
+			            <tr>
+			               <td>
+			                  <img class="mr-4" height="80" src="{{URL::to('/images/' . $chanel->image ) }}" alt="{{$chanel->title}}" > {{$chanel->title}}
+			             </td>
+			               <td><a href="{{route('subcategories.show', $chanel->subcategory->slug)}}">{{$chanel->subcategory->title}}</a></td>
+			               <td>{{$chanel->created_at}}</td>
+			               <td><a href="{{route('chanels.restore', $chanel->slug)}}">Restore</a></td>
+			               <td><a href="{{route('chanels.kill', $chanel->slug)}}">Permanent Delete</a></td>
+			            </tr>
+			            @endforeach
+			       	</tbody>
+		      	</table>
 			@else
-				<h2>Your trash bin is empty</h2>
+				<div class="col-md-12"><h3>No {!! $page_name !!}</h3></div>
 			@endif
 		</div>	
-	
 	</div>
 </section>
 

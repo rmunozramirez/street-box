@@ -136,8 +136,48 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $category = Category::where('slug', $slug)->first();
+
+        if(count($category->subcategories) == 0 ) {
+
+            $category->delete();
+            Session::flash('success', $category->title . ' successfully deleted!');
+
+            return redirect()->route('categories.index');
+
+        } else {
+
+            Session::flash('error', $category->title . ' is not empty and can\'t be deleted!');
+
+            return redirect()->route('categories.show', $category->slug);
+        }
+    }     
+
+    public function trashed()
+    {
+        $categories = Category::onlyTrashed()->get();
+        $page_name = 'Trashed Categories';
+
+        return view('categories.trashed', compact('categories', 'page_name'));
+    }
+
+    public function restore($slug)
+    {
+        $category = Category::withTrashed()->where('slug', $slug)->first();
+        $category->restore();
+
+        Session::flash('success', 'Category successfully restored!');
+        return redirect()->route('categories.trashed');
+    }
+
+    public function kill($slug)
+    {
+        $category = Category::withTrashed()->where('slug', $slug)->first();
+        $category->forceDelete();
+
+        Session::flash('success', 'Category pemanently deleted!');
+        return redirect()->route('categories.trashed');
     }
 }

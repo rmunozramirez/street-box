@@ -59,7 +59,7 @@
 				         </tbody>
 				      </table>
 			@else
-				<h2>Your trash bin is empty</h2>
+					<div class="col-md-12"><h3>No {!! $page_name !!}</h3></div>
 			@endif
 		</div>	
 	</div>

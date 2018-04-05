@@ -21,7 +21,7 @@
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						Subcategories
+						{{ $page_name }}
 					</div>	
 				</div>	
 				<div class="col-md-6">
@@ -40,9 +40,7 @@
 					<img class="cardheader" src="{{URL::to('/images/' . $subcategory->image)}}">
 						<h3><a href="{{route('subcategories.show', $subcategory->slug) }}">{{ $subcategory->title }}</a></h3>
 					<div class="card-body">					
-						<h5 class="subcat">	In:				
-							categories			
-						</h5>					   
+						<h5 class="subcat">	{{count($subcategory->chanels)}} chanels</h5>					   
 						<p>
 							Event Rating:<br />
 							<i class="fa fa-star"></i>

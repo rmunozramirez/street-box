@@ -26,8 +26,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-edit"></i> <a href="">Edit</a>
-		            	<i class="fas fa-trash"></i> <a href="">Delete</a>
+		            	<i class="fas fa-pencil-alt"></i><a title="Create a new Category<" href="{{route('categories.create') }}">Create a new Category</a>
 		            </div>
 		        </div>
 	        </div>

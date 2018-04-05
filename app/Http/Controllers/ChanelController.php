@@ -166,7 +166,7 @@ class ChanelController extends Controller
         $chanel->restore();
 
         Session::flash('success', 'Chanel successfully restored!');
-        return redirect()->route('chanels.index');
+        return redirect()->route('chanels.trashed');
     }
 
     public function kill($slug)
@@ -175,6 +175,6 @@ class ChanelController extends Controller
         $chanel->forceDelete();
 
         Session::flash('success', 'Chanel pemanently deleted!');
-        return redirect()->route('chanels.index');
+        return redirect()->route('chanels.trashed');
     }
 }
