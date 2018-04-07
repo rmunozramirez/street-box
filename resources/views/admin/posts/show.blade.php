@@ -1,19 +1,11 @@
-@extends('layouts.app')
-@section ('title', "| $post->title")
+@extends('layouts.admin')
+@section ('title', "| $page_name")
 @section('content')
-
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
 
 <section id="content">
 
-	@include ('partials._inner-title-blog')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
+
 		<div class="inside">
 			<div class="row">
 				<div class="col-md-12">
@@ -47,16 +39,19 @@
 		        </div>
 	        </div>
 
-
-                <!-- Preview Image -->
-                <figure>
-                	<img class="img-responsive" src="{{URL::to('/images/' . $post->image)}}" alt="{{ $post->title }}" name="{{ $post->title }}">
-                </figure>
-                <hr>
-                <h3>{{ $post->subtitle }}</h3>
-                <!-- Post Content -->
-                {!! $post->body !!}
-                <hr>
+			<div class="row">        
+			    <div class="col-md-4">
+	                <!-- Preview Image -->
+	                <figure>
+	                	<img class="img-responsive" src="{{URL::to('/images/' . $post->image)}}" alt="{{ $post->title }}" name="{{ $post->title }}">
+	                </figure>
+            	</div>
+                <div class="col-md-8">
+	                <h3>{{ $post->subtitle }}</h3>
+	                <!-- Post Content -->
+	                {!! $post->body !!}
+                </div>
+           	</div>
 
 
 		</div>	

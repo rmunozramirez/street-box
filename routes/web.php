@@ -18,17 +18,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-	//posts
-	Route::get('posts/trashed', 'PostsController@trashed')->name('posts.trashed');
-	Route::get('posts/restore/{slug}', 'PostsController@restore')->name('posts.restore');
-	Route::get('posts/kill/{slug}', 'PostsController@kill')->name('posts.kill');
-	Route::resource('posts', 'PostsController');
+	//news
+	Route::get('news', 'PostsController@index')->name('news.index');
+	Route::get('news/{slug}', 'PostsController@show')->name('news.show')->where('slug', '[\w\d\-\_]+');
 
 	//postcategories
-	Route::get('postcategories/trashed', 'PostcategoriesController@trashed')->name('postcategories.trashed');
-	Route::get('postcategories/restore/{slug}', 'PostcategoriesController@restore')->name('postcategories.restore');
-	Route::get('postcategories/kill/{slug}', 'PostcategoriesController@kill')->name('postcategories.kill');
-	Route::resource('postcategories', 'PostcategoriesController');
+	Route::get('newscategories', 'PostcategoriesController@index')->name('newscategories.index');
+	Route::get('newscategories/{slug}', 'PostcategoriesController@show')->name('newscategories.show')->where('slug', '[\w\d\-\_]+');
 
 
 	//chanels
@@ -61,4 +57,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	//users
 	Route::resource('users', 'UserController');
 
+	//posts
+	Route::get('posts/trashed', 'AdminPostsController@trashed')->name('posts.trashed');
+	Route::get('posts/restore/{slug}', 'AdminPostsController@restore')->name('posts.restore');
+	Route::get('posts/kill/{slug}', 'AdminPostsController@kill')->name('posts.kill');
+	Route::resource('posts', 'AdminPostsController');
+
+
+	//postcategories
+	Route::get('postcategories/trashed', 'AdminPostsCategoriesController@trashed')->name('postcategories.trashed');
+	Route::get('postcategories/restore/{slug}', 'AdminPostsCategoriesController@restore')->name('postcategories.restore');
+	Route::get('postcategories/kill/{slug}', 'AdminPostsCategoriesController@kill')->name('postcategories.kill');
+	Route::resource('postcategories', 'AdminPostsCategoriesController');
 });

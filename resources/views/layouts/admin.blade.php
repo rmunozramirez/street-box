@@ -14,7 +14,6 @@
 
               <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                   <!--  Blue resume over -->
-                @include ('admin.partials._resume')
 
                 @yield('content')
 
@@ -63,6 +62,22 @@
         toastr.success("{{Session::get('success')}}")
 
         @endif
+    </script>
+
+    <script type="text/javascript">
+        $('.select2-multi').select2({
+                maximumSelectionLength: 8,
+                placeholder: 'Choose an Actor',
+                allowClear: true
+            });
+    </script>
+
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'And the Oscars goes to...',
+            tabsize: 2,
+            height: 200
+        });
     </script>
 </body>
 </html>

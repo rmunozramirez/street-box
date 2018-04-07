@@ -1,21 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title-blog')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">	
 		<div class="inside">
-			<h2>{!! $page_name !!}</h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Posts: {{count($all_posts)}}</span></h2>
 
 			<div class="row">
 				<div class="col-md-6">
@@ -27,7 +18,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posts.create')}}">{!! $page_name !!}</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('posts.index')}}">Back to posts</a>
 		            </div>
 		        </div>
 	        </div>
@@ -48,11 +39,11 @@
 		<div class="row">
 			<div class="card-body">        
 
-		        {!! Form::model($post, ['method'=>'PATCH', 'action'=> ['PostsController@update', $post->slug ],'files'=>true]) !!}   
+		            {!!Form::open(array('route' => 'posts.store', 'files' => true)) !!}   
 
 		            <div class="row">        
 			            <div class="col-md-4"> 
-			            	<img class="img-responsive"  src="{{URL::to('/images/' . $post->image ) }}" alt="{{$post->title}}" >
+			            	<i class="far fa-image fa-10x"></i>
 
 			            	<div class=" pt-5">
 				                {!!Form::label('image', 'Upload a Featured Image') !!}
@@ -91,6 +82,11 @@
 					                {!! Form::radio('is_featured', 1, false, ['class' => 'mr-1']) !!} <span class="mr-3">Yes</span>
 									{!! Form::radio('is_featured', 0, true, ['class' => 'mr-1']) !!} No
 					            </div> 
+					            <div class="col-md-6">
+					            	{!! Form::label('posttags_id', 'Tags:') !!}
+                        			{!! Form::select('posttags_id', $all_posttags, null, array('multiple' => 'multiple', 'class' => 'form-control select2-multi'))!!}
+					            </div>
+
 				            </div>  
 
 				            <div class="row pt-5">        
@@ -102,13 +98,13 @@
 
 				            <div class="row pt-5"> 
 					            <div class="col-md-12">      
-					                {!!Form::label('body', 'Post description:', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::label('body', 'Post body:', array('class' => 'form-spacing-top'))!!}
 					                {!!Form::textarea('body', null, array('id' => 'summernote','class' => 'form-control', 'rows' => 9))!!}                       
 					            </div>
 				            </div>
 
 				            <div class="pt-5">    
-				                {!!Form::submit('Edit Post', array('class' => 'btn btn-success btn-block')) !!}
+				                {!!Form::submit('Add New Post', array('class' => 'btn btn-success btn-block')) !!}
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>

@@ -65,10 +65,6 @@
 
         @endif
     </script>
-    <script>
-      $(document).ready(function() {
-            $('.select2-multi').select2();
-        });
-    </script>
+
 </body>
 </html>

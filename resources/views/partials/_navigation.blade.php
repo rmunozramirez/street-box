@@ -41,9 +41,9 @@
                             </div>
                         </li>                               
 
-                        <li aria-haspopup="true"><a href="{{route('posts.index')}}"><i class="fa fa-play-circle"></i> Blog</a>    <div class="grid-container3">
+                        <li aria-haspopup="true"><a href="{{route('news.index')}}"><i class="fa fa-play-circle"></i> Blog</a>    <div class="grid-container3">
                                 <ul>
-                                    <li><a href="{{route('postcategories.index')}}">Blog Categories</a></li>        
+                                    <li><a href="{{route('newscategories.index')}}">Blog Categories</a></li>        
                                 </ul>
                             </div>
                         </li>

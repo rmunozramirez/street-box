@@ -20,12 +20,12 @@ mix.styles([
     'resources/assets/css/libs/sky-forms.css',
     'resources/assets/css/libs/sky-mega-menu.css',
     'resources/assets/css/libs/sky-tabs.css',
+    'resources/assets/css/libs/summernote.css',
     'resources/assets/css/libs/toastr.css',
     'resources/assets/css/libs/select2.min.css',
     'resources/assets/css/libs/bootstrap.css',
 
 ], 'public/css/libs.css');
-
 
 mix.scripts([
 
@@ -37,7 +37,7 @@ mix.scripts([
      'resources/assets/js/libs/jquery.maskedinput.min.js',
     'resources/assets/js/libs/jquery.modal.js',
     'resources/assets/js/libs/jquery.placeholder.min.js',
-
+    'resources/assets/js/libs/summernote.js',
     'resources/assets/js/libs/toastr.min.js',
     'resources/assets/js/libs/admin.min.js',
     'resources/assets/js/libs/select2.min.js',

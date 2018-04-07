@@ -38,10 +38,10 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="login.html">Posts</a>
+              <a href="{{ route('posts.index') }}">Posts</a>
             </li>
             <li>
-              <a href="register.html">Post Categries</a>
+              <a href="{{ route('postcategories.index') }}">Post Categories</a>
             </li>
             <li>
               <a href="{{ route('posttags.index') }}">Post Tags</a>
