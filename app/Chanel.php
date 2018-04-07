@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Chanel extends Model
 {
-
 	protected $fillable = [
 			
 			'subcategory_id',

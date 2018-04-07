@@ -93,7 +93,7 @@ class PostcategoriesController extends Controller
      */
     public function edit($slug)
     {
-        //find the film in the database
+
         $postcategory = Postcategory::where('slug', $slug)->first(); 
         $page_name = 'Edit: ' . $postcategory->title;
 

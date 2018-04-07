@@ -17,12 +17,12 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->integer('postcategory_id')->index()->unsigned();            
             $table->enum('status', ['published', 'programmed', 'draf'])->default('published');
-            $table->string('title', 60)->unique();  
-            $table->string('slug', 80)->unique();  
-            $table->string('subtitle', 150)->nullable();
+            $table->string('title')->unique();  
+            $table->string('slug')->unique();  
+            $table->string('subtitle')->nullable();
             $table->text('excerpt')->nullable;  
             $table->text('body');
-            $table->string('image', 80)->unique();
+            $table->string('image')->unique();
             $table->boolean('is_featured')->default(false);
             $table->integer('likes')->unsigned()->default(0);;
             $table->softDeletes();              

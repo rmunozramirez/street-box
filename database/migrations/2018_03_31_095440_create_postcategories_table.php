@@ -15,13 +15,13 @@ class CreatePostCategoriesTable extends Migration
     {
         Schema::create('postcategories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title', 60)->unique();
-            $table->string('slug', 80)->unique();
-            $table->string('subtitle', 150)->nullable();
-            $table->string('excerpt', 256)->nullable();
+            $table->string('title')->unique();
+            $table->string('slug')->unique();
+            $table->string('subtitle')->nullable();
+            $table->string('excerpt')->nullable();
             $table->text('about_category')->nullable();
             $table->enum('status', ['active', 'inactive', 'on_hold'])->default('active');       
-            $table->string('image', 80)->unique();
+            $table->string('image')->unique();
             $table->boolean('is_featured')->default(false);
             $table->boolean('in_menu')->default(false);
             $table->softDeletes();

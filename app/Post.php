@@ -29,4 +29,9 @@ class Post extends Model
         return $this->belongsTo('App\Postcategory');
    	}
 
+    public function posttag()
+    {
+        return $this->belongsToMany('App\Posttag');
+    } 
+
 }

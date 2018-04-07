@@ -3,28 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Category;
+use App\User;
+use App\Role;
+use Session;
 
-class AdminController extends Controller
+
+class UserController extends Controller
 {
-
-    public function __construct() {
-        $this->middleware(['auth', 'admin']);
-    }
-
-        /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function dashboard()
-    {
-        $page_name = 'Dashboard';
-
-        return view('admin.dashboard', compact('page_name'));
-    }
-
-
     /**
      * Display a listing of the resource.
      *
@@ -32,11 +17,12 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $users = User::orderBy('created_at', 'asc')->paginate(4);
+        $total = User::all();
+        $page_name = 'User';
+        $roles = Role::all();
 
-        $total = Category::all();
-        $page_name = 'Dashboard';
-
-        return view('admin.index', compact('total', 'page_name'));
+        return view('admin.users.index', compact('users', 'total', 'page_name', 'roles'));
     }
 
     /**

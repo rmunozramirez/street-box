@@ -9,7 +9,9 @@ use App\Chanel;
 use App\Subcategory;
 use App\Category;
 use App\Post;
+use App\Posttag;
 use App\Postcategory;
+use App\User;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         $all_categories = Category::orderBy('title', 'asc')->pluck('title', 'id')->all();
         $all_postcategories = Postcategory::pluck('title', 'id')->all();
         $all_posts = Post::all();
+        $all_posttags = Posttag::pluck('name', 'id')->all(); 
+        $all_users = User::all();
         $page_name = 'App';
         View::share(array('all_chanels' => $all_chanels, 
                             'all_subcategories' => $all_subcategories,
@@ -33,6 +37,8 @@ class AppServiceProvider extends ServiceProvider
                             'all_page_name' =>  $page_name,
                             'all_postcategories' =>  $all_postcategories,
                             'all_posts' =>  $all_posts,
+                            'all_posttags' =>  $all_posttags,
+                            'all_users' =>  $all_users,
                         ));
     }
 

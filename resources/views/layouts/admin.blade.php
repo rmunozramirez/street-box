@@ -5,11 +5,22 @@
 
 <body>
     <div id="app">
+      <section id="content">
 
-        <main>
-            @yield('content')
-        
-        </main>  
+        @include ('admin.partials._inner-title')
+
+              <!--  left vertical menu -->
+              @include ('admin.partials._navigation-dashboard')
+
+              <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                  <!--  Blue resume over -->
+                @include ('admin.partials._resume')
+
+                @yield('content')
+
+              </main>
+
+        </section>
 
     </div>
 

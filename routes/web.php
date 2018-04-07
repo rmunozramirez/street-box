@@ -30,6 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('postcategories/kill/{slug}', 'PostcategoriesController@kill')->name('postcategories.kill');
 	Route::resource('postcategories', 'PostcategoriesController');
 
+
 	//chanels
 	Route::get('chanels/trashed', 'ChanelController@trashed')->name('chanels.trashed');
 	Route::get('chanels/restore/{slug}', 'ChanelController@restore')->name('chanels.restore');
@@ -48,5 +49,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('categories/kill/{slug}', 'CategoriesController@kill')->name('categories.kill');
 	Route::resource('categories', 'CategoriesController');
 
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+
 	//admin
-	Route::resource('admin', 'AdminController')->middleware('admin');
+	Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
+
+	//posttags
+	Route::resource('posttags', 'PosttagController');
+
+	//users
+	Route::resource('users', 'UserController');
+
+});

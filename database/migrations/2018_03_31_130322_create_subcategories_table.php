@@ -16,13 +16,13 @@ class CreateSubcategoriesTable extends Migration
         Schema::create('subcategories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('category_id')->index();
-            $table->string('title', 60)->unique();
-            $table->string('subtitle', 150)->nullable();
-            $table->string('slug', 80)->unique();
-            $table->string('excerpt', 256)->nullable();
+            $table->string('title')->unique();
+            $table->string('subtitle')->nullable();
+            $table->string('slug')->unique();
+            $table->string('excerpt')->nullable();
             $table->enum('status', ['active', 'inactive', 'on_hold'])->default('active');
             $table->text('about_subcategory')->nullable();
-            $table->string('image', 80)->unique();
+            $table->string('image')->unique();
             $table->boolean('is_featured')->default(false);
             $table->boolean('in_menu')->default(true);
             $table->softDeletes();

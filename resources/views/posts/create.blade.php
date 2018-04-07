@@ -91,6 +91,11 @@
 					                {!! Form::radio('is_featured', 1, false, ['class' => 'mr-1']) !!} <span class="mr-3">Yes</span>
 									{!! Form::radio('is_featured', 0, true, ['class' => 'mr-1']) !!} No
 					            </div> 
+					            <div class="col-md-6">
+					            	{!! Form::label('posttags_id', 'Tags:') !!}
+                        			{!! Form::select('posttags_id', $all_posttags, null, array('multiple' => 'multiple', 'class' => 'form-control select2-multi'))!!}
+					            </div>
+
 				            </div>  
 
 				            <div class="row pt-5">        

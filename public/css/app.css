@@ -10579,3 +10579,15 @@ select.form-control {
   color: #666 !important;
 }
 
+.resume .nav > li > a {
+  padding: 0;
+}
+
+.resume .nav > li > a:hover {
+  background-color: grey;
+}
+
+.d-none {
+  height: calc(100vh - 110px);
+}
+

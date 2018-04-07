@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 05. Apr 2018 um 19:05
+-- Erstellungszeit: 06. Apr 2018 um 22:06
 -- Server-Version: 5.7.19
 -- PHP-Version: 7.2.2
 
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `excerpt` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `excerpt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `about_category` text COLLATE utf8mb4_unicode_ci,
   `status` enum('active','inactive','on_hold') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
-  `image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `in_menu` tinyint(1) NOT NULL DEFAULT '1',
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -49,11 +49,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `subtitle`, `excerpt`, `about_category`, `status`, `image`, `is_featured`, `in_menu`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Category One', 'category-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(2, 'Category Two', 'category-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'concerto.jpg', 1, 1, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(3, 'Category Three', 'category-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'cha-cha-cha.jpg', 0, 0, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(4, 'Category Four', 'category-four', 'Subtitle Category Four', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'inactive', 'bolliwood.jpg', 0, 0, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(5, 'Category Five', 'category-five', 'Subtitle Category Five', 'This is the excerpt of the Category Five', 'This is the description of the Category Five', 'inactive', 'berlin.jpg', 0, 0, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10');
+(1, 'Category One', 'category-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 'Category Two', 'category-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'concerto.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 'Category Three', 'category-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'cha-cha-cha.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(4, 'Category Four', 'category-four', 'Subtitle Category Four', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'inactive', 'bolliwood.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(5, 'Category Five', 'category-five', 'Subtitle Category Five', 'This is the excerpt of the Category Five', 'This is the description of the Category Five', 'inactive', 'berlin.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
 
 -- --------------------------------------------------------
 
@@ -65,22 +65,22 @@ CREATE TABLE `chanels` (
   `id` int(10) UNSIGNED NOT NULL,
   `subcategory_id` int(10) UNSIGNED NOT NULL,
   `status` enum('active','inactive','on_hold','banned') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'inactive',
-  `title` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `excerpt` text COLLATE utf8mb4_unicode_ci,
   `about_chanel` text COLLATE utf8mb4_unicode_ci,
-  `image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `video` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `likes` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `is_testimonial` tinyint(1) NOT NULL DEFAULT '0',
-  `web` varchar(160) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `facebook` varchar(160) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `googleplus` varchar(160) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `twitter` varchar(160) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `linkedin` varchar(160) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `youtube` varchar(160) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `web` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `googleplus` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `youtube` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -91,13 +91,13 @@ CREATE TABLE `chanels` (
 --
 
 INSERT INTO `chanels` (`id`, `subcategory_id`, `status`, `title`, `slug`, `subtitle`, `excerpt`, `about_chanel`, `image`, `video`, `is_featured`, `likes`, `is_testimonial`, `web`, `facebook`, `googleplus`, `twitter`, `linkedin`, `youtube`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'active', 'Chanel One-one-one', 'chanel-one-one-one', 'Subtitle Chanel One-one-one', 'This is the excerpt of the Chanel One-one-one', 'This is the description of the Chanel One-one-one', 'bmw.jpg', 'bmw.mp4', 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL),
-(2, 1, 'active', 'Chanel One-One-Two', 'chanel-one-one-two', 'Subtitle Chanel One-One-Two', 'This is the excerpt of the Chanel One-One-Two', 'This is the description of the Chanel One-One-Two', 'auto-clasico.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL),
-(3, 2, 'active', 'Chanel One-two-One', 'chanel-one-two-one', 'Subtitle Chanel One-two-One', 'This is the excerpt of the Chanel One-two-One', 'This is the description of the Chanel One-two-One', 'bad-wimpfen.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL),
-(4, 2, 'active', 'Chanel One-two-Two', 'chanel-one-two-two', 'Subtitle Chanel One-two-Two', 'This is the excerpt of the Chanel One-two-Two', 'This is the description of the Chanel One-two-Two', 'ballet.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL),
-(5, 2, 'active', 'Chanel One-two-Three', 'chanel-one-two-three', 'Subtitle Chanel One-two-Three', 'This is the excerpt of the Chanel One-two-Three', 'This is the description of the Chanel One-two-Three', 'kite.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL),
-(6, 1, 'active', 'Chanel two-one-one', 'chanel-two-one-one', 'Subtitle Chanel two-one-one', 'This is the excerpt of the Chanel two-one-one', 'This is the description of the Chanel two-one-one', 'dance.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL),
-(7, 1, 'active', 'Chanel Three-one-one', 'chanel-three-one-one', 'Subtitle Chanel Three-one-one', 'This is the excerpt of the Chanel Three-one-one', 'This is the description of the Chanel Three-one-one', 'berlin.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-05 17:03:10', '2018-04-05 17:03:10', NULL);
+(1, 1, 'active', 'Chanel One-one-one', 'chanel-one-one-one', 'Subtitle Chanel One-one-one', 'This is the excerpt of the Chanel One-one-one', 'This is the description of the Chanel One-one-one', 'bmw.jpg', 'bmw.mp4', 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
+(2, 1, 'active', 'Chanel One-One-Two', 'chanel-one-one-two', 'Subtitle Chanel One-One-Two', 'This is the excerpt of the Chanel One-One-Two', 'This is the description of the Chanel One-One-Two', 'auto-clasico.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
+(3, 2, 'active', 'Chanel One-two-One', 'chanel-one-two-one', 'Subtitle Chanel One-two-One', 'This is the excerpt of the Chanel One-two-One', 'This is the description of the Chanel One-two-One', 'bad-wimpfen.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
+(4, 2, 'active', 'Chanel One-two-Two', 'chanel-one-two-two', 'Subtitle Chanel One-two-Two', 'This is the excerpt of the Chanel One-two-Two', 'This is the description of the Chanel One-two-Two', 'ballet.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
+(5, 2, 'active', 'Chanel One-two-Three', 'chanel-one-two-three', 'Subtitle Chanel One-two-Three', 'This is the excerpt of the Chanel One-two-Three', 'This is the description of the Chanel One-two-Three', 'kite.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
+(6, 1, 'active', 'Chanel two-one-one', 'chanel-two-one-one', 'Subtitle Chanel two-one-one', 'This is the excerpt of the Chanel two-one-one', 'This is the description of the Chanel two-one-one', 'dance.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
+(7, 1, 'active', 'Chanel Three-one-one', 'chanel-three-one-one', 'Subtitle Chanel Three-one-one', 'This is the excerpt of the Chanel Three-one-one', 'This is the description of the Chanel Three-one-one', 'berlin.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -116,14 +116,16 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(217, '2014_10_12_000000_create_users_table', 1),
-(218, '2014_10_12_100000_create_password_resets_table', 1),
-(219, '2018_03_30_114433_create_posts_table', 1),
-(220, '2018_03_31_095440_create_postcategories_table', 1),
-(221, '2018_03_31_130322_create_subcategories_table', 1),
-(222, '2018_03_31_142116_create_categories_table', 1),
-(223, '2018_03_31_143733_create_chanels_table', 1),
-(224, '2018_04_05_175611_create_roles_table', 1);
+(254, '2014_10_12_000000_create_users_table', 1),
+(255, '2014_10_12_100000_create_password_resets_table', 1),
+(256, '2018_03_30_114433_create_posts_table', 1),
+(257, '2018_03_31_095440_create_postcategories_table', 1),
+(258, '2018_03_31_130322_create_subcategories_table', 1),
+(259, '2018_03_31_142116_create_categories_table', 1),
+(260, '2018_03_31_143733_create_chanels_table', 1),
+(261, '2018_04_05_175611_create_roles_table', 1),
+(262, '2018_04_06_090602_create_posttags_table', 1),
+(263, '2018_04_06_091545_create_posts_posttags_table', 1);
 
 -- --------------------------------------------------------
 
@@ -145,13 +147,13 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `postcategories` (
   `id` int(10) UNSIGNED NOT NULL,
-  `title` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `excerpt` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `excerpt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `about_category` text COLLATE utf8mb4_unicode_ci,
   `status` enum('active','inactive','on_hold') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
-  `image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `in_menu` tinyint(1) NOT NULL DEFAULT '0',
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -164,9 +166,9 @@ CREATE TABLE `postcategories` (
 --
 
 INSERT INTO `postcategories` (`id`, `title`, `slug`, `subtitle`, `excerpt`, `about_category`, `status`, `image`, `is_featured`, `in_menu`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Postcategory One', 'postcategory-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-05 17:03:09', '2018-04-05 17:03:09'),
-(2, 'Postcategory Two', 'postcategory-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'bolliwood.jpg', 1, 1, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(3, 'Postcategory Three', 'postcategory-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'concerto.jpg', 0, 0, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10');
+(1, 'Postcategory One', 'postcategory-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 'Postcategory Two', 'postcategory-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'bolliwood.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 'Postcategory Three', 'postcategory-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'concerto.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
 
 -- --------------------------------------------------------
 
@@ -178,12 +180,12 @@ CREATE TABLE `posts` (
   `id` int(10) UNSIGNED NOT NULL,
   `postcategory_id` int(10) UNSIGNED NOT NULL,
   `status` enum('published','programmed','draf') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'published',
-  `title` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `excerpt` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `body` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `likes` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -197,10 +199,48 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `postcategory_id`, `status`, `title`, `slug`, `subtitle`, `excerpt`, `body`, `image`, `is_featured`, `likes`, `deleted_at`, `published_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'published', 'Post One', 'post-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'bmw.jpg', 1, 1, NULL, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(2, 2, 'published', 'Post Two', 'post-two', 'Subtitle Post Two', 'This is the excerpt of the Category TwoTwo', 'This is the description of the Category Two', 'berlin.jpg', 1, 1, NULL, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(3, 2, 'published', 'Post Three', 'post-three', 'Subtitle Category Three', 'This is the excerpt of the Category ThreeThree', 'This is the description of the Category Three', 'cha-cha-cha.jpg', 1, 1, NULL, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(4, 1, 'published', 'Post Four', 'post-four', 'Subtitle Category One', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'concert.jpg', 3, 1, NULL, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10');
+(1, 1, 'published', 'Post One', 'post-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'bmw.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 2, 'published', 'Post Two', 'post-two', 'Subtitle Post Two', 'This is the excerpt of the Category TwoTwo', 'This is the description of the Category Two', 'berlin.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 2, 'published', 'Post Three', 'post-three', 'Subtitle Category Three', 'This is the excerpt of the Category ThreeThree', 'This is the description of the Category Three', 'cha-cha-cha.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(4, 1, 'published', 'Post Four', 'post-four', 'Subtitle Category One', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'concert.jpg', 3, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `posts_posttags`
+--
+
+CREATE TABLE `posts_posttags` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `posttag_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `posttags`
+--
+
+CREATE TABLE `posttags` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Daten für Tabelle `posttags`
+--
+
+INSERT INTO `posttags` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Dance', 'dance', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 'Artes plasticas', 'artes-plasticas', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 'Theather', 'theather', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(4, 'Music', 'music', '2018-04-06 20:06:36', '2018-04-06 20:06:36');
 
 -- --------------------------------------------------------
 
@@ -220,9 +260,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(2, 'author', '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(3, 'subscriber', '2018-04-05 17:03:10', '2018-04-05 17:03:10');
+(1, 'admin', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 'author', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 'subscriber', '2018-04-06 20:06:36', '2018-04-06 20:06:36');
 
 -- --------------------------------------------------------
 
@@ -233,13 +273,13 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `subcategories` (
   `id` int(10) UNSIGNED NOT NULL,
   `category_id` int(11) NOT NULL,
-  `title` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `subtitle` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `excerpt` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `excerpt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` enum('active','inactive','on_hold') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
   `about_subcategory` text COLLATE utf8mb4_unicode_ci,
-  `image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_featured` tinyint(1) NOT NULL DEFAULT '0',
   `in_menu` tinyint(1) NOT NULL DEFAULT '1',
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -252,10 +292,10 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `title`, `subtitle`, `slug`, `excerpt`, `status`, `about_subcategory`, `image`, `is_featured`, `in_menu`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Subcategory One-One', 'Subtitle Subcategory One-One', 'subcategory-one-one', 'This is the excerpt of the Subcategory one-one', 'active', 'This is the description of the Subcategory one-one', 'bmw.jpg', 1, 1, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(2, 1, 'Subcategory One-Two', 'Subtitle Subcategory One-Two', 'subcategory-one-two', 'This is the excerpt of the Subcategory One-Two', 'active', 'This is the description of the Subcategory One-Two', 'berlin.jpg', 1, 1, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(3, 2, 'Subcategory Two-One', 'Subtitle Subcategory Two-one', 'subcategory-two-one', 'This is the excerpt of the Subcategory Two-one', 'inactive', 'This is the description of the Subcategory Two-one', 'concert.jpg', 0, 0, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10'),
-(4, 3, 'Subcategory Three-One', 'Subtitle Subcategory Three-one', 'subcategory-three-one', 'This is the excerpt of the Subcategory Three-one', 'inactive', 'This is the description of the Subcategory Three-one', 'concerto.jpg', 0, 0, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10');
+(1, 1, 'Subcategory One-One', 'Subtitle Subcategory One-One', 'subcategory-one-one', 'This is the excerpt of the Subcategory one-one', 'active', 'This is the description of the Subcategory one-one', 'bmw.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 1, 'Subcategory One-Two', 'Subtitle Subcategory One-Two', 'subcategory-one-two', 'This is the excerpt of the Subcategory One-Two', 'active', 'This is the description of the Subcategory One-Two', 'berlin.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 2, 'Subcategory Two-One', 'Subtitle Subcategory Two-one', 'subcategory-two-one', 'This is the excerpt of the Subcategory Two-one', 'inactive', 'This is the description of the Subcategory Two-one', 'concert.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(4, 3, 'Subcategory Three-One', 'Subtitle Subcategory Three-one', 'subcategory-three-one', 'This is the excerpt of the Subcategory Three-one', 'inactive', 'This is the description of the Subcategory Three-one', 'concerto.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
 
 -- --------------------------------------------------------
 
@@ -268,7 +308,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role_id` int(11) NOT NULL DEFAULT '2',
+  `role_id` int(11) NOT NULL DEFAULT '3',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -279,7 +319,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Rafael Muñoz', 'rafaelmunoznl@yahoo.com', '$2y$10$amYw3MU66DoqxY8dHt9ou.gkSJGOyA/XcEGZrRUtRVfx44EuhbjNq', 2, NULL, '2018-04-05 17:03:10', '2018-04-05 17:03:10');
+(1, 'Rafael Muñoz', 'rafaelmunoznl@yahoo.com', '$2y$10$B1zHeUmjPM.9mtvxkKZbB.FgsmLLXJ0mrfKhZpLvkogQuf3s1Bu22', 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(2, 'Enrique (Kike) Muñoz Botschka', 'kike901@gmail.com', '$2y$10$mCtNjhLOfZB3P3MscpzjjeZYGoCwPHsIzhaaceL4oCqAy2wMJm4uy', 2, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(3, 'Amelie Muñoz Botschka', 'amelie@yahoo.com', '$2y$10$OxNZzA/BWY5tP4qJNRWHu.OE5H3mpSESYCJgt2BzxY3RBMiNdH/.O', 3, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
 
 --
 -- Indizes der exportierten Tabellen
@@ -337,6 +379,22 @@ ALTER TABLE `posts`
   ADD KEY `posts_postcategory_id_index` (`postcategory_id`);
 
 --
+-- Indizes für die Tabelle `posts_posttags`
+--
+ALTER TABLE `posts_posttags`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `posts_posttags_post_id_foreign` (`post_id`),
+  ADD KEY `posts_posttags_posttag_id_foreign` (`posttag_id`);
+
+--
+-- Indizes für die Tabelle `posttags`
+--
+ALTER TABLE `posttags`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `posttags_name_unique` (`name`),
+  ADD UNIQUE KEY `posttags_slug_unique` (`slug`);
+
+--
 -- Indizes für die Tabelle `roles`
 --
 ALTER TABLE `roles`
@@ -380,7 +438,7 @@ ALTER TABLE `chanels`
 -- AUTO_INCREMENT für Tabelle `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=264;
 
 --
 -- AUTO_INCREMENT für Tabelle `postcategories`
@@ -392,6 +450,18 @@ ALTER TABLE `postcategories`
 -- AUTO_INCREMENT für Tabelle `posts`
 --
 ALTER TABLE `posts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT für Tabelle `posts_posttags`
+--
+ALTER TABLE `posts_posttags`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `posttags`
+--
+ALTER TABLE `posttags`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -410,7 +480,18 @@ ALTER TABLE `subcategories`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints der exportierten Tabellen
+--
+
+--
+-- Constraints der Tabelle `posts_posttags`
+--
+ALTER TABLE `posts_posttags`
+  ADD CONSTRAINT `posts_posttags_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
+  ADD CONSTRAINT `posts_posttags_posttag_id_foreign` FOREIGN KEY (`posttag_id`) REFERENCES `posttags` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

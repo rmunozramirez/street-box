@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Requests\Postsrequest;
 use App\Postcategory;
+use App\Posttag;
 use Session;
 
 class PostsController extends Controller
@@ -32,7 +33,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-
+     
         $postcategories = Postcategory::pluck('title', 'id')->all();         
         $postcategoriescount = Postcategory::all();
         $page_name =  'Create a new Post';
@@ -57,6 +58,7 @@ class PostsController extends Controller
     public function store(Postsrequest $request)
     {
 
+        dd($request);
         $file = $request->file('image');
         $name = time() . '-' . $file->getClientOriginalName();
         $file->move('images', $name);
@@ -76,6 +78,12 @@ class PostsController extends Controller
 
 
         $post->save();
+
+        //sync with tags
+        if ($request->posttags_id) {
+            $post->posttag()->sync($request->posttag_id);
+        }
+
 
         Session::flash('success', 'Blog Post successfully created!');
      

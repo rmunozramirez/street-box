@@ -41,7 +41,7 @@ class ChanelsRequest extends FormRequest
             'googleplus'    => 'string|max:255',
             'twitter'       => 'string|max:255',
             'linkedin'      => 'string|max:255',
-            'youtube'       => 'string|max:255'
+            'youtube'       => 'string|max:255',
 
         ];
     }
