@@ -12,6 +12,7 @@ use App\Post;
 use App\Posttag;
 use App\Postcategory;
 use App\User;
+use App\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $all_posts = Post::all();
         $all_posttags = Posttag::pluck('name', 'id')->all(); 
         $all_users = User::all();
+        $all_roles = Role::pluck('name', 'id')->all();
         $page_name = 'App';
         View::share(array('all_chanels' => $all_chanels, 
                             'all_subcategories' => $all_subcategories,
@@ -39,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
                             'all_posts' =>  $all_posts,
                             'all_posttags' =>  $all_posttags,
                             'all_users' =>  $all_users,
+                            'all_roles' =>  $all_roles,
                         ));
     }
 

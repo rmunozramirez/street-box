@@ -85,7 +85,7 @@ class AdminPostsController extends Controller
 
     public function edit($slug)
     {
-        //find the film in the database
+
         $post = Post::where('slug', $slug)->first(); 
         $page_name = 'Edit: ' . $post->title;
         $postcategories = Postcategory::orderBy('title', 'asc')->pluck('title', 'id')->all();

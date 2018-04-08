@@ -16,6 +16,7 @@ class UserTableSeeder extends Seeder
             'email'     =>  'rafaelmunoznl@yahoo.com',
             'password'  =>  bcrypt('Password'),
             'role_id'   =>  1,
+            'slug'      =>  'rafael-munoz',
 
         ]);
 
@@ -24,7 +25,7 @@ class UserTableSeeder extends Seeder
             'email'     =>  'kike901@gmail.com',
             'password'  =>  bcrypt('Password'),
             'role_id'   =>  2,
-
+            'slug'      =>  'enrique-kike-munoz-botschka',
         ]);
 
         App\User::create ([
@@ -32,7 +33,7 @@ class UserTableSeeder extends Seeder
         	'email'		=>	'amelie@yahoo.com',
         	'password'	=>	bcrypt('Password'),
             'role_id'   =>  3,
-
+            'slug'      =>  'amelie-munoz-botschka',
         ]);
     }
 }

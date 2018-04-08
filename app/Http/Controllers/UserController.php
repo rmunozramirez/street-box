@@ -52,9 +52,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $user = User::where('slug', $slug)->first();
+        $page_name = $post->title;
+
+        return view('admin.users.show', compact('user', 'page_name', 'total'));
     }
 
     /**
@@ -63,9 +66,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $user = User::where('slug', $slug)->first();
+        $page_name = 'Edit: ' . $user->name;
+
+        return view('admin.users.edit', compact('user', 'page_name'));
+
     }
 
     /**
@@ -77,7 +84,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+        $user = User::where('slug', $slug)->first();
+        $user->fill($input)->save();
+        $page_name = $user;
+
+        Session::flash('success', 'User successfully updated!');
+     
+        return redirect()->route('users.show', $user->slug);
     }
 
     /**
@@ -88,6 +103,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::where('slug', $slug)->first();
+        $user->delete();
+
+        Session::flash('success', 'User successfully deleted!');
+        return redirect()->route('users.index');
     }
 }

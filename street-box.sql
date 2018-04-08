@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 06. Apr 2018 um 22:06
+-- Erstellungszeit: 08. Apr 2018 um 10:03
 -- Server-Version: 5.7.19
 -- PHP-Version: 7.2.2
 
@@ -202,7 +202,13 @@ INSERT INTO `posts` (`id`, `postcategory_id`, `status`, `title`, `slug`, `subtit
 (1, 1, 'published', 'Post One', 'post-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'bmw.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
 (2, 2, 'published', 'Post Two', 'post-two', 'Subtitle Post Two', 'This is the excerpt of the Category TwoTwo', 'This is the description of the Category Two', 'berlin.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
 (3, 2, 'published', 'Post Three', 'post-three', 'Subtitle Category Three', 'This is the excerpt of the Category ThreeThree', 'This is the description of the Category Three', 'cha-cha-cha.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(4, 1, 'published', 'Post Four', 'post-four', 'Subtitle Category One', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'concert.jpg', 3, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+(4, 1, 'published', 'Post Four', 'post-four', 'Subtitle Category One', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'concert.jpg', 3, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
+(5, 1, 'programmed', 'This is a new post', 'this-is-a-new-post', 'This is the subtitle post', 'http://street-box.test/', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, products an', '1523055146-1492-conquest-of-paradise.jpg', 1, 0, NULL, NULL, '2018-04-06 20:52:26', '2018-04-06 20:52:26'),
+(6, 2, 'published', 'The new Category post', 'the-new-category-post', 'This is the subtitle post', 'This is the excerpt of the new chanel edited', 'ake Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, pro', '1523055440-adrien-brody.jpg', 1, 0, NULL, NULL, '2018-04-06 20:57:20', '2018-04-06 20:57:20'),
+(7, 3, 'programmed', 'Postcategory Two Edited', 'postcategory-two-edited', 'This is the subtitle post', 'e are a creative studio specia', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs,', '1523055534-1474140795.jpg', 1, 0, NULL, NULL, '2018-04-06 20:58:54', '2018-04-06 20:58:54'),
+(8, 1, 'programmed', 'Postcategory Two Edited for me', 'postcategory-two-edited-for-me', 'This is the subtitle post', 'This is the excerpt of the new chanel edited', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, products a', '1523055686-after-earth.jpg', 1, 0, NULL, NULL, '2018-04-06 21:01:26', '2018-04-06 21:01:26'),
+(9, 1, 'programmed', 'Postcategory Two Edited for me ahora', 'postcategory-two-edited-for-me-ahora', 'This is the subtitle post', 'This is the excerpt of the new chanel edited', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, products a', '1523055829-aaron-eckhart.jpg', 1, 0, NULL, NULL, '2018-04-06 21:03:49', '2018-04-06 21:03:49'),
+(10, 1, 'published', 'My second post edited hhffhg', 'my-second-post-edited-hhffhg', 'Es war ein Mal in einen weit fern Dorf', 'http://street-box.test/', 'fhjjghmgmg', '1523055938-1474141016.jpg', 1, 0, NULL, NULL, '2018-04-06 21:05:38', '2018-04-06 21:05:38');
 
 -- --------------------------------------------------------
 
@@ -450,7 +456,7 @@ ALTER TABLE `postcategories`
 -- AUTO_INCREMENT für Tabelle `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT für Tabelle `posts_posttags`

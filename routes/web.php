@@ -26,12 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('newscategories', 'PostcategoriesController@index')->name('newscategories.index');
 	Route::get('newscategories/{slug}', 'PostcategoriesController@show')->name('newscategories.show')->where('slug', '[\w\d\-\_]+');
 
-
 	//chanels
-	Route::get('chanels/trashed', 'ChanelController@trashed')->name('chanels.trashed');
-	Route::get('chanels/restore/{slug}', 'ChanelController@restore')->name('chanels.restore');
-	Route::get('chanels/kill/{slug}', 'ChanelController@kill')->name('chanels.kill');
-	Route::resource('chanels', 'ChanelController');
+	Route::get('chanels', 'ChanelController@index')->name('chanels.index');
+	Route::get('chanels/{slug}', 'ChanelController@show')->name('chanels.show')->where('slug', '[\w\d\-\_]+');
 
 	//subcategories
 	Route::get('subcategories/trashed', 'SubcategoriesController@trashed')->name('subcategories.trashed');
@@ -51,22 +48,30 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	//admin
 	Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
 
-	//posttags
-	Route::resource('posttags', 'PosttagController');
-
+//Users
 	//users
 	Route::resource('users', 'UserController');
 
+//Blog
 	//posts
 	Route::get('posts/trashed', 'AdminPostsController@trashed')->name('posts.trashed');
 	Route::get('posts/restore/{slug}', 'AdminPostsController@restore')->name('posts.restore');
 	Route::get('posts/kill/{slug}', 'AdminPostsController@kill')->name('posts.kill');
 	Route::resource('posts', 'AdminPostsController');
 
+	//posttags
+	Route::resource('posttags', 'PosttagController');
 
 	//postcategories
 	Route::get('postcategories/trashed', 'AdminPostsCategoriesController@trashed')->name('postcategories.trashed');
 	Route::get('postcategories/restore/{slug}', 'AdminPostsCategoriesController@restore')->name('postcategories.restore');
 	Route::get('postcategories/kill/{slug}', 'AdminPostsCategoriesController@kill')->name('postcategories.kill');
 	Route::resource('postcategories', 'AdminPostsCategoriesController');
+
+//Chanels
+	//chanels
+	Route::get('chanels/trashed', 'ChanelController@trashed')->name('chanels.trashed');
+	Route::get('chanels/restore/{slug}', 'ChanelController@restore')->name('chanels.restore');
+	Route::get('chanels/kill/{slug}', 'ChanelController@kill')->name('chanels.kill');
+	Route::resource('chanels', 'ChanelController');
 });

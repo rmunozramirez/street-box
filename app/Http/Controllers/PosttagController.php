@@ -32,7 +32,7 @@ class PosttagController extends Controller
      */
     public function create()
     {
-
+        
         $page_name = 'Create a Blog Tag';
         return view('admin.posttags.create', compact('page_name'));
     }

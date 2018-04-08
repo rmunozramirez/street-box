@@ -34,13 +34,13 @@
 					         <tbody>
 					         	@foreach ($users as $user)
 					            <tr>
-					               <td><a href="{{route('users.show', $user->id)}}">{{$user->name}}</a></td>
+					               <td><a href="{{route('users.show', $user->slug)}}">{{$user->name}}</a></td>
 					               <td>{{$user->role->name}}</td>
 					               <td>{{$user->created_at}}</td>
 					               <td>
-					               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->id)}}">Edit</a>
+					               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->slug)}}">Edit</a>
 						            	<div class="col-md-6">
-							            	{!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'DELETE']) !!}
+							            	{!! Form::open(['route' => ['users.destroy', $user->slug], 'method' => 'DELETE']) !!}
 
 											{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
 
