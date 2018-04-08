@@ -1,32 +1,24 @@
-@extends('layouts.app')
-@section ('title', '| All Blog Categories')
+@extends('layouts.admin')
+@section ('title', "| $page_name")
 @section('content')
-
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
 
 <section id="content">
 
-	@include ('partials._inner-title-blog')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>{{count($postcategories)}} {!! $page_name !!} </h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Categories: {{count($all_postcategories)}}</span> </h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						{!! $page_name !!}
+						Blog Categories
+
 					</div>	
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">Create a {!! $page_name !!}</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('postcategories.index')}}">Back to post categories</a>
 		            </div>
 		        </div>
 	        </div>

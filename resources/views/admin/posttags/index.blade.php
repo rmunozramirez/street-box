@@ -6,6 +6,7 @@
 
     <div id="contenido"  class="card">
 		<div class="inside">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Tags: {{count($all_posttags)}}</span> </h2>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
@@ -15,7 +16,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="pull-right admin">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posttags.create')}}">Create a new Tag</a>
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posttags.create')}}">Create a new Post Tag</a>
 
 		            </div>
 		        </div>

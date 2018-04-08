@@ -1,40 +1,26 @@
-@extends('layouts.app')
-@section ('title', "| $postcategory->title")
+@extends('layouts.admin')
+@section ('title', "| $page_name")
 @section('content')
-
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
 
 <section id="content">
 
-	@include ('partials._inner-title-blog')
-	
-    <div  id="contenido"  class="container left-right-shadow">
+    <div id="contenido"  class="card">
 		<div class="inside">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Categories: {{count($all_postcategories)}}</span> </h2>
+
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						{!! $page_name !!}
+						Blog Categories
+
 					</div>	
 				</div>	
-				<div class="col-md-4">
-		            <div class="row">
-		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('postcategories.edit', $postcategory->slug)}}">Edit</a>
-		            	<div class="col-md-6">
-			            	{!! Form::open(['route' => ['postcategories.destroy', $postcategory->slug], 'method' => 'DELETE']) !!}
-
-							{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
-
-							{!! Form::close() !!}
-						</div>
+				<div class="col-md-6">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-chevron-left"></i><a href="{{route('postcategories.index')}}">Back to categories</a>
 		            </div>
 		        </div>
-
 	        </div>
         	<hr>
 		<div class="row">

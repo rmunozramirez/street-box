@@ -16,22 +16,15 @@
     <div  id="contenido"  class="container left-right-shadow">
 		<div class="inside">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-10">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
 						{!! $page_name !!}
 					</div>	
 				</div>	
-				<div class="col-md-4">
-		            <div class="row">
-		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('postcategories.edit', $postcategory->slug)}}">Edit</a>
-		            	<div class="col-md-6">
-			            	{!! Form::open(['route' => ['postcategories.destroy', $postcategory->slug], 'method' => 'DELETE']) !!}
-
-							{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
-
-							{!! Form::close() !!}
-						</div>
+				<div class="col-md-2">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-chevron-left"></i><a href="{{route('newscategories.index')}}">Back to categories</a>
 		            </div>
 		        </div>
 

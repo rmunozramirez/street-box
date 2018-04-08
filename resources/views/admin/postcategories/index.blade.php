@@ -19,11 +19,13 @@
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
 		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">Create a {!! $page_name !!}</a>
+		            	<i class="fas fa-trash"></i> <a href="{{route('postcategories.trashed')}}">Trashed Posts</a>
+		            	
 		            </div>
 		        </div>
 	        </div>
         	<hr>
-					<div class="row">
+        	<div class="row">
 				@if(count($postcategories) > 0)
 						<table class="table table-striped table-hover">
 					         <thead>
@@ -36,7 +38,12 @@
 					         <tbody>
 					         	@foreach ($postcategories as $postcategory)
 					            <tr>
-					               <td><a href="{{route('postcategories.show', $postcategory->slug)}}">{{$postcategory->title}}</a></td>
+					               <td>
+					               		<img class="mr-4" height="80" width="80" src="{{URL::to('/images/' . $postcategory->image ) }}" alt="{{$postcategory->title}}" > 
+					               		<a href="{{route('postcategories.show', $postcategory->slug)}}">
+					               		{{$postcategory->title}}
+					               		</a>
+					               	</td>
 					               <td>{{$postcategory->posts_count}}</td>
 					               <td>{{$postcategory->created_at}}</td>
 					               <td>

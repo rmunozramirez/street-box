@@ -21,7 +21,7 @@
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						<a title="All Blog Categories" href="{{route('postcategories.index')}}">Blog Categories</a>
+						<a title="All Blog Categories" href="{{route('newscategories.index')}}">Blog Categories</a>
 						All {!! $page_name !!}s
 					</div>	
 				</div>	

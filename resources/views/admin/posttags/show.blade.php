@@ -6,6 +6,7 @@
 
     <div id="contenido"  class="card">
 		<div class="inside">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Tags: {{count($all_posttags)}}</span> </h2>			
 			<div class="row">
 				<div class="col-md-8">
 					<div class="breadcrumb">
@@ -14,7 +15,11 @@
 						{!! $page_name !!}
 					</div>	
 				</div>	
-
+				<div class="col-md-4">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-chevron-left"></i><a href="{{route('posttags.index')}}">Back to Tags</a>
+		            </div>
+		        </div>
 	        </div>
         	<hr>
 			<div class="row">

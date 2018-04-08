@@ -27,7 +27,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">Create a {!! $page_name !!}</a>
+		            
 		            </div>
 		        </div>
 	        </div>
@@ -39,7 +39,7 @@
 					<div class="card hovercard">
 						<img class="cardheader" src="{{URL::to('/images/' . $postcategory->image)}}">
 							<h3>
-								<a href="{{route('postcategories.show', $postcategory->slug)}}">{{$postcategory->title }}</a>
+								<a href="{{route('newscategories.show', $postcategory->slug)}}">{{$postcategory->title }}</a>
 							</h3>
 
 						<div class="card-body">					

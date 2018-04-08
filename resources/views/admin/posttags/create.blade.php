@@ -4,8 +4,7 @@
 
 
 <section id="content">
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">	
 		<div class="inside">
 			<h2>{!! $page_name !!}</h2>
 

@@ -17,6 +17,7 @@
 				<div class="col-md-6">
 		            <div class="pull-right admin">
 		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posts.create')}}">Create a new Post</a>
+		            	<i class="fas fa-trash"></i> <a href="{{route('posts.trashed')}}">Trashed Posts</a>
 
 		            </div>
 		        </div>
@@ -29,15 +30,16 @@
 					         <thead>
 					            <tr>
 					                <th>Post</th>
-					                <th>Tags</th>
+					                <th>Category</th>
 					                <th>Date</th>
 					            </tr>
 					         </thead>
 					         <tbody>
 					         	@foreach ($posts as $post)
 					            <tr>
-					               <td><a href="{{route('posts.show', $post->slug)}}">{{$post->title}}</a></td>
-					               <td></td>
+					               <td><a href="{{route('posts.show', $post->slug)}}">
+					               	<img class="mr-4" height="80" width="80" src="{{URL::to('/images/' . $post->image ) }}" alt="{{$post->title}}" > {{$post->title}}</a></td>
+					               <td><a href="{{route('postcategories.show', $post->postcategory->slug)}}">{{$post->postcategory->title}}</a></td>
 					               <td>{{$post->created_at}}</td>
 					               <td>
 					               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('posts.edit', $post->slug)}}">Edit</a>
