@@ -18,6 +18,7 @@
 				<div class="col-md-6">
 		            <div class="pull-right admin">
 		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('chanels.create')}}">Create a new Chanel</a>
+		            	<i class="fas fa-trash"></i> <a href="{{route('chanels.trashed')}}">Trashed Chanels</a>
 		            </div>
 		        </div>
 	        </div>

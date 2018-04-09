@@ -18,7 +18,6 @@
 		            <div class="pull-right admin">
 		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('posts.create')}}">Create a new Post</a>
 		            	<i class="fas fa-trash"></i> <a href="{{route('posts.trashed')}}">Trashed Posts</a>
-
 		            </div>
 		        </div>
 	        </div>

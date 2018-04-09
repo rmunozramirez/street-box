@@ -1,34 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div id="contenido"  class="container left-right-shadow">
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>{!! $page_name !!}</h2>
 
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Chanels: {{count($all_chanels)}}</span> </h2>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						<a href="{{url('/')}}"> Home</a>
-						<a title="All Categories" href="{{route('categories.index')}}">Categories</a>
-						<a title="All Subcategories" href="{{route('subcategories.index')}}">Subcategories</a>
-						{!! $page_name !!}
+						<a href="{{route('dashboard')}}"> Dashboard</a>
+						All {!! $page_name !!}s
 					</div>	
 				</div>	
 				<div class="col-md-6">
 		            <div class="pull-right admin">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('chanels.create')}}">{!! $page_name !!}</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('chanels.index')}}">Back to Chanels</a>
 		            </div>
 		        </div>
 	        </div>

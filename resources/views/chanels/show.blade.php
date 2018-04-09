@@ -1,34 +1,27 @@
-@extends('layouts.app')
-@section ('title', "|  $chanel->title")
-
+@extends('layouts.admin')
+@section ('title', "| $page_name")
 @section('content')
-
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
 
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>{{ $chanel->subtitle }}</h2>
 
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Chanels: {{count($all_chanels)}}</span> </h2>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<div class="breadcrumb">
-						<a href="{{url('/')}}"> Home</a>
-						<a title=" {{$chanel->subcategory->category->title}}" href="{{route('categories.show', $chanel->subcategory->category->slug) }}"> {{$chanel->subcategory->category->title}}</a>
-						<a title=" {{$chanel->subcategory->title}}" href="{{route('subcategories.show', $chanel->subcategory->slug) }}"> {{$chanel->subcategory->title}}</a>
-						{!! $page_name !!}
+						<a href="{{route('dashboard')}}"> Dashboard</a>
+						All {!! $page_name !!}s
 					</div>	
 				</div>	
-			 </div>	
-				<hr>
+				<div class="col-md-6">
+		            <div class="pull-right admin">
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('chanels.index')}}">Back to Chanels</a>
+		            </div>
+		        </div>
+	        </div>
+        	<hr>
 
 	      	<div class="row mb-4">
 				<div class="col-md-4 offset-8">

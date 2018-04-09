@@ -5,17 +5,23 @@
 <section id="content">
 
     <div id="contenido"  class="card">
-
 		<div class="inside">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Categories: {{count($all_postcategories)}}</span> </h2>
+
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						<a title=" {{$post->postcategory->title}}" href="{{route('postcategories.show', $post->postcategory->slug) }}"> {{$post->postcategory->title}}</a>
-						{!! $page_name !!}
+						Blog Posts
+
 					</div>	
 				</div>	
-			</div>
+				<div class="col-md-6">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-chevron-left"></i><a href="{{route('posts.index')}}">Back to Posts</a>
+		            </div>
+		        </div>
+	        </div>
         	<hr>
 			<div class="row mb-4">
 				<div class="col-md-8">
