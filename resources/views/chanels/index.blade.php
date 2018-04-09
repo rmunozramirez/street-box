@@ -1,67 +1,60 @@
-@extends('layouts.app')
-@section ('title', "| All Chanels")
+@extends('layouts.admin')
+@section ('title', "| $page_name")
 @section('content')
-
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
 
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div id="contenido"  class="container left-right-shadow">
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>This is the Chanels Index page</h2>
 
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Chanels: {{count($all_chanels)}}</span> </h2>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						<a href="{{url('/')}}"> Home</a>
-						<a title="All Categories" href="{{route('categories.index')}}">Categories</a>
-						<a title="All Subcategories" href="{{route('subcategories.index')}}">Subcategories</a>
+						<a href="{{route('dashboard')}}"> Dashboard</a>
 						All {!! $page_name !!}s
 					</div>	
 				</div>	
 				<div class="col-md-6">
 		            <div class="pull-right admin">
 		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('chanels.create')}}">Create a new Chanel</a>
-
 		            </div>
 		        </div>
 	        </div>
-        	<hr>	
+        	<hr>
 
 		<div class="row">
-			@foreach ($chanels as $chanel)
-			<div class="col-lg-3 col-md-4">	
-				<div class="card hovercard">
-					<img class="cardheader" src="{{URL::to('/images/' . $chanel->image)}}">
-						<h3><a href="{{ url('chanels/'.$chanel->slug) }}">{{ $chanel->title }}</a></h3>
-					<div class="card-body">					
-						<h5 class="subcat">	{{ $chanel->excerpt }}</h5>						   
-						<p>
-							Event Rating:<br />
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star-o"></i>
-							(14)
-						</p>	
-						<hr>
+			@if(count($chanels) > 0)
 
-						<a href="{{ url('blogs/'.$chanel->slug) }}">View</a>
+				<table class="table table-striped table-hover">
+			         <thead>
+			            <tr>
+			                <th>Chanel</th>
+			                <th>User</th>
+			                <th>Date</th>
+			            </tr>
+			         </thead>
+			         <tbody>
+			         	@foreach ($chanels as $chanel)
+			            <tr>
+			               <td><a href="{{route('chanels.show', $chanel->slug)}}">{{$chanel->title}}</a></td>
+			               <td></td>
+			               <td>{{$chanel->created_at}}</td>
+			               <td>
+			               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('chanels.edit', $chanel->slug)}}">Edit</a>
+				            	<div class="col-md-6">
+					            	{!! Form::open(['route' => ['chanels.destroy', $chanel->slug], 'method' => 'DELETE']) !!}
 
-						| Edit | <a href="event.php">Delete</a>
-					</div>
-				</div>
-				
-			</div>
-			@endforeach
+									{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+
+									{!! Form::close() !!}
+								</div>
+			               </td>
+			            </tr>
+			            @endforeach
+			         </tbody>
+			      </table>
+			@endif
 		</div>	
 		<div class="text-center">
 	        {{ $chanels->links() }}

@@ -32,7 +32,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
+        $users = User::pluck('name', 'slug')->all();
+        $page_name =  'Create a new User';
+
+        return view('admin.users.create', compact('users', 'page_name'));
     }
 
     /**
@@ -43,7 +47,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $user = User::create([
+            'name'      =>  $request->name,
+            'email'     =>  $request->email,
+            'role_id'   =>  $request->role_id,
+            'slug'      => str_slug($request->name, '-'),
+            'password'  => bcrypt($request->password),
+        ]);        
+
+        $user->save();
+
+        Session::flash('success', 'User successfully created!');
+     
+        return redirect()->route('users.show', $user->slug);
     }
 
     /**
@@ -55,7 +72,7 @@ class UserController extends Controller
     public function show($slug)
     {
         $user = User::where('slug', $slug)->first();
-        $page_name = $post->title;
+        $page_name = $user->name;
 
         return view('admin.users.show', compact('user', 'page_name', 'total'));
     }
@@ -82,10 +99,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
+        
         $input = $request->all();
-        $input['slug'] = str_slug($request->title, '-');
+        if ( $file = $request->password) { 
+            $input['password'] = bcrypt($request->password);
+        }
+
+        $input['slug'] = str_slug($request->name, '-');
+
         $user = User::where('slug', $slug)->first();
         $user->fill($input)->save();
         $page_name = $user;
@@ -101,7 +124,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
         $user = User::where('slug', $slug)->first();
         $user->delete();

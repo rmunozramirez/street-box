@@ -50,7 +50,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 //Users
 	//users
-	Route::resource('users', 'UserController');
+	Route::get('users', 'UserController@index')->name('users.index');
+	Route::get('users/create', 'UserController@create')->name('users.create');
+	Route::post('users/store', 'UserController@store')->name('users.store');
+	Route::get('users/{slug}', 'UserController@show')->name('users.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('users/{slug}/edit', 'UserController@edit')->name('users.edit')->where('slug', '[\w\d\-\_]+');
+	Route::patch('users/{slug}', 'UserController@update')->name('users.update')->where('slug', '[\w\d\-\_]+');
+	Route::delete('users/{slug}', 'UserController@destroy')->name('users.destroy')->where('slug', '[\w\d\-\_]+');
 
 //Blog
 	//posts

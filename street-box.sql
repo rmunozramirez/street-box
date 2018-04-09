@@ -2,10 +2,10 @@
 -- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Erstellungszeit: 08. Apr 2018 um 10:03
--- Server-Version: 5.7.19
--- PHP-Version: 7.2.2
+-- Servidor: localhost:3306
+-- Tiempo de generación: 09-04-2018 a las 05:02:00
+-- Versión del servidor: 5.7.19
+-- Versión de PHP: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `street-box`
+-- Base de datos: `street-box`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `categories`
+-- Estructura de tabla para la tabla `categories`
 --
 
 CREATE TABLE `categories` (
@@ -45,20 +45,20 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `categories`
+-- Volcado de datos para la tabla `categories`
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `subtitle`, `excerpt`, `about_category`, `status`, `image`, `is_featured`, `in_menu`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Category One', 'category-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 'Category Two', 'category-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'concerto.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 'Category Three', 'category-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'cha-cha-cha.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(4, 'Category Four', 'category-four', 'Subtitle Category Four', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'inactive', 'bolliwood.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(5, 'Category Five', 'category-five', 'Subtitle Category Five', 'This is the excerpt of the Category Five', 'This is the description of the Category Five', 'inactive', 'berlin.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+(1, 'Category One', 'category-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(2, 'Category Two', 'category-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'concerto.jpg', 1, 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(3, 'Category Three', 'category-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'cha-cha-cha.jpg', 0, 0, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(4, 'Category Four', 'category-four', 'Subtitle Category Four', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'inactive', 'bolliwood.jpg', 0, 0, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(5, 'Category Five', 'category-five', 'Subtitle Category Five', 'This is the excerpt of the Category Five', 'This is the description of the Category Five', 'inactive', 'berlin.jpg', 0, 0, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `chanels`
+-- Estructura de tabla para la tabla `chanels`
 --
 
 CREATE TABLE `chanels` (
@@ -87,22 +87,22 @@ CREATE TABLE `chanels` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `chanels`
+-- Volcado de datos para la tabla `chanels`
 --
 
 INSERT INTO `chanels` (`id`, `subcategory_id`, `status`, `title`, `slug`, `subtitle`, `excerpt`, `about_chanel`, `image`, `video`, `is_featured`, `likes`, `is_testimonial`, `web`, `facebook`, `googleplus`, `twitter`, `linkedin`, `youtube`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 'active', 'Chanel One-one-one', 'chanel-one-one-one', 'Subtitle Chanel One-one-one', 'This is the excerpt of the Chanel One-one-one', 'This is the description of the Chanel One-one-one', 'bmw.jpg', 'bmw.mp4', 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
-(2, 1, 'active', 'Chanel One-One-Two', 'chanel-one-one-two', 'Subtitle Chanel One-One-Two', 'This is the excerpt of the Chanel One-One-Two', 'This is the description of the Chanel One-One-Two', 'auto-clasico.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
-(3, 2, 'active', 'Chanel One-two-One', 'chanel-one-two-one', 'Subtitle Chanel One-two-One', 'This is the excerpt of the Chanel One-two-One', 'This is the description of the Chanel One-two-One', 'bad-wimpfen.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
-(4, 2, 'active', 'Chanel One-two-Two', 'chanel-one-two-two', 'Subtitle Chanel One-two-Two', 'This is the excerpt of the Chanel One-two-Two', 'This is the description of the Chanel One-two-Two', 'ballet.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
-(5, 2, 'active', 'Chanel One-two-Three', 'chanel-one-two-three', 'Subtitle Chanel One-two-Three', 'This is the excerpt of the Chanel One-two-Three', 'This is the description of the Chanel One-two-Three', 'kite.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
-(6, 1, 'active', 'Chanel two-one-one', 'chanel-two-one-one', 'Subtitle Chanel two-one-one', 'This is the excerpt of the Chanel two-one-one', 'This is the description of the Chanel two-one-one', 'dance.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL),
-(7, 1, 'active', 'Chanel Three-one-one', 'chanel-three-one-one', 'Subtitle Chanel Three-one-one', 'This is the excerpt of the Chanel Three-one-one', 'This is the description of the Chanel Three-one-one', 'berlin.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-06 20:06:36', '2018-04-06 20:06:36', NULL);
+(1, 1, 'active', 'Chanel One-one-one', 'chanel-one-one-one', 'Subtitle Chanel One-one-one', 'This is the excerpt of the Chanel One-one-one', 'This is the description of the Chanel One-one-one', 'bmw.jpg', 'bmw.mp4', 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL),
+(2, 1, 'active', 'Chanel One-One-Two', 'chanel-one-one-two', 'Subtitle Chanel One-One-Two', 'This is the excerpt of the Chanel One-One-Two', 'This is the description of the Chanel One-One-Two', 'auto-clasico.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL),
+(3, 2, 'active', 'Chanel One-two-One', 'chanel-one-two-one', 'Subtitle Chanel One-two-One', 'This is the excerpt of the Chanel One-two-One', 'This is the description of the Chanel One-two-One', 'bad-wimpfen.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL),
+(4, 2, 'active', 'Chanel One-two-Two', 'chanel-one-two-two', 'Subtitle Chanel One-two-Two', 'This is the excerpt of the Chanel One-two-Two', 'This is the description of the Chanel One-two-Two', 'ballet.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL),
+(5, 2, 'active', 'Chanel One-two-Three', 'chanel-one-two-three', 'Subtitle Chanel One-two-Three', 'This is the excerpt of the Chanel One-two-Three', 'This is the description of the Chanel One-two-Three', 'kite.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL),
+(6, 1, 'active', 'Chanel two-one-one', 'chanel-two-one-one', 'Subtitle Chanel two-one-one', 'This is the excerpt of the Chanel two-one-one', 'This is the description of the Chanel two-one-one', 'dance.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL),
+(7, 1, 'active', 'Chanel Three-one-one', 'chanel-three-one-one', 'Subtitle Chanel Three-one-one', 'This is the excerpt of the Chanel Three-one-one', 'This is the description of the Chanel Three-one-one', 'berlin.jpg', NULL, 1, 10, 0, 'mysite.com', 'youtube.com', 'google.de', 'twitter.com', 'linkedin.com', 'youtube.com', '2018-04-09 02:56:27', '2018-04-09 02:56:27', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -112,25 +112,25 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(254, '2014_10_12_000000_create_users_table', 1),
-(255, '2014_10_12_100000_create_password_resets_table', 1),
-(256, '2018_03_30_114433_create_posts_table', 1),
-(257, '2018_03_31_095440_create_postcategories_table', 1),
-(258, '2018_03_31_130322_create_subcategories_table', 1),
-(259, '2018_03_31_142116_create_categories_table', 1),
-(260, '2018_03_31_143733_create_chanels_table', 1),
-(261, '2018_04_05_175611_create_roles_table', 1),
-(262, '2018_04_06_090602_create_posttags_table', 1),
-(263, '2018_04_06_091545_create_posts_posttags_table', 1);
+(294, '2014_10_12_000000_create_users_table', 1),
+(295, '2014_10_12_100000_create_password_resets_table', 1),
+(296, '2018_03_30_114433_create_posts_table', 1),
+(297, '2018_03_31_095440_create_postcategories_table', 1),
+(298, '2018_03_31_130322_create_subcategories_table', 1),
+(299, '2018_03_31_142116_create_categories_table', 1),
+(300, '2018_03_31_143733_create_chanels_table', 1),
+(301, '2018_04_05_175611_create_roles_table', 1),
+(302, '2018_04_06_090602_create_posttags_table', 1),
+(303, '2018_04_06_091545_create_posts_posttags_table', 1);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -142,7 +142,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `postcategories`
+-- Estructura de tabla para la tabla `postcategories`
 --
 
 CREATE TABLE `postcategories` (
@@ -162,18 +162,18 @@ CREATE TABLE `postcategories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `postcategories`
+-- Volcado de datos para la tabla `postcategories`
 --
 
 INSERT INTO `postcategories` (`id`, `title`, `slug`, `subtitle`, `excerpt`, `about_category`, `status`, `image`, `is_featured`, `in_menu`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Postcategory One', 'postcategory-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 'Postcategory Two', 'postcategory-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'bolliwood.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 'Postcategory Three', 'postcategory-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'concerto.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+(1, 'Postcategory One', 'postcategory-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'active', 'bmw.jpg', 1, 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(2, 'Postcategory Two', 'postcategory-two', 'Subtitle Category Two', 'This is the excerpt of the Category Two', 'This is the description of the Category Two', 'active', 'bolliwood.jpg', 1, 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(3, 'Postcategory Three', 'postcategory-three', 'Subtitle Category Three', 'This is the excerpt of the Category Three', 'This is the description of the Category Three', 'inactive', 'concerto.jpg', 0, 0, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `posts`
+-- Estructura de tabla para la tabla `posts`
 --
 
 CREATE TABLE `posts` (
@@ -195,25 +195,19 @@ CREATE TABLE `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `posts`
+-- Volcado de datos para la tabla `posts`
 --
 
 INSERT INTO `posts` (`id`, `postcategory_id`, `status`, `title`, `slug`, `subtitle`, `excerpt`, `body`, `image`, `is_featured`, `likes`, `deleted_at`, `published_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'published', 'Post One', 'post-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'bmw.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 2, 'published', 'Post Two', 'post-two', 'Subtitle Post Two', 'This is the excerpt of the Category TwoTwo', 'This is the description of the Category Two', 'berlin.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 2, 'published', 'Post Three', 'post-three', 'Subtitle Category Three', 'This is the excerpt of the Category ThreeThree', 'This is the description of the Category Three', 'cha-cha-cha.jpg', 1, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(4, 1, 'published', 'Post Four', 'post-four', 'Subtitle Category One', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'concert.jpg', 3, 1, NULL, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(5, 1, 'programmed', 'This is a new post', 'this-is-a-new-post', 'This is the subtitle post', 'http://street-box.test/', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, products an', '1523055146-1492-conquest-of-paradise.jpg', 1, 0, NULL, NULL, '2018-04-06 20:52:26', '2018-04-06 20:52:26'),
-(6, 2, 'published', 'The new Category post', 'the-new-category-post', 'This is the subtitle post', 'This is the excerpt of the new chanel edited', 'ake Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, pro', '1523055440-adrien-brody.jpg', 1, 0, NULL, NULL, '2018-04-06 20:57:20', '2018-04-06 20:57:20'),
-(7, 3, 'programmed', 'Postcategory Two Edited', 'postcategory-two-edited', 'This is the subtitle post', 'e are a creative studio specia', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs,', '1523055534-1474140795.jpg', 1, 0, NULL, NULL, '2018-04-06 20:58:54', '2018-04-06 20:58:54'),
-(8, 1, 'programmed', 'Postcategory Two Edited for me', 'postcategory-two-edited-for-me', 'This is the subtitle post', 'This is the excerpt of the new chanel edited', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, products a', '1523055686-after-earth.jpg', 1, 0, NULL, NULL, '2018-04-06 21:01:26', '2018-04-06 21:01:26'),
-(9, 1, 'programmed', 'Postcategory Two Edited for me ahora', 'postcategory-two-edited-for-me-ahora', 'This is the subtitle post', 'This is the excerpt of the new chanel edited', 'Take Your Dreams To A Higher Level.\r\n\r\nWe are a creative studio specialized in the creation of digital designs, products a', '1523055829-aaron-eckhart.jpg', 1, 0, NULL, NULL, '2018-04-06 21:03:49', '2018-04-06 21:03:49'),
-(10, 1, 'published', 'My second post edited hhffhg', 'my-second-post-edited-hhffhg', 'Es war ein Mal in einen weit fern Dorf', 'http://street-box.test/', 'fhjjghmgmg', '1523055938-1474141016.jpg', 1, 0, NULL, NULL, '2018-04-06 21:05:38', '2018-04-06 21:05:38');
+(1, 1, 'published', 'Post One', 'post-one', 'Subtitle Category One', 'This is the excerpt of the Category one', 'This is the description of the Category one', 'bmw.jpg', 1, 1, NULL, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(2, 2, 'published', 'Post Two', 'post-two', 'Subtitle Post Two', 'This is the excerpt of the Category TwoTwo', 'This is the description of the Category Two', 'berlin.jpg', 1, 1, NULL, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(3, 2, 'published', 'Post Three', 'post-three', 'Subtitle Category Three', 'This is the excerpt of the Category ThreeThree', 'This is the description of the Category Three', 'cha-cha-cha.jpg', 1, 1, NULL, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(4, 1, 'published', 'Post Four', 'post-four', 'Subtitle Category One', 'This is the excerpt of the Category Four', 'This is the description of the Category Four', 'concert.jpg', 3, 1, NULL, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `posts_posttags`
+-- Estructura de tabla para la tabla `posts_posttags`
 --
 
 CREATE TABLE `posts_posttags` (
@@ -227,7 +221,7 @@ CREATE TABLE `posts_posttags` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `posttags`
+-- Estructura de tabla para la tabla `posttags`
 --
 
 CREATE TABLE `posttags` (
@@ -239,41 +233,42 @@ CREATE TABLE `posttags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `posttags`
+-- Volcado de datos para la tabla `posttags`
 --
 
 INSERT INTO `posttags` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Dance', 'dance', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 'Artes plasticas', 'artes-plasticas', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 'Theather', 'theather', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(4, 'Music', 'music', '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+(1, 'Dance', 'dance', NULL, NULL),
+(2, 'Theather', 'theater', NULL, NULL),
+(3, 'Artes plásticas', 'artes-plasticas', NULL, NULL),
+(4, 'Music', 'music', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `roles`
+-- Estructura de tabla para la tabla `roles`
 --
 
 CREATE TABLE `roles` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `roles`
+-- Volcado de datos para la tabla `roles`
 --
 
-INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 'author', '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 'subscriber', '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+INSERT INTO `roles` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin', NULL, NULL),
+(2, 'Author', 'author', NULL, NULL),
+(3, 'Subscriber', 'Subscriber', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `subcategories`
+-- Estructura de tabla para la tabla `subcategories`
 --
 
 CREATE TABLE `subcategories` (
@@ -294,24 +289,25 @@ CREATE TABLE `subcategories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `subcategories`
+-- Volcado de datos para la tabla `subcategories`
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `title`, `subtitle`, `slug`, `excerpt`, `status`, `about_subcategory`, `image`, `is_featured`, `in_menu`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Subcategory One-One', 'Subtitle Subcategory One-One', 'subcategory-one-one', 'This is the excerpt of the Subcategory one-one', 'active', 'This is the description of the Subcategory one-one', 'bmw.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 1, 'Subcategory One-Two', 'Subtitle Subcategory One-Two', 'subcategory-one-two', 'This is the excerpt of the Subcategory One-Two', 'active', 'This is the description of the Subcategory One-Two', 'berlin.jpg', 1, 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 2, 'Subcategory Two-One', 'Subtitle Subcategory Two-one', 'subcategory-two-one', 'This is the excerpt of the Subcategory Two-one', 'inactive', 'This is the description of the Subcategory Two-one', 'concert.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(4, 3, 'Subcategory Three-One', 'Subtitle Subcategory Three-one', 'subcategory-three-one', 'This is the excerpt of the Subcategory Three-one', 'inactive', 'This is the description of the Subcategory Three-one', 'concerto.jpg', 0, 0, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+(1, 1, 'Subcategory One-One', 'Subtitle Subcategory One-One', 'subcategory-one-one', 'This is the excerpt of the Subcategory one-one', 'active', 'This is the description of the Subcategory one-one', 'bmw.jpg', 1, 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(2, 1, 'Subcategory One-Two', 'Subtitle Subcategory One-Two', 'subcategory-one-two', 'This is the excerpt of the Subcategory One-Two', 'active', 'This is the description of the Subcategory One-Two', 'berlin.jpg', 1, 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(3, 2, 'Subcategory Two-One', 'Subtitle Subcategory Two-one', 'subcategory-two-one', 'This is the excerpt of the Subcategory Two-one', 'inactive', 'This is the description of the Subcategory Two-one', 'concert.jpg', 0, 0, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(4, 3, 'Subcategory Three-One', 'Subtitle Subcategory Three-one', 'subcategory-three-one', 'This is the excerpt of the Subcategory Three-one', 'inactive', 'This is the description of the Subcategory Three-one', 'concerto.jpg', 0, 0, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27');
 
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_id` int(11) NOT NULL DEFAULT '3',
@@ -321,20 +317,20 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Daten für Tabelle `users`
+-- Volcado de datos para la tabla `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Rafael Muñoz', 'rafaelmunoznl@yahoo.com', '$2y$10$B1zHeUmjPM.9mtvxkKZbB.FgsmLLXJ0mrfKhZpLvkogQuf3s1Bu22', 1, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(2, 'Enrique (Kike) Muñoz Botschka', 'kike901@gmail.com', '$2y$10$mCtNjhLOfZB3P3MscpzjjeZYGoCwPHsIzhaaceL4oCqAy2wMJm4uy', 2, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36'),
-(3, 'Amelie Muñoz Botschka', 'amelie@yahoo.com', '$2y$10$OxNZzA/BWY5tP4qJNRWHu.OE5H3mpSESYCJgt2BzxY3RBMiNdH/.O', 3, NULL, '2018-04-06 20:06:36', '2018-04-06 20:06:36');
+INSERT INTO `users` (`id`, `name`, `slug`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Rafael Muñoz', 'rafael-munoz', 'rafaelmunoznl@yahoo.com', '$2y$10$3/5DAc3k3/lGOsLQ.tzZXe5.Vdvgnn6RB6Q9QVCYzBCXx0/ne2pa2', 1, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(2, 'Enrique (Kike) Muñoz Botschka', 'enrique-kike-munoz-botschka', 'kike901@gmail.com', '$2y$10$ff7a45UHDptqb0t/sz8TmOoR10sUH169/ozNS8bPPgvgpJO9st86e', 2, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27'),
+(3, 'Amelie Muñoz Botschka', 'amelie-munoz-botschka', 'amelie@yahoo.com', '$2y$10$3HoxmjqStaUmP0TzL3El.e4b455bmXL7.xxQdANm.VqJA8azkQG8C', 3, NULL, '2018-04-09 02:56:27', '2018-04-09 02:56:27');
 
 --
--- Indizes der exportierten Tabellen
+-- Índices para tablas volcadas
 --
 
 --
--- Indizes für die Tabelle `categories`
+-- Indices de la tabla `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`),
@@ -343,7 +339,7 @@ ALTER TABLE `categories`
   ADD UNIQUE KEY `categories_image_unique` (`image`);
 
 --
--- Indizes für die Tabelle `chanels`
+-- Indices de la tabla `chanels`
 --
 ALTER TABLE `chanels`
   ADD PRIMARY KEY (`id`),
@@ -354,19 +350,19 @@ ALTER TABLE `chanels`
   ADD KEY `chanels_subcategory_id_index` (`subcategory_id`);
 
 --
--- Indizes für die Tabelle `migrations`
+-- Indices de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indizes für die Tabelle `password_resets`
+-- Indices de la tabla `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indizes für die Tabelle `postcategories`
+-- Indices de la tabla `postcategories`
 --
 ALTER TABLE `postcategories`
   ADD PRIMARY KEY (`id`),
@@ -375,7 +371,7 @@ ALTER TABLE `postcategories`
   ADD UNIQUE KEY `postcategories_image_unique` (`image`);
 
 --
--- Indizes für die Tabelle `posts`
+-- Indices de la tabla `posts`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
@@ -385,7 +381,7 @@ ALTER TABLE `posts`
   ADD KEY `posts_postcategory_id_index` (`postcategory_id`);
 
 --
--- Indizes für die Tabelle `posts_posttags`
+-- Indices de la tabla `posts_posttags`
 --
 ALTER TABLE `posts_posttags`
   ADD PRIMARY KEY (`id`),
@@ -393,7 +389,7 @@ ALTER TABLE `posts_posttags`
   ADD KEY `posts_posttags_posttag_id_foreign` (`posttag_id`);
 
 --
--- Indizes für die Tabelle `posttags`
+-- Indices de la tabla `posttags`
 --
 ALTER TABLE `posttags`
   ADD PRIMARY KEY (`id`),
@@ -401,13 +397,14 @@ ALTER TABLE `posttags`
   ADD UNIQUE KEY `posttags_slug_unique` (`slug`);
 
 --
--- Indizes für die Tabelle `roles`
+-- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `roles_slug_unique` (`slug`);
 
 --
--- Indizes für die Tabelle `subcategories`
+-- Indices de la tabla `subcategories`
 --
 ALTER TABLE `subcategories`
   ADD PRIMARY KEY (`id`),
@@ -417,83 +414,84 @@ ALTER TABLE `subcategories`
   ADD KEY `subcategories_category_id_index` (`category_id`);
 
 --
--- Indizes für die Tabelle `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_slug_unique` (`slug`),
   ADD UNIQUE KEY `users_email_unique` (`email`),
   ADD KEY `users_role_id_index` (`role_id`);
 
 --
--- AUTO_INCREMENT für exportierte Tabellen
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT für Tabelle `categories`
+-- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT für Tabelle `chanels`
+-- AUTO_INCREMENT de la tabla `chanels`
 --
 ALTER TABLE `chanels`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT für Tabelle `migrations`
+-- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=264;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
 
 --
--- AUTO_INCREMENT für Tabelle `postcategories`
+-- AUTO_INCREMENT de la tabla `postcategories`
 --
 ALTER TABLE `postcategories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT für Tabelle `posts`
+-- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT für Tabelle `posts_posttags`
+-- AUTO_INCREMENT de la tabla `posts_posttags`
 --
 ALTER TABLE `posts_posttags`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT für Tabelle `posttags`
+-- AUTO_INCREMENT de la tabla `posttags`
 --
 ALTER TABLE `posttags`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT für Tabelle `roles`
+-- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT für Tabelle `subcategories`
+-- AUTO_INCREMENT de la tabla `subcategories`
 --
 ALTER TABLE `subcategories`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT für Tabelle `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints der exportierten Tabellen
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints der Tabelle `posts_posttags`
+-- Filtros para la tabla `posts_posttags`
 --
 ALTER TABLE `posts_posttags`
   ADD CONSTRAINT `posts_posttags_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),

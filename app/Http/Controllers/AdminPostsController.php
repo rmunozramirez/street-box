@@ -36,7 +36,6 @@ class AdminPostsController extends Controller
             return redirect()->back();
         }
 
-
         return view('admin.posts.create', compact('posts', 'postcategories', 'page_name'));
     }
 
@@ -60,14 +59,12 @@ class AdminPostsController extends Controller
 
         ]);        
 
-
         $post->save();
 
         //sync with tags
         if ($request->posttags_id) {
             $post->posttag()->sync($request->posttag_id);
         }
-
 
         Session::flash('success', 'Blog Post successfully created!');
      

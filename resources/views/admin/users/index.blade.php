@@ -6,6 +6,8 @@
 
     <div id="contenido"  class="card">
 		<div class="inside">
+
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total User: {{count($all_users)}}</span> </h2>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
@@ -23,34 +25,34 @@
 
 		<div class="row">
 				@if(count($users) > 0)
-						<table class="table table-striped table-hover">
-					         <thead>
-					            <tr>
-					                <th>User</th>
-					                <th>Role</th>
-					                <th>Date</th>
-					            </tr>
-					         </thead>
-					         <tbody>
-					         	@foreach ($users as $user)
-					            <tr>
-					               <td><a href="{{route('users.show', $user->slug)}}">{{$user->name}}</a></td>
-					               <td>{{$user->role->name}}</td>
-					               <td>{{$user->created_at}}</td>
-					               <td>
-					               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->slug)}}">Edit</a>
-						            	<div class="col-md-6">
-							            	{!! Form::open(['route' => ['users.destroy', $user->slug], 'method' => 'DELETE']) !!}
+				<table class="table table-striped table-hover">
+			         <thead>
+			            <tr>
+			                <th>User</th>
+			                <th>Role</th>
+			                <th>Date</th>
+			            </tr>
+			         </thead>
+			         <tbody>
+			         	@foreach ($users as $user)
+			            <tr>
+			               <td><a href="{{route('users.show', $user->slug)}}">{{$user->name}}</a></td>
+			               <td>{{$user->role->name}}</td>
+			               <td>{{$user->created_at}}</td>
+			               <td>
+			               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->slug)}}">Edit</a>
+				            	<div class="col-md-6">
+					            	{!! Form::open(['route' => ['users.destroy', $user->slug], 'method' => 'DELETE']) !!}
 
-											{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+									{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
 
-											{!! Form::close() !!}
-										</div>
-					               </td>
-					            </tr>
-					            @endforeach
-					         </tbody>
-					      </table>
+									{!! Form::close() !!}
+								</div>
+			               </td>
+			            </tr>
+			            @endforeach
+			         </tbody>
+			      </table>
 				@else
 					<div class="col-md-12"><h3>No {!! $page_name !!}</h3></div>
 				@endif
