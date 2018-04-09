@@ -30,7 +30,7 @@ class Category extends Model
 
     function chanels()
     {
-        return $this->hasManyThrough('App\Chanel', 'App\Subcategory');
+        return $this->hasManyThrough('App\Chanel', 'App\Subcategory', 'category_id', 'subcategory_id');
     }
 
 }

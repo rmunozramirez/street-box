@@ -1,32 +1,23 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<div class="row">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($all_categories)}} categories</span></h2>
 
-				<div class="col-md-8">			
+			<div class="row">
+				<div class="col-md-8">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						<a title="All Categories" href="{{route('categories.index') }}"> Categories</a>
-						{!! $page_name !!}
+						{{ $page_name }}
 					</div>	
 				</div>	
 				<div class="col-md-4">
 		            <div class="under-meta pull-right">
-		            
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-categories.index')}}">Back to categories</a>
 		            </div>
 		        </div>
 
@@ -35,7 +26,7 @@
 
 		<div class="row">
 			<div class="card-body">        
-	            <div class="row">        
+	            <div class="row">
 		            <div class="col-md-4"> 
 		            	<img class="img-responsive"  src="{{URL::to('/images/' . $category->image ) }}" name="{{$category->title}}" alt="{{$category->title}}" >
 		            </div>

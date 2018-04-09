@@ -38,7 +38,7 @@
 			<div class="row">
 				<div class="card-body">        
 
-		            {!!Form::open(array('route' => 'chanels.store', 'files' => true)) !!}   
+		            {!!Form::open(array('route' => 'admin-chanels.store', 'files' => true)) !!}   
 
 		            <div class="row">        
 			            <div class="col-md-4"> 

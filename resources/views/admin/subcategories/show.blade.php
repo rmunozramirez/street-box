@@ -1,43 +1,37 @@
-@extends('layouts.app')
-@section ('title', "| $page_name" )
+@extends('layouts.admin')
+@section ('title', "| $page_name")
 @section('content')
-
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
 
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Categories: {{count($all_postcategories)}}</span> </h2>
+
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						<a title=" {{$subcategory->category->title}}" href="{{route('categories.show', $subcategory->category->slug) }}"> {{$subcategory->category->title}}</a>
-						{!! $page_name !!}
+						Blog Posts
+
 					</div>	
 				</div>	
-				<div class="col-md-4">
+				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
 		            </div>
 		        </div>
 	        </div>
         	<hr>
 		<div class="row">
-			<div class="card-body">        
-	            <div class="row">        
+			<div class="card-body">
+            	<div class="row">        
 		            <div class="col-md-4"> 
 		            	<img class="img-responsive"  src="{{URL::to('/images/' . $subcategory->image ) }}" name="{{$subcategory->title}}" alt="{{$subcategory->title}}" >
 		            </div>
   
-	            	<div class="col-md-8"> 
+	            	<div class="col-md-8">
+
 			            <h3>{!! $subcategory->subtitle !!}</h3>
 			            <p>{!! $subcategory->about_subcategory !!}</p>		            		
 	            		

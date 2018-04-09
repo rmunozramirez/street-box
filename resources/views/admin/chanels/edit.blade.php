@@ -17,7 +17,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="pull-right admin">
-		            	<i class="fas fa-chevron-left"></i> <a href="{{route('chanels.index')}}">Back to Chanels</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('admin-chanels.index')}}">Back to Chanels</a>
 		            </div>
 		        </div>
 	        </div>
@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="card-body">        
 
-		        {!! Form::model($chanel, ['method'=>'PATCH', 'action'=> ['ChanelController@update', $chanel->slug ],'files'=>true]) !!} 
+		        {!! Form::model($chanel, ['method'=>'PATCH', 'action'=> ['AdminChanelController@update', $chanel->slug ],'files'=>true]) !!} 
 
 		            <div class="row">        
 			            <div class="col-md-4"> 

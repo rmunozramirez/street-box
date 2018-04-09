@@ -1,21 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>{{count($categories)}} {!! $page_name !!} </h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Categories: {{count($all_categories)}}</span> </h2>
 
 			<div class="row">
 				<div class="col-md-6">
@@ -26,7 +17,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-chevron-left"></i><a href="{{route('categories.index')}}">Back to categories</a>
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-categories.index')}}">Back to categories</a>
 		            </div>
 		        </div>
 	        </div>
@@ -50,8 +41,8 @@
 					             </td>
 					               <td>{{count($category->subcategories)}}</a></td>
 					               <td>{{$category->created_at}}</td>
-					               <td><a href="{{route('categories.restore', $category->slug)}}">Restore</a></td>
-					               <td><a href="{{route('categories.kill', $category->slug)}}">Permanent Delete</a></td>
+					               <td><a href="{{route('admin-categories.restore', $category->slug)}}">Restore</a></td>
+					               <td><a href="{{route('admin-categories.kill', $category->slug)}}">Permanent Delete</a></td>
 					            </tr>
 					            @endforeach
 					         </tbody>

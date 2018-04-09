@@ -1,21 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
-    	 <div class="inside">
-			<h2>{!! $page_name !!}</h2>
+    <div id="contenido"  class="card">
+		<div class="inside">
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($all_categories)}} categories</span></h2>
 
 			<div class="row">
 				<div class="col-md-6">
@@ -26,8 +17,8 @@
 					</div>	
 				</div>	
 				<div class="col-md-6">
-		            <div class="pull-right admin">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('categories.create')}}">{!! $page_name !!}</a>
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-categories.index')}}">Back to categories</a>
 		            </div>
 		        </div>
 	        </div>
@@ -48,11 +39,11 @@
 		<div class="row">
 			<div class="card-body">        
 		       
-		            {!!Form::open(array('route' => 'categories.store', 'files' => true)) !!}   
+		        {!! Form::model($category, ['method'=>'PATCH', 'action'=> ['AdminCategoriesController@update', $category->slug ],'files'=>true]) !!}  
 
 		            <div class="row">        
 			            <div class="col-md-4"> 
-			            	<i class="far fa-image fa-10x"></i>
+			            	<img class="img-responsive"  src="{{URL::to('/images/' . $category->image ) }}" alt="{{$category->title}}" >
 
 			            	<div class=" pt-5">
 				                {!!Form::label('image', 'Upload a Featured Image') !!}
@@ -108,7 +99,7 @@
 				            </div>
 
 				            <div class="pt-5">    
-				                {!!Form::submit('Add New Category', array('class' => 'btn btn-success btn-block')) !!}
+				                {!!Form::submit('Edit Category', array('class' => 'btn btn-success btn-block')) !!}
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>

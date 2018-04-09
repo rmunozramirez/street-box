@@ -26,10 +26,10 @@
               <a href="{{ route('admin-chanels.index') }}">Chanels</a>
             </li>
             <li>
-              <a href="navbar.html">Subcategories</a>
+              <a href="{{ route('admin-subcategories.index') }}">Subcategories</a>
             </li>
             <li>
-              <a href="cards.html">Categories</a>
+              <a href="{{ route('admin-categories.index') }}">Categories</a>
             </li>
           </ul>
         </li>

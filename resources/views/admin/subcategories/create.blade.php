@@ -1,37 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>{!! $page_name !!}</h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($subcategories)}} subcategories</span></h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						{!! $page_name !!}
-
+						{{ $page_name }}
 					</div>	
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('subcategories.create')}}">{!! $page_name !!}</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
 		            </div>
 		        </div>
 	        </div>
-        	<hr>
+        	<hr>	
 
 	    @if(count($errors) > 0)
 	        <ul class="list-group">
@@ -47,11 +37,11 @@
 		<div class="row">
 			<div class="card-body">        
 
-		        {!! Form::model($subcategory, ['method'=>'PATCH', 'action'=> ['SubcategoriesController@update', $subcategory->slug ],'files'=>true]) !!} 
+		            {!!Form::open(array('route' => 'admin-subcategories.store', 'files' => true)) !!}   
+
 		            <div class="row">        
 			            <div class="col-md-4"> 
-			            	<img class="img-responsive"  src="{{URL::to('/images/' . $subcategory->image ) }}" alt="{{$subcategory->title}}" >
-			            	
+			            	<i class="far fa-image fa-10x"></i>
 
 			            	<div class=" pt-5">
 				                {!!Form::label('image', 'Upload a Featured Image') !!}
@@ -116,7 +106,7 @@
 				            </div>
 
 				            <div class="pt-5">    
-				                {!!Form::submit('Edit Subcategory', array('class' => 'btn btn-success btn-block')) !!}
+				                {!!Form::submit('Add New Subcategory', array('class' => 'btn btn-success btn-block')) !!}
 				                {!!Form::close() !!}       
 				            </div>
 			            </div>

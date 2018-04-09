@@ -1,36 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title')
-	
-    <div id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>{{count($subcategories)}} {!! $page_name !!} </h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Categories: {{count($all_postcategories)}}</span> </h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						{{ $page_name }}
+						{!! $page_name !!}
 					</div>	
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('subcategories.create')}}">Create a {!! $page_name !!}</a>
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
 		            </div>
 		        </div>
 	        </div>
-        	<hr>	
+        	<hr>
 		
 		<div class="row">
 				@if(count($subcategories) > 0)
@@ -50,8 +41,8 @@
 					             </td>
 					               <td>{{count($subcategory->chanels)}}</a></td>
 					               <td>{{$subcategory->created_at}}</td>
-					               <td><a href="{{route('subcategories.restore', $subcategory->slug)}}">Restore</a></td>
-					               <td><a href="{{route('subcategories.kill', $subcategory->slug)}}">Permanent Delete</a></td>
+					               <td><a href="{{route('admin-subcategories.restore', $subcategory->slug)}}">Restore</a></td>
+					               <td><a href="{{route('admin-subcategories.kill', $subcategory->slug)}}">Permanent Delete</a></td>
 					            </tr>
 					            @endforeach
 					         </tbody>

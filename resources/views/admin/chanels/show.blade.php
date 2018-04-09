@@ -17,7 +17,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="pull-right admin">
-		            	<i class="fas fa-chevron-left"></i> <a href="{{route('chanels.index')}}">Back to Chanels</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('admin-chanels.index')}}">Back to Chanels</a>
 		            </div>
 		        </div>
 	        </div>
@@ -26,9 +26,9 @@
 	      	<div class="row mb-4">
 				<div class="col-md-4 offset-8">
 		            <div class="row">
-		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('chanels.edit', $chanel->slug)}}">Edit</a>
+		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('admin-chanels.edit', $chanel->slug)}}">Edit</a>
 		            	<div class="col-md-6">
-			            	{!! Form::open(['route' => ['chanels.destroy', $chanel->slug], 'method' => 'DELETE']) !!}
+			            	{!! Form::open(['route' => ['admin-chanels.destroy', $chanel->slug], 'method' => 'DELETE']) !!}
 
 							{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
 

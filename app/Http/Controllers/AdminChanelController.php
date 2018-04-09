@@ -74,7 +74,7 @@ class AdminChanelController extends Controller
 
         Session::flash('success', 'Chanel successfully created!');
      
-        return redirect()->route('chanels.show', $chanel->slug);
+        return redirect()->route('admin-chanels.show', $chanel->slug);
     }
 
     /**
@@ -133,7 +133,7 @@ class AdminChanelController extends Controller
 
         Session::flash('success', 'Chanel successfully updated!');
      
-        return redirect()->route('chanels.show', $chanel->slug);
+        return redirect()->route('admin-chanels.show', $chanel->slug);
     }
     /**
      * Remove the specified resource from storage.
@@ -148,7 +148,7 @@ class AdminChanelController extends Controller
 
         Session::flash('success', 'Chanel successfully deleted!');
 
-        return redirect()->route('chanels.index');
+        return redirect()->route('admin-chanels.index');
     }     
 
 
@@ -166,7 +166,7 @@ class AdminChanelController extends Controller
         $chanel->restore();
 
         Session::flash('success', 'Chanel successfully restored!');
-        return redirect()->route('chanels.trashed');
+        return redirect()->route('admin-chanels.trashed');
     }
 
     public function kill($slug)
@@ -175,6 +175,6 @@ class AdminChanelController extends Controller
         $chanel->forceDelete();
 
         Session::flash('success', 'Chanel pemanently deleted!');
-        return redirect()->route('chanels.trashed');
+        return redirect()->route('admin-chanels.trashed');
     }
 }

@@ -18,9 +18,8 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">Create a {!! $page_name !!}</a>
-		            	<i class="fas fa-trash"></i> <a href="{{route('postcategories.trashed')}}">Trashed Posts</a>
-		            	
+		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">Create a Blog Category</a>
+		            	<i class="fas fa-trash"></i> <a href="{{route('postcategories.trashed')}}">Trashed Blog Categories</a>
 		            </div>
 		        </div>
 	        </div>

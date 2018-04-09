@@ -13,7 +13,7 @@
 
 	@include ('partials._inner-title')
 	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="container left-right-shadow">	
 		<div class="inside">
 			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($total)}} categories</span></h2>
 
@@ -21,12 +21,12 @@
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						Categories
+						{{ $page_name }}
 					</div>	
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i><a title="Create a new Category<" href="{{route('categories.create') }}">Create a new Category</a>
+
 		            </div>
 		        </div>
 	        </div>
