@@ -1,37 +1,42 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section ('title', "| $page_name")
 @section('content')
 
-
-<section id="inner-page" class="header">		
-<!-- Navigation Section -->
-    @include('partials._navigation')
-
-</section>
-
 <section id="content">
 
-	@include ('partials._inner-title-blog')
-	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div id="contenido"  class="card">
 		<div class="inside">
-			<h2>Categories Index</h2>
 
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Chanels: {{count($all_chanels)}}</span> </h2>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
-						<a href="{{url('/')}}"> Home</a>
-						Blog Categories
-
+						<a href="{{route('dashboard')}}"> Dashboard</a>
+						All {!! $page_name !!}s
 					</div>	
 				</div>	
 				<div class="col-md-6">
-		            <div class="under-meta pull-right">
-		            
+		            <div class="pull-right admin">
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('chanels.index')}}">Back to Chanels</a>
 		            </div>
 		        </div>
 	        </div>
         	<hr>
+
+	      	<div class="row mb-4">
+				<div class="col-md-4 offset-8">
+		            <div class="row">
+		            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('chanels.edit', $chanel->slug)}}">Edit</a>
+		            	<div class="col-md-6">
+			            	{!! Form::open(['route' => ['chanels.destroy', $chanel->slug], 'method' => 'DELETE']) !!}
+
+							{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+
+							{!! Form::close() !!}
+						</div>
+		            </div>
+		        </div>
+	        </div>
 
             <div class="sky-tabs sky-tabs-amount-4 sky-tabs-pos-top-justify sky-tabs-anim-fade sky-tabs-response-to-icons">
                 <input type="radio" class="sky-tab-content-1" id="sky-tab1" checked="" name="sky-tabs">

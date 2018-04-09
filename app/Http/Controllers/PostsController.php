@@ -19,7 +19,7 @@ class PostsController extends Controller
     {
         $posts = Post::orderBy('created_at', 'asc')->paginate(4);
         $total = Post::all();
-        $page_name = 'Post';
+        $page_name = 'News';
         $postcategories = Postcategory::all();
 
         return view('news.index', compact('posts', 'total', 'page_name', 'postcategories'));

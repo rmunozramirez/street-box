@@ -13,7 +13,7 @@
 
 	@include ('partials._inner-title-blog')
 	
-    <div id="contenido"  class="container card-body left-right-shadow">
+    <div id="contenido"  class="container left-right-shadow">
 		<div class="inside">
 			<h2>This is the {!! $page_name !!} Index page</h2>
 

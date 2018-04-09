@@ -15,35 +15,25 @@
                     <!-- mega menu -->
                     <ul class="sky-mega-menu sky-mega-menu-top sky-mega-menu-anim-flip sky-mega-menu-response-to-icons blanco">
          
-                        <li class="active"><a href="{{ url('/') }}"><i class="fa fa-home"></i> {{ config('app.name', 'Laravel') }}</a></li> 
-                        
-                        <li aria-haspopup="true"><a href="{{route('chanels.index')}}"><i class="fa fa-play-circle"></i> Channels</a>        
-                        
-                            <div class="grid-container3">
-                                <ul>
-                                    <li><a href="">Create channel</a></li>        
-                                </ul>
-                            </div>
-                        </li>
-                        <li aria-haspopup="true"><a href="{{route('categories.index')}}"><i class="fa fa-briefcase"></i>Categories</a>
+                        <li class="active"><a href="{{ url('/') }}"><i class="fa fa-home"></i> {{ config('app.name', 'Laravel') }}</a></li>                            
+                        <li aria-haspopup="true">
+                            <a href="{{route('chanels.index')}}"><i class="fa fa-play-circle"></i> Chanels</a>    
                             <div class="grid-container3">
                                 <ul>
                                     <li>
-                                    <a href="{{route('subcategories.index')}}"><i class="fa fa-play-circle"></i> Subcategories</a>
-                                        <div class="grid-container3">
-                                            <ul>
-                                                <li><a href="{{route('chanels.index')}}"><i class="fa fa-play-circle"></i> Channels</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>                                   
-
+                                        <a href="{{route('categories.index')}}">Categories</a>
+                                    </li>        
                                 </ul>
                             </div>
-                        </li>                               
+                        </li>
 
-                        <li aria-haspopup="true"><a href="{{route('news.index')}}"><i class="fa fa-play-circle"></i> Blog</a>    <div class="grid-container3">
+                        <li aria-haspopup="true">
+                            <a href="{{route('news.index')}}"><i class="fa fa-play-circle"></i> Blog</a>    
+                            <div class="grid-container3">
                                 <ul>
-                                    <li><a href="{{route('newscategories.index')}}">Blog Categories</a></li>        
+                                    <li>
+                                        <a href="{{route('newscategories.index')}}">Blog Categories</a>
+                                    </li>        
                                 </ul>
                             </div>
                         </li>

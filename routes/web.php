@@ -76,8 +76,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 //Chanels
 	//chanels
-	Route::get('chanels/trashed', 'ChanelController@trashed')->name('chanels.trashed');
-	Route::get('chanels/restore/{slug}', 'ChanelController@restore')->name('chanels.restore');
-	Route::get('chanels/kill/{slug}', 'ChanelController@kill')->name('chanels.kill');
-	Route::resource('chanels', 'ChanelController');
+	Route::get('admin-chanels/trashed', 'AdminChanelController@trashed')->name('admin-chanels.trashed');
+	Route::get('admin-chanels/restore/{slug}', 'AdminChanelController@restore')->name('admin-chanels.restore');
+	Route::get('admin-chanels/kill/{slug}', 'AdminChanelController@kill')->name('admin-chanels.kill');
+	Route::resource('admin-chanels', 'AdminChanelController');
 });

@@ -15,29 +15,31 @@
 	
     <div  id="contenido"  class="container left-right-shadow">	
 		<div class="inside">
+			<h2>{!! $post->subtitle !!} </h2>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-10">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						<a title=" {{$post->postcategory->title}}" href="{{route('postcategories.show', $post->postcategory->slug) }}"> {{$post->postcategory->title}}</a>
+						<a title=" {{$post->postcategory->title}}" href="{{route('newscategories.show', $post->postcategory->slug) }}"> {{$post->postcategory->title}}</a>
 						{!! $page_name !!}
 					</div>	
-				</div>	
+				</div>
+				<div class="col-md-2">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('news.index')}}">Back to Posts</a>
+		            </div>
+		        </div>					
 			</div>
         	<hr>
-			<div class="row mb-4">
+			<div class="row mb-12">
 				<div class="col-md-10">
-		            <div class="under-meta">
+		            <div class="under-meta pb-5">
 		            	<i class="fa fa-user"></i> Author: <a href="">Domingo</a>         
 						<i class="fa fa-tag"></i> Category: <a href="{{route('postcategories.show', $post->postcategory->slug)}}">{{$post->postcategory->title }}</a>
 		            	<i class="far fa-clock"></i> Posted: {{$post->created_at->diffForHumans()}}
 		            </div>
 		        </div>
-				<div class="col-md-2">
-		            <div class="under-meta pull-right">
-		            	<i class="fas fa-chevron-left"></i> <a href="{{route('news.index')}}">Back to Posts</a>
-		            </div>
-		        </div>
+
 	        </div>
 
 
