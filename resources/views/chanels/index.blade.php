@@ -15,13 +15,13 @@
 	
     <div  id="contenido"  class="container left-right-shadow">	
 		<div class="inside">
-			<h2>Categories Index</h2>
+			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($total)}} chanels</span></h2>
 
 			<div class="row">
 				<div class="col-md-6">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						Blog Categories
+						@if(count($total) == 1) {!! $page_name !!} @else {!! $page_name !!}s @endif
 
 					</div>	
 				</div>	

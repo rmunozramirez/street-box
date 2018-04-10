@@ -27,7 +27,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('chanels.index')}}">Back to Chanels</a>	            
 		            </div>
 		        </div>
 	        </div>

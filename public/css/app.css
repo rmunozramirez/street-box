@@ -10222,11 +10222,11 @@ svg:not(:root).svg-inline--fa {
 }
 
 .carousel-inner > .item {
-  height: 160px;
+  height: 120px;
 }
 
 .bigicon {
-  font-size: 67px;
+  font-size: 35px;
   color: white;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -10238,7 +10238,7 @@ svg:not(:root).svg-inline--fa {
 }
 
 .bigicondark {
-  font-size: 67px;
+  font-size: 35px;
   color: black;
   margin-top: 20px;
   margin-bottom: 10px;

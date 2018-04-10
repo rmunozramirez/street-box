@@ -17,7 +17,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
 		            </div>
 		        </div>
 	        </div>

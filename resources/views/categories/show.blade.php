@@ -26,7 +26,7 @@
 				</div>	
 				<div class="col-md-4">
 		            <div class="under-meta pull-right">
-		            
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('categories.index')}}">Back to categories</a> 
 		            </div>
 		        </div>
 

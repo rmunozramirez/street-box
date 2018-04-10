@@ -13,7 +13,12 @@
 						<a href="{{route('dashboard')}}"> Dashboard</a>
 						<a href="{{ route('posttags.index') }}">All Post Tags</a>
 						{!! $page_name !!}
-					</div>	
+					</div>
+				<div class="col-md-4">
+		            <div class="under-meta pull-right">
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('posttags.index')}}">Back to categories</a>
+		            </div>
+		        </div>	
 				</div>	
 	        </div>
         	<hr>

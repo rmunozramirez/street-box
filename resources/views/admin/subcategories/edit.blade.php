@@ -3,7 +3,6 @@
 @section('content')
 
 <section id="content">
-
     <div id="contenido"  class="card">
 		<div class="inside">
 			<h2>{!! $page_name !!} <span class="mt-3 small pull-right">{{count($all_subcategories)}} subcategories</span></h2>
@@ -17,7 +16,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('admin-subcategories.index')}}">Back to subcategories</a>
 		            </div>
 		        </div>
 	        </div>

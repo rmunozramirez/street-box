@@ -17,16 +17,16 @@
 		<div class="inside">
 			<h2>{!! $post->subtitle !!} </h2>
 			<div class="row">
-				<div class="col-md-10">
+				<div class="col-md-9">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
 						<a title=" {{$post->postcategory->title}}" href="{{route('newscategories.show', $post->postcategory->slug) }}"> {{$post->postcategory->title}}</a>
 						{!! $page_name !!}
 					</div>	
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-3">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-chevron-left"></i> <a href="{{route('news.index')}}">Back to Posts</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{ URL::to('/newscategories/' . $post->postcategory->slug) }}">Back to {{$post->postcategory->title}}</a> 
 		            </div>
 		        </div>					
 			</div>

@@ -61,7 +61,7 @@
 					<div class="col-lg-3 col-md-4">	
 						<div class="card hovercard">
 							<img class="cardheader" src="{{URL::to('/images/' . $post->image)}}">
-								<h3><a href="{{route('posts.show', $post->slug)}}">{{ $post->title }}</a></h3>
+								<h3><a href="{{route('news.show', $post->slug)}}">{{ $post->title }}</a></h3>
 							<div class="card-body">					
 					   
 								<p>

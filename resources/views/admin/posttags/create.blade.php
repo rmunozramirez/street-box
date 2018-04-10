@@ -17,7 +17,7 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="under-meta pull-right">
-		            	<i class="fas fa-pencil-alt"></i> <a href="{{route('postcategories.create')}}">{!! $page_name !!}</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('posttags.index')}}">Back to Post tags</a>
 		            </div>
 		        </div>
 	        </div>
