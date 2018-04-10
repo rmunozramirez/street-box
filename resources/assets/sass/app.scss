@@ -9,7 +9,7 @@
 @import '~bootstrap/scss/bootstrap';
  
 /*--------------------------------------------------------------
-1. - General 
+1. - General
 --------------------------------------------------------------*/
  
 body {
@@ -586,4 +586,5 @@ select.form-control {
 
 .d-none {
 	height: calc(100vh - 110px );
+	padding-top: 15px;
 }

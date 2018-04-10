@@ -1,10 +1,17 @@
 <section class="categories py-5">
 	<header>
 	<div class="container featured-home">
-		<h2 class="text-center">Browse our categories</h2>
-		<div class="pull-right mb-3">{!! Html::linkRoute('categories.index', 'See all Categories') !!}</div>
+		<h2 class="text-center">Browse our Concerts</h2>
+		<!-- div class="pull-right mb-3">{!! Html::linkRoute('categories.index', 'See all Categories') !!}</div -->
+							    <div class="meta pull-right">
+					            	<i class="fa fa-tag"></i> Categories: <a href="{{route('categories.index')}}">{{count($all_categories)}}</a>
+					            	<i class="fa fa-tags"></i> Subcategories: <a href="{{route('subcategories.index')}}">{{count($all_subcategories)}}</a>
+					            	<i class="far fa-newspaper"></i> Chanels: <a href="{{route('chanels.index')}}">{{count($all_chanels)}}</a>
+					            </div>
+					       
 	</div>
 	</header>
+
 
 	<div class="container">
 		<div class="row">

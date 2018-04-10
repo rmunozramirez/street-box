@@ -21,7 +21,7 @@ class AdminController extends Controller
     {
         $page_name = 'Dashboard';
 
-        return view('admin.dashboard', compact('page_name'));
+        return view('admin.home.index', compact('page_name'));
     }
 
 

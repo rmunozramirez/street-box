@@ -27,7 +27,6 @@
 				</div>	
 				<div class="col-md-6">
 		            <div class="pull-right admin">
-		            	<i class="fas fa-pencil-alt"></i> <a href="">A link</a>
 
 		            </div>
 		        </div>
