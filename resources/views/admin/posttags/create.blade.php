@@ -1,38 +1,34 @@
-@extends('layouts.admin')
+@extends('admin.layouts.app')
 @section ('title', "| $page_name")
 @section('content')
 
-
 <section id="content">
-    <div id="contenido"  class="card">	
-		<div class="inside">
-			<h2>{!! $page_name !!}</h2>
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row wrapper border-bottom white-bg">
+			<div class="inside">
+                <h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Chanels: {{count($all_posttags)}}</span> </h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{route('dashboard')}}"> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <i class="fas fa-pencil-alt"></i> All {!! $page_name !!}s
+                    </li>
+                    <span class="pull-right">
+                    	<i class="fas fa-chevron-left"></i> <a href="{{route('posttags.index')}}">Back to Post tags</a>
+                    </span>
+                </ol>
+                <hr>
+		    @if(count($errors) > 0)
+		        <ul class="list-group">
+		        
+		            @foreach($errors->all() as $error)
 
-			<div class="row">
-				<div class="col-md-6">
-					<div class="breadcrumb">
-						<a href="{{url('/')}}"> Home</a>
-						{!! $page_name !!}
-					</div>	
-				</div>	
-				<div class="col-md-6">
-		            <div class="under-meta pull-right">
-		            	<i class="fas fa-chevron-left"></i> <a href="{{route('posttags.index')}}">Back to Post tags</a>
-		            </div>
-		        </div>
-	        </div>
-        	<hr>
+		                <li class="list-group-item text-danger">{{$error}}</li>
 
-	    @if(count($errors) > 0)
-	        <ul class="list-group">
-	        
-	            @foreach($errors->all() as $error)
-
-	                <li class="list-group-item text-danger">{{$error}}</li>
-
-	            @endforeach
-	        </ul>
-	    @endif
+		            @endforeach
+		        </ul>
+		    @endif
 	    
 			<div class="row">
 				<div class="card-body">

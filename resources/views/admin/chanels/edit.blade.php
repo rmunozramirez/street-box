@@ -20,8 +20,6 @@
                     </span>
                 </ol>
                 <hr>
-
-
     			<div id="contenido"  class="card">
 					<div class="inside">
 
