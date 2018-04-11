@@ -2,11 +2,11 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                    <div class="text-center dropdown profile-element"> <span>
+                        <img height="80" class="img-circle thumbnail-admin"  src="{{URL::to('/images/user.png' ) }}" alt="" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ Auth::user()->name }}</strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="profile.html">Profile</a></li>
@@ -15,39 +15,35 @@
                             <li class="divider"></li>
                             <li><a href="login.html">Logout</a></li>
                         </ul>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-                <li class="active">
-                    <a href=""><i class="fa fa-tachometer-alt"></i> <span class="nav-label">Dashboard</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="index.html">Metrix</li>
-                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li class="active"><a href="dashboard_3.html">Dashboard v.3</a></li>
-                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
-                    </ul>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-users"></i>  <span class="nav-label">Users</span>  </a>
+                    <a href="{{route('dashboard')}}">
+                        <i class="fa fa-tachometer-alt"></i> 
+                        <span class="nav-label">Dashboard</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="index.html">Metrix</a></li>
+                        </ul>
+                </li>
+                <li>
+                    <a href="{{route('users.index')}}"><i class="fa fa-users"></i>  <span class="nav-label">Users</span>  </a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Channels</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Channels</a></li>
-                        <li><a href="graph_morris.html">Channel Subcategories</a></li>
-                        <li><a href="graph_rickshaw.html">Channel Categories</a></li>
+                        <li><a href="{{route('admin-chanels.index')}}">Channels</a></li>
+                        <li><a href="{{route('admin-subcategories.index')}}">Channel Subcategories</a></li>
+                        <li><a href="{{route('admin-categories.index')}}">Channel Categories</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href=""><i class="fa fa-envelope"></i> <span class="nav-label">Blog </span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="mailbox.html">Posts</a></li>
-                        <li><a href="mail_detail.html">Post Categories</a></li>
-                        <li><a href="mail_compose.html">Pages</a></li>
+                        <li><a href="{{route('posts.index')}}">Posts</a></li>
+                        <li><a href="{{route('postcategories.index')}}">Post Categories</a></li>
+                        <li><a href="{{route('posts.index')}}">Pages</a></li>
                     </ul>
                 </li>
 
