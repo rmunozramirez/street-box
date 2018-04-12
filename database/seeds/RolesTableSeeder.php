@@ -22,7 +22,7 @@ class RolesTableSeeder extends Seeder
         ]);   
                 
 		 App\Role::create ([
-            'name'  =>  'Aubscriber',
+            'name'  =>  'Subscriber',
         	'slug'  => 	'subscriber',
         ]);   
          

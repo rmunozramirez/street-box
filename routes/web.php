@@ -18,6 +18,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+	//profiles
+	Route::resource('profile', 'ProfileController');
+
+
 	//news
 	Route::get('news', 'PostsController@index')->name('news.index');
 	Route::get('news/{slug}', 'PostsController@show')->name('news.show')->where('slug', '[\w\d\-\_]+');

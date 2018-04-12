@@ -40,7 +40,6 @@ class AppServiceProvider extends ServiceProvider
         View::share(array('all_chanels' => $all_chanels, 
                             'all_subcategories' => $all_subcategories,
                             'all_categories' => $all_categories,
-                            'all_page_name' =>  $page_name,
                             'all_postcategories' =>  $all_postcategories,
                             'all_posts' =>  $all_posts,
                             'all_pages' =>  $all_pages,
@@ -48,6 +47,7 @@ class AppServiceProvider extends ServiceProvider
                             'all_users' =>  $all_users,
                             'all_profiles' =>  $all_profiles,
                             'all_roles' =>  $all_roles,
+                            'page_name' =>  $page_name,
                         ));
     }
 

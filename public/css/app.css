@@ -10345,6 +10345,10 @@ svg:not(:root).svg-inline--fa {
   padding: 20px 0 0 0 !important;
 }
 
+.user-profile .sky-tabs > ul > li {
+  height: 400px;
+}
+
 .sky-tabs > label {
   border: 1px solid #eee;
   margin-right: -1px;
@@ -10607,5 +10611,9 @@ select.form-control {
 .d-none {
   height: calc(100vh - 110px);
   padding-top: 15px;
+}
+
+.footer {
+  position: initial !important;
 }
 

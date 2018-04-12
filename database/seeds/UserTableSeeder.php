@@ -17,8 +17,14 @@ class UserTableSeeder extends Seeder
             'password'  =>  bcrypt('Password'),
             'role_id'   =>  1,
             'slug'      =>  'rafael-munoz',
-
         ]);
+
+        App\Profile::create ([
+            'user_id'   =>  1,
+            'slug'      =>  'profile_rafael-munoz',
+        ]);
+
+
 
         App\User::create ([
             'name'      =>  'Enrique (Kike) Muñoz Botschka',
@@ -28,12 +34,25 @@ class UserTableSeeder extends Seeder
             'slug'      =>  'enrique-kike-munoz-botschka',
         ]);
 
+        App\Profile::create ([
+            'user_id'   =>  2,
+            'slug'      =>  'profile_enrique-kike-munoz-botschka',
+        ]);
+
+
+
         App\User::create ([
-        	'name' 		=> 	'Amelie Muñoz Botschka',
-        	'email'		=>	'amelie@yahoo.com',
-        	'password'	=>	bcrypt('Password'),
+            'name'      =>  'Amelie Muñoz Botschka',
+            'email'     =>  'amelie@yahoo.com',
+            'password'  =>  bcrypt('Password'),
             'role_id'   =>  3,
             'slug'      =>  'amelie-munoz-botschka',
         ]);
+
+        App\Profile::create ([
+        	'user_id'  => 	3,
+            'slug'      =>  'profile_amelie-munoz-botschka',
+        ]);
+        
     }
 }

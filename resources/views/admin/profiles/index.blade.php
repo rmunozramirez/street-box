@@ -6,7 +6,7 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row wrapper border-bottom white-bg">
 			<div class="inside">
-                <h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Chanels: {{count($all_chanels)}}</span> </h2>
+                <h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Profiles: {{count($all_profiles)}}</span> </h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="{{route('dashboard')}}"> Dashboard</a>

@@ -13,7 +13,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <!-- mega menu -->
-                    <ul class="sky-mega-menu sky-mega-menu-top sky-mega-menu-anim-flip sky-mega-menu-response-to-icons blanco">
+                    <ul class="sky-mega-menu sky-mega-menu-top sky-mega-menu-response-to-icons blanco">
          
                         <li class="active"><a href="{{ url('/') }}"><i class="fa fa-home"></i> {{ config('app.name', 'Laravel') }}</a></li>                            
                         <li aria-haspopup="true">
@@ -54,6 +54,9 @@
                                         </a>
                                         <a class="dropdown-item" href="{{ route('dashboard') }}">
                                             Admin
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('profile.show',  Auth::user()->slug ) }}">
+                                            Profile
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
