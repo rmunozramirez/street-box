@@ -24,13 +24,24 @@
 					<div class="inside">
 						<div class="row">
 							<div class="card-body">        
-					            <div class="row">        
-						            <div class="col-md-6"> 
-						            	<h3>{!! $user->name !!}</h3>
-						            </div>       
-									<div class="col-md-6">
-							            <div class="row">
-							            	<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->slug)}}">Edit</a>
+								<h3>{!! $user->name !!}</h3>
+ 
+					            <table class="table table-striped table-hover">
+						         <thead>
+						            <tr>
+						                <th>Profile</th>
+						                <th>Role</th>
+						                <th>Date</th>
+						            </tr>
+						         </thead>
+						         <tbody>
+
+						            <tr>
+						               <td>noch nicht</td>
+						               <td>{{$user->role->name}}</td>
+						               <td>{{$user->created_at}}</td>
+						               <td>
+						               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->slug)}}">Edit</a>
 							            	<div class="col-md-6">
 								            	{!! Form::open(['route' => ['users.destroy', $user->slug], 'method' => 'DELETE']) !!}
 
@@ -38,10 +49,11 @@
 
 												{!! Form::close() !!}
 											</div>
-							            </div>
-							        </div>
-					            </div>  
-						            
+						               </td>
+						            </tr>
+
+						         </tbody>
+						      </table>						            
 					        </div>
 					    </div>
 				    	<hr>

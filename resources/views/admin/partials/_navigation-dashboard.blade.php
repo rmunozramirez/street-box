@@ -60,7 +60,7 @@
                 <a href="{{ route('posttags.index') }}">Post Tags</a>
               </li>
               <li>
-                <a href="blank.html">Pages</a>
+                <a href="{{ route('admin-pages.index') }}">Pages</a>
               </li>
             </ul>
           </li>

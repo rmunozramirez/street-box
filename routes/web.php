@@ -22,6 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('news', 'PostsController@index')->name('news.index');
 	Route::get('news/{slug}', 'PostsController@show')->name('news.show')->where('slug', '[\w\d\-\_]+');
 
+	//pages
+	Route::get('pages/{slug}', 'PagesController@show')->name('pages.show')->where('slug', '[\w\d\-\_]+');
+
 	//postcategories
 	Route::get('newscategories', 'PostcategoriesController@index')->name('newscategories.index');
 	Route::get('newscategories/{slug}', 'PostcategoriesController@show')->name('newscategories.show')->where('slug', '[\w\d\-\_]+');
@@ -46,13 +49,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 //Users
 	//users
-	Route::get('users', 'UserController@index')->name('users.index');
-	Route::get('users/create', 'UserController@create')->name('users.create');
-	Route::post('users/store', 'UserController@store')->name('users.store');
-	Route::get('users/{slug}', 'UserController@show')->name('users.show')->where('slug', '[\w\d\-\_]+');
-	Route::get('users/{slug}/edit', 'UserController@edit')->name('users.edit')->where('slug', '[\w\d\-\_]+');
-	Route::patch('users/{slug}', 'UserController@update')->name('users.update')->where('slug', '[\w\d\-\_]+');
-	Route::delete('users/{slug}', 'UserController@destroy')->name('users.destroy')->where('slug', '[\w\d\-\_]+');
+	Route::resource('users', 'UserController');
+
+	//profiles
+	Route::get('admin-profiles/trashed', 'AdminProfileController@trashed')->name('admin-profiles.trashed');
+	Route::get('admin-profiles/restore/{slug}', 'AdminProfileController@restore')->name('admin-profiles.restore');
+	Route::get('admin-profiles/kill/{slug}', 'AdminProfileController@kill')->name('admin-profiles.kill');
+	Route::resource('admin-profiles', 'AdminProfileController');
 
 //Blog
 	//posts
@@ -63,6 +66,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	//posttags
 	Route::resource('posttags', 'PosttagController');
+
+	//pages
+	Route::get('admin-pages/trashed', 'AdminPagesController@trashed')->name('admin-pages.trashed');
+	Route::get('admin-pages/restore/{slug}', 'AdminPagesController@restore')->name('admin-pages.restore');
+	Route::get('admin-pages/kill/{slug}', 'AdminPagesController@kill')->name('admin-pages.kill');
+	Route::resource('admin-pages', 'AdminPagesController');
 
 	//postcategories
 	Route::get('postcategories/trashed', 'AdminPostsCategoriesController@trashed')->name('postcategories.trashed');

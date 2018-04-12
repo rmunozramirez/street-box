@@ -58,6 +58,10 @@ class UserController extends Controller
 
         $user->save();
 
+        $profile = Profile::create([
+            'user_id' => $user->id;
+        ]);
+
         Session::flash('success', 'User successfully created!');
      
         return redirect()->route('users.show', $user->slug);
