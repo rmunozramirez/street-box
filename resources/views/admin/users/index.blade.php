@@ -16,6 +16,7 @@
                     </li>
                     <span class="pull-right"><i class="fas fa-pencil-alt"></i> <a href="{{route('users.create')}}">Create a new User</a></span>
                 </ol>
+                
                 <hr>
 			    <div id="contenido"  class="card">
 					<div class="row">

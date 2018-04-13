@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3900f2e69b8e4eb7f28eecccc6878e0e",
+    "content-hash": "37914d1d1eccd0fcb460a6b8e763eacb",
     "packages": [
+        {
+            "name": "berkayoztunc/laravel-profile",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/berkayoztunc/laravel-profile.git",
+                "reference": "24482964b32ca5380917726a0fcd885e5b5eba81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/berkayoztunc/laravel-profile/zipball/24482964b32ca5380917726a0fcd885e5b5eba81",
+                "reference": "24482964b32ca5380917726a0fcd885e5b5eba81",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Berkayoztunc\\LaravelProfile\\LaravelProfileServicesProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Berkayoztunc\\LaravelProfile\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Berkay Öztunç",
+                    "email": "mailberkayoztunc@gmail.com",
+                    "homepage": "https://berkayoztunc.github.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "user model based profile staff",
+            "keywords": [
+                "laravel",
+                "laravel-profile"
+            ],
+            "time": "2017-06-18T22:51:41+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

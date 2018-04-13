@@ -6,7 +6,7 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row wrapper border-bottom white-bg">
 			<div class="inside">
-                <h2>{!! $page_name !!} <span class="mt-3 small pull-right">Total Users: {{count($all_users)}}</span> </h2>
+                <h2>Profile from:  {!! $page_name !!} <span class="mt-3 small pull-right">Total Users: {{count($all_users)}}</span> </h2>
                 <ol class="breadcrumb">
                     <li>
                         <a href="{{route('dashboard')}}"> Dashboard</a>
@@ -15,7 +15,7 @@
                         <i class="fas fa-pencil-alt"></i> {!! $page_name !!}
                     </li>
                     <span class="pull-right">
-                    	<i class="fas fa-chevron-left"></i> <a href="{{route('users.index')}}">Back to users</a>
+                    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <a href="{{route('users.index')}}">Back to users</a>
                     </span>
                 </ol>
                 <hr>
@@ -25,7 +25,6 @@
 						<div class="row">
 							<div class="card-body">        
 								<h3>{!! $user->name !!}</h3>
- 
 					            <table class="table table-striped table-hover">
 						         <thead>
 						            <tr>

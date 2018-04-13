@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 	//profiles
+	Route::patch('profile', 'ProfileController@updateuser')->name('pages.show')->where('slug', '[\w\d\-\_]+');
 	Route::resource('profile', 'ProfileController');
 
 

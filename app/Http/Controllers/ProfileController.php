@@ -74,11 +74,11 @@ class ProfileController extends Controller
         $temp_slug = str_slug('profile_' . $user->name);
 
         $profile = Profile::where('slug', $temp_slug)->first();
-        $page_name = $user->name;
+        $page_name = 'Welcome ' . $user->name;
         if ($profile === NULL ) {
             $profile = Profile::create([
                 'user_id'   => $user->id,
-                'slug'      =>  str_slug('profile_' . $user->name)
+                'slug'      => 'profile_' . str_slug($user->name)
             ]);
         }
 
@@ -111,8 +111,12 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, $slug)
     {
+ 
+        $user = User::where('slug', $slug)->first();
+
         $input = $request->all();
-        $input['slug'] = str_slug($request->title, '-');
+        $input['slug']      = 'profile_' . $slug;
+        $input['user_id']   = $user->id;
 
         if ( $file = $request->file('image')) {
             $name = time() . '-' . $file->getClientOriginalName();
@@ -120,13 +124,48 @@ class ProfileController extends Controller
             $input['image'] = $name;
         }
 
-        $profile = Profile::where('slug', $slug)->first();
+        $profile = Profile::where('slug', $input['slug'])->first();
+
         $profile->fill($input)->save();
         $page_name = $profile->title;
 
         Session::flash('success', 'Chanel successfully updated!');
      
-        return redirect()->route('admin-chanels.show', $profile->slug);
+        return redirect()->route('profile.show', $profile->slug);
+    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateuser(ProfileRequest $request, $slug)
+    {
+ 
+        $input = $request->all();
+        if ( $file = $request->password) { 
+            $input['password'] = bcrypt($request->password);
+        }
+        
+        if ( $file = $request->name) {
+
+            $profile = Profile::where('slug', $input['slug'])->first();
+            $profile['slug'] = 'profile_' . str_slug($request->name);
+            $profile->fill($input)->save();
+
+            $input['slug'] = str_slug($request->name);
+
+            
+        }
+
+        $user = User::where('slug', $slug)->first();
+        $user->fill($input)->save();
+        $page_name = $profile->title;
+
+        Session::flash('success', 'Chanel successfully updated!');
+     
+        return redirect()->route('profile.show', $profile->slug);
     }
     /**
      * Remove the specified resource from storage.

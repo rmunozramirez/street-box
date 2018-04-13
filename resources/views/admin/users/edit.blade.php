@@ -58,11 +58,6 @@
 								            	{!! Form::label('role_id', 'Role:') !!}
 			                        			{!! Form::select('role_id', ['' => 'Choose a Role'] + $all_roles, null, array('class' => 'form-control')) !!}
 								            </div> 
-
-								            <div class="col-md-6 pt-5">       
-								                {!!Form::label('password', 'Password', array('class' => 'form-spacing-top'))!!}
-								                {!!Form::text('password', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255'))!!}
-								            </div>
 							            </div>		            	
 
 							            <div class="pt-5 pull-left">    

@@ -53,13 +53,13 @@ class UserController extends Controller
             'email'     =>  $request->email,
             'role_id'   =>  $request->role_id,
             'slug'      => str_slug($request->name, '-'),
-            'password'  => bcrypt($request->password),
         ]);        
+
 
         $user->save();
 
         $profile = Profile::create([
-            'user_id' => $user->id;
+            'user_id' => $user->id,
         ]);
 
         Session::flash('success', 'User successfully created!');
@@ -107,10 +107,13 @@ class UserController extends Controller
     {
         
         $input = $request->all();
-        if ( $file = $request->password) { 
+        if ($request->password) { 
             $input['password'] = bcrypt($request->password);
         }
 
+        if ($request->name) { 
+            $input['name'] =$request->name;
+        }
         $input['slug'] = str_slug($request->name, '-');
 
         $user = User::where('slug', $slug)->first();

@@ -13,9 +13,11 @@
 
 	@include ('partials._inner-title-blog')
 	
-    <div  id="contenido"  class="container left-right-shadow">	
+    <div  id="contenido"  class="container left-right-shadow">
+
 		<div class="inside">
-			<h2>Welcome {!! $page_name !!} </h2>
+			<h3 class="page-title">{{$page_name}}</h3>
+			 <hr>
 			<div class="row">
 				<div class="col-md-9">
 					<div class="breadcrumb">
@@ -29,19 +31,19 @@
 		            </div>
 		        </div>					
 			</div>
-            <hr>
+           
 
             <div class="user-profile sky-tabs sky-tabs-amount-2 sky-tabs-pos-top-justify sky-tabs-anim-fade sky-tabs-response-to-icons">
                 <input type="radio" class="sky-tab-content-1" id="sky-tab1" checked="" name="sky-tabs">
                 <label for="sky-tab1"><span><span><i class="fa fa-user"></i>Edit User</span></span></label>
 
                 <input type="radio" class="sky-tab-content-2" id="sky-tab2" name="sky-tabs">
-                <label for="sky-tab2"><span><span><i class="fa fa-pencil"></i>Reviews</span></span></label>
+                <label for="sky-tab2"><span><span><i class="fa fa-pencil"></i>Edit Profile</span></span></label>
 
                 <ul>
                     <li class="sky-tab-content-1">
       
-			        {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['UserController@update', $user->slug ],'files'=>true]) !!}   
+			        {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['ProfileController@updateuser', $user->slug ],'files'=>true]) !!}   
 
 		            	<div class="col-md-12"> 
 				            <div class="row">
@@ -56,8 +58,15 @@
 					            </div>
 				            </div>	
 				            <div class="row">
+				            	<div class="col-md-6">       
+					                {!!Form::label('email', 'Name', array('class' => 'form-spacing-top'))!!}
+					                {!!Form::text('email', null, array('class' => 'form-control'))!!}
+					            </div>
+
+				            </div>	
+				            <div class="row">
 								<div class=" col-md-12 pt-5">    
-					                {!!Form::submit('Edit user', array('class' => 'col-md-12 btn btn-success btn-block')) !!}
+					                {!!Form::submit('Edit user Info', array('class' => 'col-md-12 btn btn-success btn-block')) !!}
 					                {!!Form::close() !!}       
 					            </div>
 			            	</div>		            	
@@ -66,7 +75,7 @@
 
                 	<li class="sky-tab-content-2">
 
-		        		{!! Form::model($profile, ['method'=>'PATCH', 'action'=> ['ProfileController@update', $profile->slug ],'files'=>true]) !!}
+		        		{!! Form::model($profile, ['method'=>'PATCH', 'action'=> ['ProfileController@update', $user->slug ],'files'=>true]) !!}
 
 			            <div class="col-md-4"> 
 			            	<i class="far fa-user fa-10x"></i>
@@ -76,7 +85,7 @@
 			            	</div>  
 			            </div>
       
-		            	<div class="col-md-8"> 
+		            	<div class="col-lg-8 col-md-12"> 
 				            <div class="row">
 				            	<div class="col-md-6">       
 					                {!!Form::label('birthday', 'Birthday', array('class' => 'form-spacing-top'))!!}

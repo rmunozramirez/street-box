@@ -10149,6 +10149,10 @@ svg:not(:root).svg-inline--fa {
   margin-top: -100px;
 }
 
+.top-80 {
+  margin-top: -80px;
+}
+
 .categories {
   background: rgba(255, 255, 255, 0.9) url("/images/overlay-carbon.png") repeat scroll 0 0;
   border: none !important;
@@ -10372,7 +10376,7 @@ svg:not(:root).svg-inline--fa {
   background-image: url("/images/bg-pink.jpg");
   background-position: center top;
   background-size: cover;
-  height: 300px;
+  height: 200px;
 }
 
 .general-container {
@@ -10384,6 +10388,10 @@ svg:not(:root).svg-inline--fa {
   color: #666;
   font: 16px/1.65 century gothic,sans-serif;
   outline: medium none;
+}
+
+h3.page-title {
+  margin-top: 0;
 }
 
 .breadcrumb {

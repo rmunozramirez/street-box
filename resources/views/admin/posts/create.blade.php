@@ -15,7 +15,7 @@
                         <i class="fas fa-pencil-alt"></i> All {!! $page_name !!}s
                     </li>
                     <span class="pull-right">
-		            	<i class="fas fa-chevron-left"></i> <a href="{{route('posts.index')}}">Back to posts</a>
+		            	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <a href="{{route('posts.index')}}">Back to posts</a>
 		            	<i class="fas fa-trash"></i> <a href="{{route('posts.trashed')}}">Trashed Posts</a>
                     </span>
                 </ol>
