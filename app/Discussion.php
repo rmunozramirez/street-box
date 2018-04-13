@@ -9,6 +9,7 @@ class Discussion extends Model
 {
 	protected $fillable = [
 
+            'profile_id',
 			'status',
 		    'title',
             'slug',		    

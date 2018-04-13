@@ -15,6 +15,7 @@ use App\Postcategory;
 use App\User;
 use App\Profile;
 use App\Role;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,6 +50,10 @@ class AppServiceProvider extends ServiceProvider
                             'all_roles' =>  $all_roles,
                             'page_name' =>  $page_name,
                         ));
+
+        View::composer('*', function($view){
+            $view->with('auth', Auth::user());
+        });
     }
 
     /**

@@ -19,10 +19,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 	//profiles
-	Route::patch('profile', 'ProfileController@updateuser')->name('profile.updateuser')->where('slug', '[\w\d\-\_]+');
-	Route::get('profile/{slug}/persona', 'ProfileController@profile')->name('profile.persona')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}', 'ProfileController@home')->name('profile.home')->where('slug', '[\w\d\-\_]+');
+	Route::patch('profile/{slug}', 'ProfileController@updateuser')->name('profile.updateuser')->where('slug', '[\w\d\-\_]+');
+
+	Route::get('profile/{slug}/persona', 'ProfileController@persona')->name('profile.persona')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}/persona/edit', 'ProfileController@update')->name('profile.persona.edit')->where('slug', '[\w\d\-\_]+');
+
 	Route::get('profile/{slug}/discussions', 'DiscussionsController@posts')->name('profile.discussions.index')->where('slug', '[\w\d\-\_]+');
-	Route::resource('profile', 'ProfileController');
+	Route::get('profile/{slug}/discussions/create', 'DiscussionsController@create')->name('profile.discussions.create')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}/discussions/{slug_d}', 'DiscussionsController@create')->name('profile.discussions.show')->where('slug', '[\w\d\-\_]+');
+
 
 	//discussions
 	// Route::get('discussions/{slug}/posts', 'DiscussionsController@posts')->name('discussions.posts')->where('slug', '[\w\d\-\_]+');	

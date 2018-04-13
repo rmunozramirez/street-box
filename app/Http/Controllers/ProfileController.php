@@ -21,14 +21,31 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function home($slug)
+    {
+        $user = Auth::user();
+        $profile = Profile::where('user_id', $user->id)->first();
+        $discussions = Discussion::where('profile_id', $profile->id)->paginate(4);
+        $all_user_discussions = Discussion::where('profile_id', $profile->id)->count();
+        $page_name = 'Welcome: ' . $user->name;  
+
+        return view('profile.home', compact('user', 'profile', 'discussions', 'all_user_discussions', 'page_name' ));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function persona($slug)
     {
-        $user = Discussion::where('slug', $slug)->first();
+
         $user = User::where('slug', $slug)->first();
         $profile = Profile::where('user_id', $user->id)->first();   
         $page_name = 'Profile ' . $user->name;  
         return view('profile.persona', compact('page_name', 'user', 'profile'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -68,8 +85,6 @@ class ProfileController extends Controller
         $file = $request->file('image');
         $name = time() . '-' . $file->getClientOriginalName();
         $file->move('images', $name);
-
-        $user_name = User::
 
         $profile = Profile::create([
 

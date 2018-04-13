@@ -15,7 +15,7 @@ class CreateDiscussionsTable extends Migration
     {
         Schema::create('discussions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('profile_id')->index();
+            $table->integer('profile_id')->index()->unsigned();
             $table->enum('status', ['active', 'inactive', 'on_hold', 'banned'])->default('inactive');
             $table->string('title')->unique();  
             $table->string('slug')->unique();
