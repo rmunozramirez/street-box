@@ -19,9 +19,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 	//profiles
-	Route::patch('profile', 'ProfileController@updateuser')->name('pages.show')->where('slug', '[\w\d\-\_]+');
+	Route::patch('profile', 'ProfileController@updateuser')->name('profile.updateuser')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}/persona', 'ProfileController@profile')->name('profile.persona')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}/discussions', 'DiscussionsController@posts')->name('profile.discussions.index')->where('slug', '[\w\d\-\_]+');
 	Route::resource('profile', 'ProfileController');
 
+	//discussions
+	// Route::get('discussions/{slug}/posts', 'DiscussionsController@posts')->name('discussions.posts')->where('slug', '[\w\d\-\_]+');	
+	Route::resource('discussions', 'DiscussionsController');
 
 	//news
 	Route::get('news', 'PostsController@index')->name('news.index');

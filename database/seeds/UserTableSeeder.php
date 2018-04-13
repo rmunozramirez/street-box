@@ -21,7 +21,6 @@ class UserTableSeeder extends Seeder
 
         App\Profile::create ([
             'user_id'   =>  1,
-            'slug'      =>  'profile_rafael-munoz',
         ]);
 
 
@@ -36,7 +35,6 @@ class UserTableSeeder extends Seeder
 
         App\Profile::create ([
             'user_id'   =>  2,
-            'slug'      =>  'profile_enrique-kike-munoz-botschka',
         ]);
 
 
@@ -51,7 +49,6 @@ class UserTableSeeder extends Seeder
 
         App\Profile::create ([
         	'user_id'  => 	3,
-            'slug'      =>  'profile_amelie-munoz-botschka',
         ]);
         
     }

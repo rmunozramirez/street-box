@@ -11,9 +11,6 @@ class Profile extends Model
    protected $fillable = [
         'user_id',
         'chanel_id',
-        'slug',
-        'first_name',  
-        'last_name',
         'birthday', 
         'about_user',
         'image',
@@ -26,4 +23,12 @@ class Profile extends Model
     {
         return $this->belongsTo('App\User');
     } 
+
+
+    public function discussions()
+    {
+        return $this->hasMany('App\Discussion');
+    }
+
+
 }

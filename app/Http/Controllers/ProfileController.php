@@ -5,14 +5,44 @@ namespace App\Http\Controllers;
 use App\AdminProfile;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\UserRequest;
 use App\Chanel;
 use App\User;
 use App\Profile;
+use App\Discussion;
 use Session;
 use Auth;
 
 class ProfileController extends Controller
 {
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile($slug)
+    {
+        $user = Discussion::where('slug', $slug)->first();
+        $user = User::where('slug', $slug)->first();
+        $profile = Profile::where('user_id', $user->id)->first();   
+        $page_name = 'Profile ' . $user->name;  
+        return view('profile.persona', compact('page_name', 'user', 'profile'));
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function profile($slug)
+    {
+
+        $user = User::where('slug', $slug)->first();
+        $profile = Profile::where('user_id', $user->id)->first();
+        $discussions = Discussion::where('user_id', $user->id)->get();        
+        $page_name = 'Profile ' . $user->name;  
+        return view('profile.discussions', compact('page_name', 'user', 'profile'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -47,8 +77,7 @@ class ProfileController extends Controller
             'chanel_id'     => $request->chanel_id,
             'first_name'    => $request->first_name,
             'last_name'     => $request->last_name,
-            'birthday'      => $request->birthday,
-            'slug'          => str_slug($request->title, '-'),      
+            'birthday'      => $request->birthday,     
             'about_user'    => $request->about_user,
             'image'         => $name,
 
@@ -69,17 +98,15 @@ class ProfileController extends Controller
      */
     public function show($slug)
     {
-
-        $user = Auth::user();        
-        $temp_slug = str_slug('profile_' . $user->name);
-
-        $profile = Profile::where('slug', $temp_slug)->first();
-        $page_name = 'Welcome ' . $user->name;
-        if ($profile === NULL ) {
+        
+        $user = User::where('slug', $slug)->first(); 
+        $page_name = 'User area: ' . $user->name;        
+        if ($user->profile === NULL ) {
             $profile = Profile::create([
                 'user_id'   => $user->id,
-                'slug'      => 'profile_' . str_slug($user->name)
             ]);
+        } else {
+            $profile = Profile::where('user_id', $user->id)->first();           
         }
 
         return view('profile.show', compact('user', 'profile', 'page_name'));
@@ -140,30 +167,23 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateuser(ProfileRequest $request, $slug)
+    public function updateuser(UserRequest $request, $slug)
     {
- 
         $input = $request->all();
-        if ( $file = $request->password) { 
+        if($request->password) { 
             $input['password'] = bcrypt($request->password);
         }
         
-        if ( $file = $request->name) {
-
-            $profile = Profile::where('slug', $input['slug'])->first();
-            $profile['slug'] = 'profile_' . str_slug($request->name);
-            $profile->fill($input)->save();
-
-            $input['slug'] = str_slug($request->name);
-
-            
+        if($request->name) {
+            $input['slug'] = str_slug($request->name);       
         }
 
         $user = User::where('slug', $slug)->first();
+        dd($user);
         $user->fill($input)->save();
-        $page_name = $profile->title;
+        $page_name = 'Welcome ' . $profile->user->name;
 
-        Session::flash('success', 'Chanel successfully updated!');
+        Session::flash('success', 'Profile successfully updated!');
      
         return redirect()->route('profile.show', $profile->slug);
     }

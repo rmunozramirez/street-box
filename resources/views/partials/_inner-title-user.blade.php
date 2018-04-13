@@ -4,10 +4,10 @@
 		
 		<header class="content-header">
 			<div class="row">
-				<div class="col-md-8">
-					<h2 class="page-title">{{$page_name}}</h2>
+				<div class="col-md-9">
+					@include ('partials._profile-menu')
 				</div>
-			    <div class="col-md-4">
+			    <div class="col-md-3">
 			        <div class=" pull-right pt-3">					
 			            <form action="#">					
 			                <div class="input">

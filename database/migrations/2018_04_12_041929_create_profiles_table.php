@@ -17,7 +17,6 @@ class CreateProfilesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('chanel_id')->default(-1);
-            $table->string('slug')->unique();
             $table->date('birthday')->nullable(); 
             $table->text('about_user')->nullable();
             $table->string('image')->default('user.png');
