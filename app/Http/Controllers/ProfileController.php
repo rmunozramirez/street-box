@@ -21,7 +21,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function profile($slug)
+    public function persona($slug)
     {
         $user = Discussion::where('slug', $slug)->first();
         $user = User::where('slug', $slug)->first();

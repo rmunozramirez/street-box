@@ -29,9 +29,12 @@ class DiscussionsController extends Controller
     {
         $user = User::where('slug', $slug)->first();
         $profile = Profile::where('user_id', $user->id)->first();
-        $discussions = Discussion::where('profile_id', $profile->id)->first();
+        $discussions = Discussion::where('profile_id', $profile->id)->paginate();
+        $all_user_discussions = Discussion::where('profile_id', $profile->id)->count();
+        $page_name = 'discussions';
+        //dd($discussions);
 
-        return view('discussions.posts', compact('discussions', 'page_name'));
+        return view('profile.discussions.index', compact('discussions', 'page_name', 'user', 'profile', 'all_user_discussions'));
     }
 
     /**

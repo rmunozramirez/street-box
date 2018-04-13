@@ -16,7 +16,7 @@
     <div  id="contenido"  class="container left-right-shadow">
 
 		<div class="inside">
-			<h3 class="page-title">{{$page_name}}'s Home</h3>
+			<h3 class="page-title">{!! $user->name !!}'s {{$page_name}}<span class="mt-3 small pull-right">{!! $all_user_discussions !!} discussions</span></h3>
 			 <hr>
 			<div class="row">
 				<div class="col-md-9">
@@ -33,33 +33,34 @@
 			</div>
            <hr />
 
-			    <div id="contenido"  class="card">
-					<div class="row">
-						@if(count($discussions) > 0)
-							<table class="table table-striped table-hover">
-						         <thead>
-						            <tr>
-						                <th>Title</th>
-						                <th>Image</th>
-						                <th>Date</th>
-						            </tr>
-						         </thead>
-						         <tbody>
-						         	@foreach ($discussions as $discussion)
-						            <tr>
-						               <td><a href="{{route('discussions.show', $discussion->slug)}}">{{$discussion->title}}</a></td>
-						               <td>{{$discussion->image</td>
-						               <td>{{$chanel->created_at}}</td>
-						            </tr>
-						            @endforeach
-						         </tbody>
-						      </table>
-						@endif
-					</div>	
-					<div class="text-center">
-				        {{ $discussions->links() }}
-				    </div>		
-				</div>
+		    <div class="row">
+		    	<div class="col-md-4">
+		    		@if(count($discussions) > 0)
+			         	@foreach ($discussions as $discussion)
+			    		<div class="list-group-item-text">
+			    			<div class="pull-left">{!! $discussion->title !!}</div>
+			    			<hr />
+			    		</div>
+			    		@endforeach 
+					@endif	
+		    	</div>
+		    	<div class="col-md-8">
+					@if(count($discussions) > 0)
+			         	@foreach ($discussions as $discussion)	
+						<div class="card">
+							<div class="card-header">
+								<div class="pull-left">{!! $discussion->title !!}</div>
+							</div>
+							<div class="card-body">					
+								<div class="pull-left">{!!$discussion->body !!}</div>
+							</div>
+						</div>
+			            @endforeach 
+					@endif	
+				<div class="text-center">
+			        {{ $discussions->links() }}
+			    </div>		
+			</div>
 		</div>			
 	</div>
 </section>
