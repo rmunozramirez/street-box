@@ -18,7 +18,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-	//profiles
+//Guest Sections
+	Route::resource('forum', 'ForumController');
+
+
+
+
+//Profile Sections
 	Route::get('profile/{slug}', 'ProfileController@home')
 	->name('profile.home');
 	Route::patch('profile/{slug}', 'ProfileController@updateuser')
@@ -47,11 +53,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::get('profile/{slug}/discussions/{slug_d}/restore', 'DiscussionsController@restore')
 	->name('profile.discussions.restore');
 	Route::get('profile/{slug}/discussions/{slug_d}/kill', 'DiscussionsController@kill')
-	->name('profile.discussions.kill');
-
-
-
-	// Route::get('discussions/{slug}/posts', 'DiscussionsController@posts')->name('discussions.posts');	
+	->name('profile.discussions.kill');	
 	Route::resource('discussions', 'DiscussionsController');
 
 	//news

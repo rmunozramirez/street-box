@@ -37,6 +37,10 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <li aria-haspopup="true">
+                            <a href="{{route('forum.index')}}"><i class="fa fa-play-circle"></i> Forum</a>    
+                        </li>
                         <div class="pull-right">
                             @guest
                                 <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
@@ -55,7 +59,7 @@
                                         <a class="dropdown-item" href="{{ route('dashboard') }}">
                                             Admin
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('home',  Auth::user()->slug ) }}">
+                                        <a class="dropdown-item" href="{{ route('profile.home',  Auth::user()->slug ) }}">
                                             User area
                                         </a>
 
