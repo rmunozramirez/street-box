@@ -19,42 +19,49 @@
 			<h3 class="page-title">{!! $user->name !!}'s {{$page_name}}s <span class="mt-3 small pull-right">{!! $all_user_discussions !!} discussions</span></h3>
 			 <hr>
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-8">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
-						{!! $page_name !!}
+						<a href="{{route('profile.home', $user->slug)}}"> Dashboard</a>				
+						{!! $page_name !!}s
 					</div>	
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 		            <div class="under-meta pull-right">
-                    	<i class="fas fa-plus"></i></i> <a href="{{route('profile.discussions.create', $user->slug)}}">Create a new Discussion</a>
+                    	<i class="fas fa-plus"></i></i> <a href="{{route('profile.discussions.create', $user->slug)}}">Create Discussion</a>
+                    	<i class="fas fa-trash"></i> <a href="{{route('profile.discussions.trashed', $user->slug )}}">Trashed Discussions</a>
 		            </div>
 		        </div>					
 			</div>
            <hr />
 
 		    <div class="row">
-		    	<div class="col-md-4">
-		    		@if(count($discussions) > 0)
-			         	@foreach ($discussions as $discussion)
-			    		<div class="list-group-item-text">
-			    			<div class="pull-left">{!! $discussion->title !!}</div>
-			    			<hr />
-			    		</div>
-			    		@endforeach 
-					@endif	
-		    	</div>
-		    	<div class="col-md-8">
+		    	<div class="col-md-12">
 					@if(count($discussions) > 0)
 			         	@foreach ($discussions as $discussion)	
-						<div class="card">
-							<div class="card-header">
-								<div class="pull-left">{!! $discussion->title !!}</div>
+
+						<div class="col-lg-3 col-md-4">	
+							<div class="card hovercard">
+								<img class="cardheader" src="{{URL::to('/images/' . $discussion->image)}}">
+									<h3><a href="{{route('profile.discussions.show', ['slug'=>$user->slug,'slug_d'=>$discussion->slug])}}">{!! $discussion->title !!}</a></h3>
+								<div class="card-body">					
+								   	<div class="breadcrumb text-center">
+								   		<a href="{{route('profile.home', $user->slug)}}">{{ $discussion->profile->user->name}}</a>
+								   		{{ $discussion->created_at->diffForHumans()}}
+								   		
+
+								   	</div>
+									<div class="pull-left">
+										{!! substr($discussion->body, 0, 100) !!}
+									</div>	
+									<hr>
+
+									<a href="{{route('profile.discussions.show', ['slug'=>$user->slug,'slug_d'=>$discussion->slug])}}">More...</a>
+								</div>
 							</div>
-							<div class="card-body">					
-								<div class="pull-left">{!!$discussion->body !!}</div>
-							</div>
+							
 						</div>
+
 			            @endforeach 
 					@endif	
 				<div class="text-center">

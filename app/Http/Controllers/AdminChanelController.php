@@ -100,7 +100,7 @@ class AdminChanelController extends Controller
      */
     public function edit($slug)
     {
-        //find the film in the database
+
         $chanel = Chanel::where('slug', $slug)->first(); 
         $page_name = 'Edit: ' . $chanel->title;
         $subcategories = Subcategory::orderBy('title', 'asc')->pluck('title', 'id')->all();

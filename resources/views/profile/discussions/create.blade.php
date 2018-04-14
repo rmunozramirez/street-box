@@ -18,15 +18,17 @@
 			<h3 class="page-title">{!! $user->name !!}'s {{$page_name}}s <span class="mt-3 small pull-right">{!! $all_user_discussions !!} discussions</span></h3>
 			 <hr>
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-8">
 					<div class="breadcrumb">
 						<a href="{{url('/')}}"> Home</a>
+						<a href="{{route('profile.home', $user->slug)}}"> Dashboard</a>	
+						<a href="{{route('profile.discussions.index', $user->slug)}}"> Discussions</a>
 						{!! $page_name !!}
 					</div>	
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 		            <div class="under-meta pull-right">
-                    	<i class="fas fa-plus"></i> <a href="{{route('discussions.create', $user->slug)}}">Create a new Discussion</a>
+		            	<i class="fas fa-chevron-left"></i> <a href="{{route('profile.discussions.index', $user->slug)}}"> Discussions</a>
 		            </div>
 		        </div>					
 			</div>

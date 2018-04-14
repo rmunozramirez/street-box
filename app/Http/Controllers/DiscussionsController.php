@@ -13,21 +13,8 @@ use Session;
 
 class DiscussionsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function posts($slug)
+
+    public function index($slug)
     {
         $user = Auth::user();
         $profile = Profile::where('user_id', $user->id)->first();
@@ -96,13 +83,15 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($slug, $slug_d)
     {
-        $discussion = Discussion::where('slug', $slug)->first();
+        $discussion = Discussion::where('slug', $slug_d)->first();
+        $user = Auth::user();
+        $profile = Profile::where('user_id', $user->id)->first();
+        $all_user_discussions = Discussion::where('profile_id', $profile->id)->count();
         $page_name = $discussion->title;
-        $total = 0;
 
-        return view('profile.discussions.show', compact('discussion', 'page_name', 'total'));
+        return view('profile.discussions.show', compact('discussion', 'page_name', 'all_user_discussions', 'user'));
     }
 
     /**
@@ -111,9 +100,16 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug, $slug_d)
     {
-        //
+        $discussion = Discussion::where('slug', $slug_d)->first();
+        $user = Auth::user();
+        $profile = Profile::where('user_id', $user->id)->first();
+        $all_user_discussions = Discussion::where('profile_id', $profile->id)->count();
+        $page_name = 'Edit: ' . $discussion->title;
+
+        return view('profile.discussions.edit', compact('discussion', 'page_name', 'user', 'all_user_discussions'));
+
     }
 
     /**
@@ -123,9 +119,27 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DiscussionRequest $request, $slug_d)
     {
-        //
+
+        $input = $request->all();
+        $input['slug'] = str_slug($request->title, '-');
+
+        if ( $file = $request->file('image')) {
+            $name = time() . '-' . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $input['image'] = $name;
+        }
+
+        $discussion = Discussion::where('slug', $slug_d)->first();
+        $discussion->fill($input)->save();
+        $page_name = $discussion->title;
+        $slug = Auth::user()->slug;
+        $slug_d = $discussion->slug;
+
+        Session::flash('success', 'Discussion successfully updated!');
+     
+        return redirect()->route('profile.discussions.show', compact('slug', 'slug_d'));
     }
 
     /**
@@ -134,8 +148,50 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug, $slug_d)
     {
-        //
+
+        $discussion = Discussion::where('slug', $slug_d)->first();
+        $user = Auth::user();
+        $discussion->delete();
+
+        Session::flash('success', 'Discussion successfully deleted!');
+
+        return redirect()->route('profile.discussions.index', $user->slug);
+    }
+
+    public function trashed($slug)
+    {
+        $user = Auth::user();
+        $profile = Profile::where('user_id', $user->id)->first();
+        $discussions = Discussion::where('profile_id', $profile->id)->onlyTrashed()->paginate(4);
+        $all_user_discussions = Discussion::where('profile_id', $profile->id)->count();
+        $page_name = 'Trashed discussion';
+
+        return view('profile.discussions.trashed', compact('discussions', 'user', 'slug', 'all_user_discussions','page_name'));
+    }
+
+    public function restore($slug, $slug_d)
+    {
+        $discussion = Discussion::withTrashed()->where('slug', $slug_d)->first();
+        $discussion->restore();
+
+        Session::flash('success', 'Discussion successfully restored!');
+        return redirect()->route('profile.discussions.trashed', $slug);
+    }
+
+    public function kill($slug, $slug_d)
+    {
+        $discussion = Discussion::withTrashed()->where('slug', $slug_d)->first();
+        if ($discussion != null) {
+            $discussion->forceDelete();
+        } else {
+            $user = Auth::user();
+            Session::flash('info', 'Discussion does not exist!');
+            return redirect()->route('profile.discussions.index', compact('user'));
+        }
+
+        Session::flash('success', 'Discussion pemanently deleted!');
+        return redirect()->route('profile.discussions.trashed', $slug);
     }
 }

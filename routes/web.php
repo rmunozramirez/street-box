@@ -19,44 +19,64 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 	//profiles
-	Route::get('profile/{slug}', 'ProfileController@home')->name('profile.home')->where('slug', '[\w\d\-\_]+');
-	Route::patch('profile/{slug}', 'ProfileController@updateuser')->name('profile.updateuser')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}', 'ProfileController@home')
+	->name('profile.home');
+	Route::patch('profile/{slug}', 'ProfileController@updateuser')
+	->name('profile.updateuser');
 
-	Route::get('profile/{slug}/persona', 'ProfileController@persona')->name('profile.persona')->where('slug', '[\w\d\-\_]+');
-	Route::get('profile/{slug}/persona/edit', 'ProfileController@update')->name('profile.persona.edit')->where('slug', '[\w\d\-\_]+');
+	Route::get('profile/{slug}/persona', 'ProfileController@persona')
+	->name('profile.persona');
+	Route::get('profile/{slug}/persona/edit', 'ProfileController@update')
+	->name('profile.persona.edit');
 
-	Route::get('profile/{slug}/discussions', 'DiscussionsController@posts')->name('profile.discussions.index')->where('slug', '[\w\d\-\_]+');
-	Route::get('profile/{slug}/discussions/create', 'DiscussionsController@create')->name('profile.discussions.create')->where('slug', '[\w\d\-\_]+');
-	Route::get('profile/{slug}/discussions/{slug_d}', 'DiscussionsController@create')->name('profile.discussions.show')->where('slug', '[\w\d\-\_]+');
+//Profile discussions
+	Route::get('profile/{slug}/discussions', 'DiscussionsController@index')
+	->name('profile.discussions.index');
+	Route::get('profile/{slug}/discussions/create', 'DiscussionsController@create')
+	->name('profile.discussions.create');
+	Route::get('profile/{slug}/discussions/{slug_d}', 'DiscussionsController@show')
+	->name('profile.discussions.show');
+	Route::get('profile/{slug}/discussions/{slug_d}/edit', 'DiscussionsController@edit')
+	->name('profile.discussions.edit');
+	Route::patch('profile/{slug}/discussions/{slug_d}', 'DiscussionsController@update')
+	->name('profile.discussions.update');
+	Route::delete('profile/{slug}/discussions/{slug_d}', 'DiscussionsController@destroy')
+	->name('profile.discussions.destroy');
+	Route::get('profile/{slug}/discussions/trashed/all', 'DiscussionsController@trashed')
+	->name('profile.discussions.trashed');
+	Route::get('profile/{slug}/discussions/{slug_d}/restore', 'DiscussionsController@restore')
+	->name('profile.discussions.restore');
+	Route::get('profile/{slug}/discussions/{slug_d}/kill', 'DiscussionsController@kill')
+	->name('profile.discussions.kill');
 
 
-	//discussions
-	// Route::get('discussions/{slug}/posts', 'DiscussionsController@posts')->name('discussions.posts')->where('slug', '[\w\d\-\_]+');	
+
+	// Route::get('discussions/{slug}/posts', 'DiscussionsController@posts')->name('discussions.posts');	
 	Route::resource('discussions', 'DiscussionsController');
 
 	//news
 	Route::get('news', 'PostsController@index')->name('news.index');
-	Route::get('news/{slug}', 'PostsController@show')->name('news.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('news/{slug}', 'PostsController@show')->name('news.show');
 
 	//pages
-	Route::get('pages/{slug}', 'PagesController@show')->name('pages.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('pages/{slug}', 'PagesController@show')->name('pages.show');
 
 	//postcategories
 	Route::get('newscategories', 'PostcategoriesController@index')->name('newscategories.index');
-	Route::get('newscategories/{slug}', 'PostcategoriesController@show')->name('newscategories.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('newscategories/{slug}', 'PostcategoriesController@show')->name('newscategories.show');
 
 	//chanels
 	Route::get('chanels', 'ChanelController@index')->name('chanels.index');
-	Route::get('chanels/{slug}', 'ChanelController@show')->name('chanels.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('chanels/{slug}', 'ChanelController@show')->name('chanels.show');
 
 	//subcategories
 	Route::get('subcategories', 'SubcategoriesController@index')->name('subcategories.index');
-	Route::get('subcategories/{slug}', 'SubcategoriesController@show')->name('subcategories.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('subcategories/{slug}', 'SubcategoriesController@show')->name('subcategories.show');
 
 	//categories
 
 	Route::get('categories', 'CategoriesController@index')->name('categories.index');
-	Route::get('categories/{slug}', 'CategoriesController@show')->name('categories.show')->where('slug', '[\w\d\-\_]+');
+	Route::get('categories/{slug}', 'CategoriesController@show')->name('categories.show');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
