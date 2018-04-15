@@ -59,11 +59,11 @@
 		            <div class="col-lg-8 col-lg-offset-4 col-md-12"><hr />
 						@if(count($discussion->replies) > 0)
 				         	@foreach ($discussion->replies->reverse() as $reply)
-				         		<div class="card">
+				         		<div class="card mt-5">
 								  	<div class="card-header">
 								  		<div class="breadcrumb">
-										  	@if($user->profile->image)
-							               		<img height="50" class="img-responsive" src="{{URL::to('/images/' . $discussion->image)}}" alt="{{ $discussion->title }}" name="{{ $discussion->title }}">
+										  	@if($reply->profile->image)
+							               		<img height="50" class="img-circle mr-3" src="{{URL::to('/images/' . $reply->profile->image)}}" alt="{{ $discussion->title }}" name="{{ $discussion->title }}">
 							               	@else	
 							               		<i class="far fa-user fa-3x"></i>
 								            @endif 
@@ -77,10 +77,14 @@
 								  	<div class="card-footer text-muted">
 								    	@if($reply->is_like_by_auth_user())
 								    		<a href="{{route('forum.unlike', $reply->id)}}" class="btn btn-danger">
-								    		<i class="fas fa-thumbs-down"></i></a>
+								    		<i class="fas fa-thumbs-down"></i>
+								    		<span class="badge">{{ $reply->likes->count() }}</span>
+								    		</a>
 								    	@else
 								    		<a href="{{route('forum.like', $reply->id)}}" class="btn btn-success">
-								    		<i class="fas fa-thumbs-up"></i></a>
+								    		<i class="fas fa-thumbs-up"></i>
+								    		<span class="badge">{{ $reply->likes->count() }}</span>
+								    		</a>
 								    	@endif
 								  	</div>
 								</div>
