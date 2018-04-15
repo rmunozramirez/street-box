@@ -10153,6 +10153,10 @@ svg:not(:root).svg-inline--fa {
   margin-top: -80px;
 }
 
+.top-10 {
+  margin-top: -7px;
+}
+
 .categories {
   background: rgba(255, 255, 255, 0.9) url("/images/overlay-carbon.png") repeat scroll 0 0;
   border: none !important;
@@ -10411,6 +10415,14 @@ h2.page-title {
   padding-right: 10px;
 }
 
+#replies .breadcrumb {
+  line-height: 40px;
+}
+
+#replies .breadcrumb .svg-inline--fa {
+  line-height: 40px;
+}
+
 .the_search {
   padding-top: 20px;
 }
@@ -10431,7 +10443,6 @@ header {
 /* ---- card posts, categories, subcategories ---*/
 
 #contenido .card {
-  text-align: center;
   margin: 10px 0;
 }
 
@@ -10475,6 +10486,18 @@ select.form-control {
 .form-control,
 .btn {
   border-radius: 0 !important;
+}
+
+.under-meta .btn-danger {
+  color: #337ab7 !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.under-meta .btn-danger:hover {
+  color: #fff !important;
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
 }
 
 /*--------------------------------------------------------------

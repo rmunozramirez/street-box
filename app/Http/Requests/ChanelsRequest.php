@@ -25,6 +25,8 @@ class ChanelsRequest extends FormRequest
     {
         return [
 
+            'subcategory_id' =>  'required|integer',
+            'profile_id'    =>  'required|integer',
             'status'        => 'string|max:255',
             'title'         => 'required|max:255',
             'slug'          => 'string|max:255',      

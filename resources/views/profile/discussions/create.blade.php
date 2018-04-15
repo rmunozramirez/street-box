@@ -68,7 +68,7 @@
 						            <div class="row pt-5">
 							            <div class="col-md-12">      
 							                {!!Form::label('body', 'Discussion description:', array('class' => 'form-spacing-top'))!!}
-							                {!!Form::textarea('body', null, array('id' => 'summernote','class' => 'form-control', 'rows' => 9))!!}                       
+							                {!!Form::textarea('body', null, array('id' => 'summernote','class' => 'form-control'))!!}                       
 							            </div>	            		
 						            </div>
 

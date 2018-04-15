@@ -10,6 +10,7 @@ class Chanel extends Model
 	protected $fillable = [
 			
 			'subcategory_id',
+			'profile_id',
 			'status',
 		    'title',
             'slug',		    
@@ -36,5 +37,10 @@ class Chanel extends Model
     {
         return $this->belongsTo('App\Subcategory');
    	}
-            
+
+    public function profile()
+    {
+        return $this->belongsTo('App\Profile');
+    } 
+  
 }

@@ -19,10 +19,28 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Guest Sections
+	Route::get('forum/{id}/like', 'ForumController@like')->name('forum.like');
+	Route::get('forum/{id}/unlike', 'ForumController@unlike')->name('forum.unlike');
+	Route::post('forum/{slug}', 'ForumController@reply')->name('forum.reply');
 	Route::resource('forum', 'ForumController');
 
+	//news
+	Route::resource('news', 'PostsController');
 
+	//pages
+	Route::get('pages/{slug}', 'PagesController@show')->name('pages.show');
 
+	//postcategories
+	Route::resource('newscategories', 'PostcategoriesController');
+
+	//chanels
+	Route::resource('chanels', 'ChanelController@');
+
+	//subcategories
+	Route::resource('subcategories', 'SubcategoriesController');
+
+	//categories
+	Route::resource('categories', 'CategoriesController');
 
 //Profile Sections
 	Route::get('profile/{slug}', 'ProfileController@home')
@@ -56,29 +74,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 	->name('profile.discussions.kill');	
 	Route::resource('discussions', 'DiscussionsController');
 
-	//news
-	Route::get('news', 'PostsController@index')->name('news.index');
-	Route::get('news/{slug}', 'PostsController@show')->name('news.show');
-
-	//pages
-	Route::get('pages/{slug}', 'PagesController@show')->name('pages.show');
-
-	//postcategories
-	Route::get('newscategories', 'PostcategoriesController@index')->name('newscategories.index');
-	Route::get('newscategories/{slug}', 'PostcategoriesController@show')->name('newscategories.show');
-
-	//chanels
-	Route::get('chanels', 'ChanelController@index')->name('chanels.index');
-	Route::get('chanels/{slug}', 'ChanelController@show')->name('chanels.show');
-
-	//subcategories
-	Route::get('subcategories', 'SubcategoriesController@index')->name('subcategories.index');
-	Route::get('subcategories/{slug}', 'SubcategoriesController@show')->name('subcategories.show');
-
-	//categories
-
-	Route::get('categories', 'CategoriesController@index')->name('categories.index');
-	Route::get('categories/{slug}', 'CategoriesController@show')->name('categories.show');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 

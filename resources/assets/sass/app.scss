@@ -157,6 +157,10 @@ background: rgba(0, 0, 0, 0) radial-gradient(circle farthest-side at center bott
 .top-80 {
 	margin-top: -80px;
 }
+
+.top-10 {
+	margin-top: -7px;
+}
  
 
 .categories {
@@ -408,6 +412,14 @@ h2.page-title {
 	padding-right: 10px;
 }
 
+#replies .breadcrumb {
+	line-height: 40px;
+}
+
+#replies  .breadcrumb .svg-inline--fa {
+	line-height: 40px;
+}
+
 .the_search {
 	padding-top: 20px;
 }
@@ -473,7 +485,17 @@ select.form-control {
 	border-radius: 0 !important;
 }
 
+.under-meta .btn-danger {
+	color: #337ab7 !important;
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
 
+.under-meta .btn-danger:hover {
+	color: #fff !important;
+	background-color: #c82333 !important;
+	border-color: #bd2130 !important;
+}
 /*--------------------------------------------------------------
 3. - Admin panel
 --------------------------------------------------------------*/

@@ -16,15 +16,18 @@ use Auth;
 class ProfileController extends Controller
 {
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function home($slug)
     {
         $user = Auth::user();
         $profile = Profile::where('user_id', $user->id)->first();
+        if ($user->profile === NULL ) {
+            $profile = Profile::create([
+                'user_id'   => $user->id,
+            ]);
+        } else {
+            $profile = Profile::where('user_id', $user->id)->first();           
+        }
+
         $discussions = Discussion::where('profile_id', $profile->id)->paginate(4);
         $all_user_discussions = Discussion::where('profile_id', $profile->id)->count();
         $page_name = 'Welcome: ' . $user->name;  
@@ -116,13 +119,7 @@ class ProfileController extends Controller
         
         $user = User::where('slug', $slug)->first(); 
         $page_name = 'User area: ' . $user->name;        
-        if ($user->profile === NULL ) {
-            $profile = Profile::create([
-                'user_id'   => $user->id,
-            ]);
-        } else {
-            $profile = Profile::where('user_id', $user->id)->first();           
-        }
+        $profile = Profile::where('user_id', $user->id)->first();           
 
         return view('profile.show', compact('user', 'profile', 'page_name'));
     }
