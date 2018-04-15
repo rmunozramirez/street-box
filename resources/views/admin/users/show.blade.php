@@ -15,30 +15,61 @@
                         <i class="fas fa-pencil-alt"></i> {!! $page_name !!}
                     </li>
                     <span class="pull-right">
-                    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <a href="{{route('users.index')}}">Back to users</a>
+                    	<i class="fa fa-chevron-left"></i> <a href="{{route('users.index')}}">Back to users</a>
                     </span>
                 </ol>
                 <hr>
 
 				<div id="contenido"  class="card">
-					<div class="inside">
+					<div class="card-body">
 						<div class="row">
-							<div class="card-body">        
-								<h3>{!! $user->name !!}</h3>
+							<div class="col-md-4">
+			            		<table class="table">
+			            			<thead>
+			            				<tr>
+							                <th>{!! $user->name !!}</th>
+							            </tr>
+							        </thead>
+						            <tbody>
+							            <tr>
+							               <td>
+								               <figure>
+									            	<img height="300" class="
+									            	" src="{{URL::to('/images/' . $user->profile->image)}}" alt="{{ $user->name }}" name="{{ $user->name }}">
+									            </figure>
+									       </td>
+									    </tr>
+							       	</tbody>
+							  	</table>
+			            	</div>
+							<div class="col-md-8">
 					            <table class="table table-striped table-hover">
 						         <thead>
 						            <tr>
-						                <th>Profile</th>
+						                <th>Status</th>
 						                <th>Role</th>
-						                <th>Date</th>
 						            </tr>
 						         </thead>
 						         <tbody>
-
 						            <tr>
-						               <td>noch nicht</td>
-						               <td>{{$user->role->name}}</td>
-						               <td>{{$user->created_at}}</td>
+						               <td>
+						               		{!! Form::model($user->profile, ['method'=>'PATCH', 'action'=> ['AdminProfileController@update', $user->profile->slug ],'files'=>true]) !!}
+
+		                					{!!Form::select('status', array('' => 'Choose Status', 'active' => 'Active', 'inactive' => 'Inactive', 'on_hold' => 'On Hold', 'banned' => 'Banned'), null, array('class' => 'form-control'))!!}
+
+		                					{!!Form::submit('New Status', array('class' => 'btn btn-block mt-3')) !!}
+						                	{!!Form::close() !!} 
+
+						               </td>
+						               <td>
+						               		{!! Form::model($user, ['method'=>'PATCH', 'action'=> ['UserController@update', $user->slug ],'files'=>true]) !!}
+
+			                        		{!! Form::select('role_id', ['' => 'Choose a Role'] + $all_roles, null, array('class' => 'form-control')) !!}
+
+		                					{!!Form::submit('Edit user', array('class' => 'btn btn-block mt-3')) !!}
+							                {!!Form::close() !!} 
+
+						               </td>
 						               <td>
 						               		<a type="button" class="col-md-6 btn btn-secondary" href="{{route('users.edit', $user->slug)}}">Edit</a>
 							            	<div class="col-md-6">
@@ -50,14 +81,27 @@
 											</div>
 						               </td>
 						            </tr>
-
 						         </tbody>
-						      </table>						            
+						      	</table>
+						      
+						      	<div class="row">
+									<div class="col-md-3">
+							            <p>Registered at: </p>
+							            <p>Birthday: </p>
+							            <p>About: </p>
+							       	</div>
+							       	<div class="col-md-9">
+						               <p>{{$user->created_at}}</p>
+						               <p>{!! $user->profile->birthday !!}</p>
+						            	<p>{!! $user->profile->about_user !!}</p>
+						            </div>
+						         </div>
+						      	<hr />		            
 					        </div>
-					    </div>
-				    	<hr>
-
-					</div>		
+				        </div>
+				    </div>
+			    <hr>		
+				</div>
 			</div>
 		</div>
 	</div>

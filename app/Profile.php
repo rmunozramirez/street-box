@@ -13,6 +13,7 @@ class Profile extends Model
         'birthday', 
         'about_user',
         'image',
+        'status',
     ];
 
 	use SoftDeletes;

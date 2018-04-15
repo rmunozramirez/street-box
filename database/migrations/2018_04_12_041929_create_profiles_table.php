@@ -16,6 +16,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
+            $table->enum('status', ['active', 'inactive', 'on_hold', 'banned'])->default('inactive');
             $table->date('birthday')->nullable(); 
             $table->text('about_user')->nullable();
             $table->string('image')->default('user.png');
