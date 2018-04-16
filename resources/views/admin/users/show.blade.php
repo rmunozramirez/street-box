@@ -4,7 +4,7 @@
 
 <section id="content">
 
-	    <div class="wrapper wrapper-content animated fadeInRight">
+	    <div class="wrapper wrapper-content animated fadeInUp">
 	        <div class="row wrapper border-bottom white-bg">
 				<div class="inside">
 	                <h2>Profile from:  {!! $page_name !!} <span class="mt-3 small pull-right">Total Users: {{count($all_users)}}</span> </h2>
@@ -104,103 +104,101 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-6">
-			    <div class="wrapper wrapper-content animated fadeInUp">		
-			        <div class="row wrapper border-bottom white-bg">
-						<div class="inside">
-			                <h2>Channels <span class="mt-3 small pull-right">Total Channels: {{count($user->profile->chanels)}}</span> </h2>
 
-			                <hr>
-							<div id="contenido"  class="card">
-								<div class="card-body">
-									<div class="row">
-										@if(count($user->profile->discussions) > 0)
-											<table class="table table-striped table-hover">
-										         <thead>
-										            <tr>
-										                <th>Discussions</th>
-										                <th>Answers</th>
-										                <th>Date</th>
-										            </tr>
-										         </thead>
-										         <tbody>
-										         	@foreach ($user->profile->discussions as $discussion)
-										            <tr>
-										               <td><a href="">{{$discussion->title}}</a></td>
-										               <td>{{count($discussion->replies)}}</td>
-										               <td>{{$discussion->created_at}}</td>
-										               <td>
-										               		<a type="button" class="col-md-6 btn btn-secondary" href="">Edit</a>
-											            	<div class="col-md-6">
-												            	{!! Form::open(['route' => ['admin-chanels.destroy', $discussion->slug], 'method' => 'DELETE']) !!}
+	    <div class="wrapper wrapper-content animated fadeInUp">		
+	        <div class="row wrapper border-bottom white-bg">
+				<div class="inside">
+	                <h2>Channels <span class="mt-3 small pull-right">Total Channels: {{count($user->profile->chanels)}}</span> </h2>
 
-																{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+	                <hr>
+					<div id="contenido"  class="card">
+						<div class="card-body">
+							<div class="row">
+								@if(count($user->profile->discussions) > 0)
+									<table class="table table-striped table-hover">
+								         <thead>
+								            <tr>
+								                <th>Discussions</th>
+								                <th>Answers</th>
+								                <th>Date</th>
+								            </tr>
+								         </thead>
+								         <tbody>
+								         	@foreach ($user->profile->discussions as $discussion)
+								            <tr>
+								               <td><a href="">{{$discussion->title}}</a></td>
+								               <td>{{count($discussion->replies)}}</td>
+								               <td>{{$discussion->created_at}}</td>
+								               <td>
+								               		<a type="button" class="col-md-6 btn btn-secondary" href="">Edit</a>
+									            	<div class="col-md-6">
+										            	{!! Form::open(['route' => ['admin-chanels.destroy', $discussion->slug], 'method' => 'DELETE']) !!}
 
-																{!! Form::close() !!}
-															</div>
-										               </td>
-										            </tr>
-										            @endforeach
+														{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
 
-										         </tbody>
-										      </table>
-										@else
-											<h2>{{ $user->name}} did not initiated any discussions</h2>
-										@endif
-									</div>	
-								</div>
-							</div>
+														{!! Form::close() !!}
+													</div>
+								               </td>
+								            </tr>
+								            @endforeach
+
+								         </tbody>
+								      </table>
+								@else
+									<h2>{{ $user->name}} did not initiated any discussions</h2>
+								@endif
+							</div>	
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
-			    <div class="wrapper wrapper-content animated fadeInUp">		
-			        <div class="row wrapper border-bottom white-bg">
-						<div class="inside">
-			                <h2>Discussions <span class="mt-3 small pull-right">Total Discussions: {{count($user->profile->discussions)}}</span> </h2>
+		</div>
 
-			                <hr>
-							<div id="contenido"  class="card">
-								<div class="card-body">
-									<div class="row">
-										@if(count($user->profile->discussions) > 0)
-											<table class="table table-striped table-hover">
-										         <thead>
-										            <tr>
-										                <th>Discussions</th>
-										                <th>Answers</th>
-										                <th>Date</th>
-										            </tr>
-										         </thead>
-										         <tbody>
-										         	@foreach ($user->profile->discussions as $discussion)
-										            <tr>
-										               <td><a href="">{{$discussion->title}}</a></td>
-										               <td>{{count($discussion->replies)}}</td>
-										               <td>{{$discussion->created_at}}</td>
-										               <td>
-										               		<a type="button" class="col-md-6 btn btn-secondary" href="">Edit</a>
-											            	<div class="col-md-6">
-												            	{!! Form::open(['route' => ['admin-chanels.destroy', $discussion->slug], 'method' => 'DELETE']) !!}
+	    <div class="wrapper wrapper-content animated fadeInUp">		
+	        <div class="row wrapper border-bottom white-bg">
+				<div class="inside">
+	                <h2>Discussions 
+	                	<span class="mt-3 small pull-right">Total Discussions: {{count($user->profile->discussions)}}</span>
+	                	<span class="mt-3 small pull-right">Accumulated Likes: {{ $likes_per_discussion }}</span>
+	                </h2>
+	                <hr>
+					<div id="contenido"  class="card">
+						<div class="card-body">
+							<div class="row">
+								@if(count($user->profile->discussions) > 0)
+									<table class="table table-striped table-hover">
+								         <thead>
+								            <tr>
+								                <th>Discussions</th>
+								                <th>Answers</th>
+								                <th>Date</th>
+								            </tr>
+								         </thead>
+								         <tbody>
+								         	@foreach ($user->profile->discussions as $discussion)
+								            <tr>
+								               <td><a href="">{{$discussion->title}}</a></td>
+								               <td>{{count($discussion->replies)}}</td>
+								               <td>{{$discussion->created_at}}</td>
+								               <td>
+								               		<a type="button" class="col-md-6 btn btn-secondary" href="">Edit</a>
+									            	<div class="col-md-6">
+										            	{!! Form::open(['route' => ['admin-chanels.destroy', $discussion->slug], 'method' => 'DELETE']) !!}
 
-																{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
+														{!! Form::submit('Delete', ['class' => 'btn btn-block btn-danger']) !!}
 
-																{!! Form::close() !!}
-															</div>
-										               </td>
-										            </tr>
-										            @endforeach
+														{!! Form::close() !!}
+													</div>
+								               </td>
+								            </tr>
+								            @endforeach
 
-										         </tbody>
-										      </table>
-										@else
-											<h2>{{ $user->name}} did not initiated any discussions</h2>
-										@endif
-									</div>	
-								</div>
-							</div>
+								         </tbody>
+								      </table>
+								@else
+									<h2>{{ $user->name}} did not initiated any discussions</h2>
+								@endif
+							</div>	
 						</div>
 					</div>
 				</div>

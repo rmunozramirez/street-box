@@ -83,18 +83,23 @@ class AdminProfileController extends Controller
     public function show($slug)
     {
         $profile = Profile::where('slug', $slug)->first();
+        $discussions = Discussion::where('profile_id', $profile->id)->paginate(4);
+        $replies = array();
+        $likes_per_discussion = "";
+        foreach ($discussion as $discussion) {
+            array_push($replies, $discussion->replies);
+            foreach ($discussion->replies as $reply) {
+                $likes_per_discussion = $likes_per_discussion + count($repliy->likes)
+            }
+        }
+
+
         $page_name = $profile->title;
         $total = 0;
 
-        return view('admin.profiles.show', compact('profile', 'page_name', 'total'));
+        return view('admin.profiles.show', compact('profile', 'page_name', 'total', 'replies', 'likes_per_discussion'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($slug)
     {
         //find the film in the database
@@ -106,13 +111,6 @@ class AdminProfileController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(ProfileRequest $request, $slug)
     {
         $input = $request->all();
@@ -132,12 +130,7 @@ class AdminProfileController extends Controller
      
         return redirect()->route('admin-chanels.show', $profile->slug);
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($slug)
     {
         $profile = Profile::where('slug', $slug)->first();
@@ -147,7 +140,6 @@ class AdminProfileController extends Controller
 
         return redirect()->route('admin-chanels.index');
     }     
-
 
     public function trashed()
     {
