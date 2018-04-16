@@ -103,7 +103,7 @@
 		            	{!! Form::open(['route' => ['forum.reply', $discussion->slug], 'method' => 'POST']) !!}
 		            	{!!Form::label('body', 'Answer:', array('class' => 'form-spacing-top'))!!}
 				        {!!Form::textarea('body', null, array('id' => 'summernote','class' => 'form-control'))!!} 
-				         {!!Form::submit('Your Answer', array('class' => 'mt-5 btn btn-success btn-block')) !!}
+				         {!!Form::submit('Your Answer', array('class' => 'mt-5 btn btn-success btn-block', 'onclick' => 'clearform()')) !!}
 			             {!!Form::close() !!} 
 		            </div>         
 	            </div>

@@ -34,7 +34,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('newscategories', 'PostcategoriesController');
 
 	//chanels
-	Route::resource('chanels', 'ChanelController@');
+	Route::resource('chanels', 'ChanelController');
 
 	//subcategories
 	Route::resource('subcategories', 'SubcategoriesController');
