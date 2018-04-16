@@ -84,15 +84,14 @@ class AdminProfileController extends Controller
     {
         $profile = Profile::where('slug', $slug)->first();
         $discussions = Discussion::where('profile_id', $profile->id)->paginate(4);
-        $replies = array();
-        $likes_per_discussion = "";
-        foreach ($discussion as $discussion) {
-            array_push($replies, $discussion->replies);
-            foreach ($discussion->replies as $reply) {
-                $likes_per_discussion = $likes_per_discussion + count($repliy->likes)
-            }
-        }
-
+        // $replies = array();
+        // $likes_per_discussion = "";
+        // foreach ($discussions as $discussion) {
+        //     array_push($replies, $discussion->replies);
+        //     foreach ($discussion->replies as $reply) {
+        //         $likes_per_discussion = $likes_per_discussion + count($reply->likes);
+        //     }
+        // }
 
         $page_name = $profile->title;
         $total = 0;

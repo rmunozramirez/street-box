@@ -106,9 +106,10 @@
 		</div>
 
 	    <div class="wrapper wrapper-content animated fadeInUp">		
-	        <div class="row wrapper border-bottom white-bg">
+	        <div class="row wrapper border-bottom white-bg">		
+				@if( $user->profile->title ) 
 				<div class="inside">
-	                <h2>Channels <span class="mt-3 small pull-right">Total Channels: {{count($user->profile->chanels)}}</span> </h2>
+	                <h2>Channel: {{$user->profile->title}}</h2>
 
 	                <hr>
 					<div id="contenido"  class="card">
@@ -151,15 +152,16 @@
 						</div>
 					</div>
 				</div>
+				@else <h2>{!! $user->name !!} does not have a chanel</h2>
+	            @endif
 			</div>
 		</div>
-
+  
 	    <div class="wrapper wrapper-content animated fadeInUp">		
 	        <div class="row wrapper border-bottom white-bg">
 				<div class="inside">
 	                <h2>Discussions 
 	                	<span class="mt-3 small pull-right">Total Discussions: {{count($user->profile->discussions)}}</span>
-	                	<span class="mt-3 small pull-right">Accumulated Likes: {{ $likes_per_discussion }}</span>
 	                </h2>
 	                <hr>
 					<div id="contenido"  class="card">
@@ -171,6 +173,7 @@
 								            <tr>
 								                <th>Discussions</th>
 								                <th>Answers</th>
+								                <th>Likes</th>
 								                <th>Date</th>
 								            </tr>
 								         </thead>
@@ -179,6 +182,7 @@
 								            <tr>
 								               <td><a href="">{{$discussion->title}}</a></td>
 								               <td>{{count($discussion->replies)}}</td>
+								               <td>{{$discussion->likes}}</td>
 								               <td>{{$discussion->created_at}}</td>
 								               <td>
 								               		<a type="button" class="col-md-6 btn btn-secondary" href="">Edit</a>

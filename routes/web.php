@@ -75,6 +75,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('discussions', 'DiscussionsController');
 
 
+//Profile chanels
+	Route::get('profile/{slug}/channel/create', 'ChanelController@create')
+	->name('profile.chanel.create');
+	Route::get('profile/{slug}/channel', 'ChanelController@show')
+	->name('profile.chanel.show');
+	Route::get('profile/{slug}/channel/edit', 'ChanelController@edit')
+	->name('profile.chanel.edit');
+	Route::patch('profile/{slug}/channel', 'ChanelController@update')
+	->name('profile.chanel.update');
+	Route::delete('profile/{slug}/channel', 'ChanelController@destroy')
+	->name('profile.chanel.destroy');
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 	//admin

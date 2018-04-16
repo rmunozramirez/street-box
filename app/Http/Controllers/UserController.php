@@ -139,4 +139,5 @@ class UserController extends Controller
         Session::flash('success', 'User successfully deleted!');
         return redirect()->route('users.index');
     }
+
 }

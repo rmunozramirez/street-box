@@ -194,4 +194,21 @@ class DiscussionsController extends Controller
         Session::flash('success', 'Discussion pemanently deleted!');
         return redirect()->route('profile.discussions.trashed', $slug);
     }
+
+    public static  function all_likes($id) {
+
+        $user = User::find($id);
+        $profile = Profile::where('user_id', $user->id);
+        $discussions = Discussion::where('profile_id', $profile->id)->get();
+        $replies = array();
+        $all_likes = "";
+        foreach ($discussions as $discussion) {
+            foreach ($discussion->replies as $reply) {
+                $all_likes = $all_likes + count($reply->likes);
+            }
+        }
+
+        return $all_likes;
+    } 
+
 }

@@ -35,6 +35,6 @@ class Discussion extends Model
 
     public function likes()
     {
-        return $this->hasManyThrough('App\Post', 'App\Like');
+        return $this->hasManyThrough('App\Reply', 'App\Like');
     }
 }
