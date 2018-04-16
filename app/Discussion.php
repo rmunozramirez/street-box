@@ -28,9 +28,10 @@ class Discussion extends Model
         return $this->belongsTo('App\Profile');
    	}
 
-
     public function replies()
     {
         return $this->hasMany('App\Reply');
     }
+
+
 }

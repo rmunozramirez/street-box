@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AdminProfile;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
+use App\Discussions;
 use App\Chanel;
 use App\User;
 use Session;
@@ -173,4 +174,5 @@ class AdminProfileController extends Controller
         Session::flash('success', 'Chanel pemanently deleted!');
         return redirect()->route('admin-chanels.trashed');
     }
+
 }

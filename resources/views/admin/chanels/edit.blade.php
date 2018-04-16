@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.app')
 @section ('title', "| $page_name")
 @section('content')
