@@ -25,13 +25,13 @@ class Pagesrequest extends FormRequest
     {
         return [
 
-            'status'            => 'string|max:255',
             'title'             => 'required|max:255',
             'slug'              => 'string|max:255',  
             'subtitle'          => 'required|string|max:255',
             'excerpt'           => 'string|max:255',    
             'body'              => 'required',  
             'image'             => 'image',
+            'status_id'         =>  'required|integer',
 
         ];
     }

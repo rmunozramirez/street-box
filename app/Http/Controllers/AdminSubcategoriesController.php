@@ -56,12 +56,10 @@ class AdminSubcategoriesController extends Controller
             'title'             => $request->title,
             'subtitle'          => $request->subtitle,
             'slug'              => str_slug($request->title, '-'),
-            'excerpt'           => $request->excerpt,                       
-            'status'            => $request->status,
+            'excerpt'           => $request->excerpt,
             'about_subcategory' => $request->about_subcategory, 
-            'image'             => $name,      
-            'is_featured'       => $request->is_featured,
-            'in_menu'           => $request->in_menu,
+            'image'             => $name,
+            'status_id'         => $request->status_id,
 
        ]);   
 

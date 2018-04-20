@@ -8,15 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Postcategory extends Model
 {
 	protected $fillable = [
-			
-			'status',
+        
 		    'title',
             'slug',		    
 		    'subtitle',
 		    'excerpt',
             'about_category',
-            'is_featured',
-            'in_menu',
+            'status_id',
 			'image',
 	];
 
@@ -28,5 +26,8 @@ class Postcategory extends Model
         return $this->hasMany('App\Post');
     }
 
-
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
+    }
 }

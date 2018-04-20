@@ -25,14 +25,14 @@ class DiscussionRequest extends FormRequest
     {
         return [
 
-            'status'        =>  'string|max:255',
             'title'         =>  'required|max:255',
             'slug'          =>  'string|max:255',      
             'body'          =>  'required',         
             'image'         =>  'image',
             'likes'         =>  'integer',
-            'is_testimonial'    =>  'boolean',
-            'profile_id'    =>  'integer',              
+            'profile_id'    =>  'integer', 
+            'status_id'     =>  'required|integer',
+                       
         ];
     }
 }

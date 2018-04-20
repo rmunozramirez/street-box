@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $all_users = User::all();
         $all_profiles = Profile::all();
         $all_roles = Role::pluck('name', 'id')->all();
+        $all_statuses = Profile::pluck('status', 'id')->all();
         $page_name = 'App';
         View::share(array('all_chanels' => $all_chanels, 
                             'all_subcategories' => $all_subcategories,
@@ -49,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
                             'all_profiles' =>  $all_profiles,
                             'all_roles' =>  $all_roles,
                             'page_name' =>  $page_name,
+                            'all_statuses' =>  $all_statuses,
                         ));
 
         View::composer('*', function($view){

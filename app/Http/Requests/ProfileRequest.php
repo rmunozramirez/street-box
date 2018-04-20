@@ -24,11 +24,13 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'status'        => 'string|max:255',
+
             'user_id'       =>  'integer',
+            'status_id'     =>  'integer',
             'birthday'      =>  'required',      
             'about_user'    =>  'required',            
             'image'         =>  'image',
+
         ];
     }
 }

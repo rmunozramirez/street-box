@@ -54,14 +54,12 @@ class AdminCategoriesController extends Controller
         $category = Category::create([
 
             'title'             => $request->title,
+            'status_id'         => $request->status_id,
             'subtitle'          => $request->subtitle,
             'slug'              => str_slug($request->title, '-'),
-            'excerpt'           => $request->excerpt,                       
-            'status'            => $request->status,
+            'excerpt'           => $request->excerpt,
             'about_category'    => $request->about_category, 
             'image'             => $name,      
-            'is_featured'       => $request->is_featured,
-            'in_menu'           => $request->in_menu,
 
        ]);   
 

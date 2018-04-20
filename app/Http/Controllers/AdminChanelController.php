@@ -54,22 +54,14 @@ class AdminChanelController extends Controller
         $chanel = Chanel::create([
 
             'subcategory_id' => $request->subcategory_id,
+            'status_id'     => $request->status_id,
             'profile_id'    =>  $request->profile_id, 
-            'status'        =>  $request->status,
             'title'         =>  $request->title,
             'slug'          =>  str_slug($request->title, '-'),      
             'subtitle'      =>  $request->subtitle,                
             'excerpt'       =>  $request->excerpt,
             'about_chanel'  =>  $request->about_chanel,            
             'image'         =>  $name,
-            'video'         =>  $request->video, 
-            'is_featured'   =>  $request->is_featured,        
-            'web'           =>  $request->web,
-            'facebook'      =>  $request->facebook,
-            'googleplus'    =>  $request->googleplus,
-            'twitter'       =>  $request->twitter,
-            'linkedin'      =>  $request->linkedin,
-            'youtube'       =>  $request->youtube,
 
        ]);   
 

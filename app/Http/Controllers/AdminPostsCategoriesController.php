@@ -57,10 +57,7 @@ class AdminPostsCategoriesController extends Controller
             'about_category'    =>  $request->about_category,
             'slug'              =>  str_slug($request->title, '-'),
             'image'             =>  $name,
-            'is_featured'       =>  $request->is_featured,
-            'in_menu'           =>  $request->in_menu,
-            'status'            =>  $request->status,
-
+            'status_id'         => $request->status_id,
         ]);        
 
         $postcategory->save();

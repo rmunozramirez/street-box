@@ -59,11 +59,11 @@ class DiscussionsController extends Controller
         $discussion = Discussion::create([
     
             'profile_id'    => $profile->id,
+            'status_id'         => $request->status_id,
             'title'         => $request->title,
             'slug'          => str_slug($request->title, '-'),      
             'body'          => $request->body,            
             'image'         => $name,
-            'status'        =>  $request->status,
   
        ]);   
 

@@ -34,11 +34,11 @@ class AdminPagesController extends Controller
         $page = Page::create([
             'title'             =>  $request->title,
             'subtitle'          =>  $request->subtitle,
-            'status'            =>  $request->status,
             'excerpt'           =>  $request->excerpt,
             'body'              =>  $request->body,
             'slug'              =>  str_slug($request->title, '-'),
-            'image'             =>  $name
+            'image'             =>  $name,
+            'status_id'         => $request->status_id,
 
         ]);        
 

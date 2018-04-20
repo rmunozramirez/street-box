@@ -91,13 +91,22 @@ class ProfileController extends Controller
 
         $profile = Profile::create([
 
-            'user_id'       => $request->user_id, 
+            'user_id'       => $request->user_id,
+            'status_id'     => $request->status_id,
             'chanel_id'     => $request->chanel_id,
             'first_name'    => $request->first_name,
             'last_name'     => $request->last_name,
-            'birthday'      => $request->birthday,     
+            'birthday'      => $request->birthday,
+            'slug'          => str_slug($request->title, '-'),      
             'about_user'    => $request->about_user,
             'image'         => $name,
+            'web'           =>  $request->web,
+            'facebook'      =>  $request->facebook,
+            'googleplus'    =>  $request->googleplus,
+            'twitter'       =>  $request->twitter,
+            'linkedin'      =>  $request->linkedin,
+            'youtube'       =>  $request->youtube,
+
 
        ]);   
 

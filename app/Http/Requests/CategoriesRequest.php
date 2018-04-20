@@ -27,14 +27,12 @@ class CategoriesRequest extends FormRequest
                 
             'title'             => 'required|max:255',
             'about_category'    => 'required',
-            'status'            => 'string|max:255',
             'slug'              => 'string|max:255',         
             'subtitle'          => 'max:255',
             'excerpt'           => 'max:255',        
             'image'             => 'image',
-            'is_featured'       => 'boolean',
             'likes'             => 'integer',
-            'in_menu'           => 'boolean',
+            'status_id'     =>  'required|integer',
 
         ];
     }

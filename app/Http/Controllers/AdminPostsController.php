@@ -49,13 +49,12 @@ class AdminPostsController extends Controller
         $post = Post::create([
             'title'             =>  $request->title,
             'subtitle'          =>  $request->subtitle,
-            'status'            =>  $request->status,
             'excerpt'           =>  $request->excerpt,
             'body'              =>  $request->body,
             'slug'              =>  str_slug($request->title, '-'),
             'image'             =>  $name,
             'postcategory_id'   =>  $request->postcategory_id,
-            'is_featured'       =>  $request->is_featured,
+            'status_id'         => $request->status_id,
 
         ]);        
 

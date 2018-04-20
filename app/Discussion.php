@@ -10,14 +10,13 @@ class Discussion extends Model
 	protected $fillable = [
 
             'profile_id',
-			'status',
 		    'title',
             'slug',		    
 		    'body',	    
             'image',
             'likes',
-			'is_testimonial',
-
+            'status_id',
+            
 	];
 
 	use SoftDeletes;
@@ -36,5 +35,10 @@ class Discussion extends Model
     public function likes()
     {
         return $this->hasManyThrough('App\Reply', 'App\Like');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
     }
 }

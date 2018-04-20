@@ -12,13 +12,11 @@ class Subcategory extends Model
 		    'category_id',
 		    'title',
 		    'subtitle',	
-            'slug',		    	    
-		    'status',
+            'slug',
 		    'excerpt',
             'about_subcategory',		    
             'image',
-            'is_featured',
-            'in_menu',
+            'status_id',
 	];
 
     use SoftDeletes;

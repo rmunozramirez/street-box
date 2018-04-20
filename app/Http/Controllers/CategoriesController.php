@@ -56,11 +56,9 @@ class CategoriesController extends Controller
             'subtitle'          => $request->subtitle,
             'slug'              => str_slug($request->title, '-'),
             'excerpt'           => $request->excerpt,                       
-            'status'            => $request->status,
             'about_category'    => $request->about_category, 
-            'image'             => $name,      
-            'is_featured'       => $request->is_featured,
-            'in_menu'           => $request->in_menu,
+            'image'             => $name,
+            'status_id'         => $request->status_id,
 
        ]);   
 

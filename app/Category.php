@@ -13,11 +13,10 @@ class Category extends Model
             'slug',		
 		    'subtitle',   
 		    'excerpt',	
-            'about_category',		    	             	    			
-			'status',
+            'about_category',
 			'image',
-            'is_featured',
-            'in_menu',
+            'status_id',
+            
 	];
 
     use SoftDeletes;
@@ -31,6 +30,11 @@ class Category extends Model
     function chanels()
     {
         return $this->hasManyThrough('App\Chanel', 'App\Subcategory', 'category_id', 'subcategory_id');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
     }
 
 }

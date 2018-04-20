@@ -50,7 +50,7 @@ class ChanelController extends Controller
 
             'subcategory_id' => $request->subcategory_id,
             'profile_id'    =>  $request->profile_id, 
-            'status'        =>  $request->status,
+            'status_id'    =>  $request->status_id, 
             'title'         =>  $request->title,
             'slug'          =>  str_slug($request->title, '-'),      
             'subtitle'      =>  $request->subtitle,                
@@ -87,7 +87,7 @@ class ChanelController extends Controller
 
         } else {
             $page_name = $chanel->title;
-            return view('profile.chanel.show', compact('chanel', 'page_name', 'user'));
+            return view('chanels.show', compact('chanel', 'page_name', 'user'));
         }
     }
 

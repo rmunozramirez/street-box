@@ -9,14 +9,13 @@ class Post extends Model
 {
 	protected $fillable = [
 			
-			'status',
 		    'title',
             'slug',		    
 		    'subtitle',
 		    'excerpt',
             'body',		    
             'image',
-            'is_featured',
+            'status_id',
             'likes',
 			'postcategory_id' 
 	];

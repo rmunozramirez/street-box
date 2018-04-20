@@ -10,10 +10,10 @@ class Profile extends Model
 
    protected $fillable = [
         'user_id',
+        'status_id',
         'birthday', 
         'about_user',
         'image',
-        'status',
     ];
 
 	use SoftDeletes;
@@ -46,5 +46,9 @@ class Profile extends Model
         return $this->hasMany('App\Like');
     }
 
+    public function status()
+    {
+        return $this->belongsTo('App\Status');
+    }
 
 }

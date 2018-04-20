@@ -113,9 +113,9 @@ class UserController extends Controller
 
         if ($request->name) { 
             $input['name'] =$request->name;
+            $input['slug'] = str_slug($request->name, '-');
         }
-        $input['slug'] = str_slug($request->name, '-');
-
+        
         $user = User::where('slug', $slug)->first();
         $user->fill($input)->save();
         $page_name = $user;

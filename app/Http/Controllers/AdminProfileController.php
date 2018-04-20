@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\Discussions;
 use App\Chanel;
+use App\Profile;
 use App\User;
 use Session;
 
@@ -56,7 +57,8 @@ class AdminProfileController extends Controller
         $profile = Profile::create([
 
 
-            'user_id'       => $request->user_id, 
+            'user_id'       => $request->user_id,
+            'status_id'     => $request->status_id,
             'chanel_id'     => $request->chanel_id,
             'first_name'    => $request->first_name,
             'last_name'     => $request->last_name,
@@ -64,6 +66,12 @@ class AdminProfileController extends Controller
             'slug'          => str_slug($request->title, '-'),      
             'about_user'    => $request->about_user,
             'image'         => $name,
+            'web'           =>  $request->web,
+            'facebook'      =>  $request->facebook,
+            'googleplus'    =>  $request->googleplus,
+            'twitter'       =>  $request->twitter,
+            'linkedin'      =>  $request->linkedin,
+            'youtube'       =>  $request->youtube,
 
        ]);   
 
@@ -83,20 +91,9 @@ class AdminProfileController extends Controller
     public function show($slug)
     {
         $profile = Profile::where('slug', $slug)->first();
-        $discussions = Discussion::where('profile_id', $profile->id)->paginate(4);
-        // $replies = array();
-        // $likes_per_discussion = "";
-        // foreach ($discussions as $discussion) {
-        //     array_push($replies, $discussion->replies);
-        //     foreach ($discussion->replies as $reply) {
-        //         $likes_per_discussion = $likes_per_discussion + count($reply->likes);
-        //     }
-        // }
-
         $page_name = $profile->title;
-        $total = 0;
 
-        return view('admin.profiles.show', compact('profile', 'page_name', 'total', 'replies', 'likes_per_discussion'));
+        return view('admin.profiles.show', compact('profile', 'page_name'));
     }
 
     public function edit($slug)
@@ -110,8 +107,9 @@ class AdminProfileController extends Controller
 
     }
 
-    public function update(ProfileRequest $request, $slug)
+    public function update(ProfileRequest $request, $id)
     {
+        dd($request);
         $input = $request->all();
         $input['slug'] = str_slug($request->title, '-');
 

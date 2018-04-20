@@ -56,6 +56,7 @@ class ForumController extends Controller
 
             ]);
           } else {
+            
             Session::flash('success', 'You have to be registered to reply in forum!');
             return view('forum.show', compact('discussion', 'page_name'));
           }
